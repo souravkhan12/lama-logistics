@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* ========== FONTS ========== */
+  --font-display: var(--font-funnel-display);
+  --font-body: var(--font-matter);
+  --font-mono: var(--font-martian-mono);
+
+  /* ========== TYPOGRAPHY SCALE ========== */
+  --text-h0: 64px;
+  --text-h0--line-height: 1.2;
+  --text-h0--font-weight: 400;
+
+  --text-h1: 48px;
+  --text-h1--line-height: 1.2;
+  --text-h1--font-weight: 500;
+
+  --text-h2: 32px;
+  --text-h2--line-height: 1.25;
+  --text-h2--font-weight: 500;
+
+  --text-h3: 18px;
+  --text-h3--line-height: 1.2;
+  --text-h3--font-weight: 500;
+
+  --text-b1: 20px;
+  --text-b1--line-height: 1.5;
+  --text-b1--font-weight: 400;
+
+  --text-b2: 16px;
+  --text-b2--line-height: 1.5;
+  --text-b2--font-weight: 400;
+
+  --text-b3: 14px;
+  --text-b3--line-height: 1.4;
+  --text-b3--font-weight: 400;
+
+  --text-caption: 12px;
+  --text-caption--line-height: 1.3;
+  --text-caption--font-weight: 400;
+
+  /* ========== COLORS ========== */
+  --color-primary: #6366f1;
+  --color-primary-hover: #5458ee;
+  --color-on-primary: #ffffff;
+
+  --color-bg: #ffffff;
+  --color-fg: #171717;
+
+  --color-muted: #6b7280;
+  --color-border: #e5e7eb;
+
+  /* ========== RADIUS ========== */
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  /* ========== SPACING TOKENS (optional but useful) ========== */
+  --space-btn-x: 32px;
+  --space-btn-y: 16px;
+}
+
+:root {
+  color: var(--color-fg);
+  background: var(--color-bg);
+  font-family: var(--font-body);
+}
