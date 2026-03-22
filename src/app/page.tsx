@@ -1,11 +1,21 @@
+import Container from "@/components/container";
 import Navbar from "@/components/navbar";
-import Hero from "@/components/hero";
+import Hero from "@/components/home/hero";
+import WhoWeAre from "@/components/home/who-we-are";
+import Stats from "@/components/home/stats";
+import ServicesSection from "@/components/home/services";
+import LoopInfra from "@/components/home/loop-infra";
 
 function Page() {
   return (
-    <div>
+    <div className="min-h-screen">
       <Navbar />
       <Hero />
+
+      <WhoWeAre />
+      <Stats />
+      <ServicesSection />
+      <LoopInfra />
     </div>
   );
 }

@@ -11,9 +11,9 @@
   --text-h0--line-height: 1.2;
   --text-h0--font-weight: 400;
 
-  --text-h1: 48px;
+  --text-h1: 45px;
   --text-h1--line-height: 1.2;
-  --text-h1--font-weight: 500;
+  --text-h1--font-weight: 300;
 
   --text-h2: 32px;
   --text-h2--line-height: 1.25;
@@ -23,7 +23,7 @@
   --text-h3--line-height: 1.2;
   --text-h3--font-weight: 500;
 
-  --text-b1: 20px;
+  --text-b1: 23px;
   --text-b1--line-height: 1.5;
   --text-b1--font-weight: 400;
 
@@ -31,7 +31,7 @@
   --text-b2--line-height: 1.5;
   --text-b2--font-weight: 400;
 
-  --text-b3: 14px;
+  --text-b3: 11px;
   --text-b3--line-height: 1.4;
   --text-b3--font-weight: 400;
 
@@ -58,6 +58,14 @@
   /* ========== SPACING TOKENS (optional but useful) ========== */
   --space-btn-x: 32px;
   --space-btn-y: 16px;
+  --space-container-padding: 20px;
+  --space-container-max-width: 1440px;
+  --space-navbar-height: 104px;
+  --space-hero-height: 646px;
+  --space-section-padding: 80px;
+  --space-gap-sm: 16px;
+  --space-gap-md: 24px;
+  --space-gap-lg: 32px;
 }
 
 :root {

@@ -26,11 +26,17 @@ export default function Button({
   const isPrimary = variant === "primary";
 
   const base =
-    "inline-flex items-center h-[44px] gap-2.5 font-mono text-b2 tracking-wide transition-all duration-300";
+    "inline-flex items-center h-[54px] gap-[var(--space-gap-sm)] font-mono text-b2 leading-none tracking-wide transition-all duration-300";
 
   const segment = isPrimary
-    ? "bg-primary text-white group-hover:bg-black"
-    : "bg-black text-white group-hover:bg-primary";
+    ? "bg-[var(--color-primary)] text-[var(--color-on-primary)] group-hover:bg-black"
+    : "bg-black text-white group-hover:bg-[var(--color-primary)]";
+
+  const labelCell =
+    "h-[54px] min-h-[54px] px-[var(--space-btn-x)] flex items-center shrink-0";
+  const arrowCell =
+    "h-[54px] w-[54px] min-h-[54px] min-w-[54px] flex items-center justify-center shrink-0";
+  const borderRadius = "rounded-[var(--radius-sm)]";
 
   if (isArrow) {
     return (
@@ -40,7 +46,7 @@ export default function Button({
         type="button"
       >
         <span
-          className={`flex items-center px-5 py-[12px] rounded-sm ${segment} ${
+          className={`${labelCell} ${borderRadius} ${segment} ${
             clicked ? "font-bold tracking-wide" : ""
           } transition-all duration-200`}
         >
@@ -48,7 +54,7 @@ export default function Button({
         </span>
 
         <span
-          className={`flex items-center justify-center w-[44px] h-[44px] shrink-0 rounded-sm ${segment} transition-all duration-300 transform group-hover:translate-x-1`}
+          className={`${arrowCell} ${borderRadius} ${segment} transition-all duration-300 transform group-hover:translate-x-1`}
           aria-hidden
         >
           <Image src="/arrow.svg" alt="arrow" width={20} height={20} />
@@ -64,7 +70,7 @@ export default function Button({
       type="button"
     >
       <span
-        className={`flex items-center px-5 py-[12px] rounded-sm ${segment} ${
+        className={`${labelCell} ${borderRadius} ${segment} ${
           clicked ? "font-bold tracking-wide" : ""
         } transition-all duration-200`}
       >
