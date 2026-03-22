@@ -1,4 +1,3 @@
-import Container from "@/components/container";
 import SectionBadge from "@/components/section-badge";
 import { ServiceCard } from "@/components/home/service-card";
 
@@ -36,7 +35,7 @@ const services = [
 export default function ServicesSection() {
   return (
     <section className="bg-(--color-bg) py-(--space-section-padding)">
-      <Container>
+      <div className="layout-container">
         <div className="flex flex-col gap-(--space-gap-lg) mb-10">
           <SectionBadge
             label="OUR SERVICES"
@@ -68,7 +67,7 @@ export default function ServicesSection() {
             <ServiceCard key={service.title} {...service} />
           ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

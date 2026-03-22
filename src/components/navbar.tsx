@@ -1,4 +1,3 @@
-import Container from "@/components/container";
 import Button from "@/components/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -6,8 +5,8 @@ import Image from "next/image";
 export default function Navbar() {
   return (
     <header>
-      <Container>
-        <div className="h-(--space-navbar-height) flex items-center justify-between">
+      <div className="layout-container">
+        <div className="flex h-(--space-navbar-height) items-center justify-between">
           <div className="flex items-center gap-3">
             <Image src="/favicon.svg" alt="logo" width={65} height={35} />
             <div className="flex flex-col leading-tight">
@@ -69,7 +68,7 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-      </Container>
+      </div>
     </header>
   );
 }

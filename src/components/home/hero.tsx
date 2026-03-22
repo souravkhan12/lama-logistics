@@ -1,11 +1,10 @@
-import Container from "@/components/container";
 import Image from "next/image";
 
 export default function Hero() {
   return (
     <section>
-      <Container>
-        <div className="grid rounded-t-lg overflow-hidden relative h-(--space-hero-height)">
+      <div className="layout-container">
+        <div className="relative grid h-(--space-hero-height) overflow-hidden rounded-t-lg">
           <Image
             src="/home-banner.png"
             alt="hero"
@@ -23,7 +22,7 @@ export default function Hero() {
             </h1>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

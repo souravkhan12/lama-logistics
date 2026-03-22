@@ -1,14 +1,10 @@
-import Container from "@/components/container";
 import StatCard from "@/components/stat-card";
 import Image from "next/image";
 
 export default function Stats() {
   return (
     <section>
-      <Container
-        className="relative flex h-[520px] overflow-hidden"
-        isPadding={false}
-      >
+      <div className="layout-container-edge relative flex h-[520px] overflow-hidden">
         <div className="relative w-1/2 h-full">
           <Image
             src="/ring.svg"
@@ -33,7 +29,7 @@ export default function Stats() {
             <StatCard value="XX" content="Numbers of Year in Business" />
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
