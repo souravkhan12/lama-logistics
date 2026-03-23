@@ -6,8 +6,9 @@ import { useState } from "react";
 interface ButtonProps {
   children: React.ReactNode;
   className?: string;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "accent";
   isArrow?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
 export default function Button({
@@ -15,6 +16,7 @@ export default function Button({
   className,
   variant = "primary",
   isArrow = true,
+  type = "button",
 }: ButtonProps) {
   const [clicked, setClicked] = useState(false);
 
@@ -24,13 +26,16 @@ export default function Button({
   };
 
   const isPrimary = variant === "primary";
+  const isAccent = variant === "accent";
 
   const base =
     "inline-flex items-center h-[54px] gap-[var(--space-gap-sm)] font-mono text-b2 leading-none tracking-wide transition-all duration-300";
 
-  const segment = isPrimary
-    ? "bg-[var(--color-primary)] text-[var(--color-on-primary)] group-hover:bg-black"
-    : "bg-black text-white group-hover:bg-[var(--color-primary)]";
+  const segment = isAccent
+    ? "bg-[var(--color-footer-accent)] text-[var(--color-on-primary)] group-hover:opacity-90"
+    : isPrimary
+      ? "bg-[var(--color-primary)] text-[var(--color-on-primary)] group-hover:bg-black"
+      : "bg-black text-white group-hover:bg-[var(--color-primary)]";
 
   const labelCell =
     "h-[54px] min-h-[54px] px-[var(--space-btn-x)] flex items-center shrink-0";
@@ -43,7 +48,7 @@ export default function Button({
       <button
         onClick={handleClick}
         className={`group ${base} ${className ?? ""}`}
-        type="button"
+        type={type}
       >
         <span
           className={`${labelCell} ${borderRadius} ${segment} ${
@@ -67,7 +72,7 @@ export default function Button({
     <button
       onClick={handleClick}
       className={`group ${base} ${className ?? ""}`}
-      type="button"
+      type={type}
     >
       <span
         className={`${labelCell} ${borderRadius} ${segment} ${

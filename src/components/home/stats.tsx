@@ -1,5 +1,5 @@
-import StatCard from "@/components/stat-card";
 import Image from "next/image";
+import StatCard from "@/components/stat-card";
 
 export default function Stats() {
   return (

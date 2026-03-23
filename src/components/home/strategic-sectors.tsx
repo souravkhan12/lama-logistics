@@ -1,6 +1,6 @@
-import SectionBadge from "@/components/section-badge";
-import Button from "@/components/button";
 import { ArrowUpRight } from "lucide-react";
+import Button from "@/components/button";
+import SectionBadge from "@/components/section-badge";
 
 const sectors = [
   { id: "01", title: "Telecom Operators" },

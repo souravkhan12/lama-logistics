@@ -54,6 +54,14 @@
   --color-muted: #6b7280;
   --color-border: #e5e7eb;
 
+  /* Footer / dark contact (see .cursor/patterns.mdx) */
+  --color-footer-bg: #0a0227;
+  --color-footer-accent: #4d63ff;
+  --color-footer-divider: rgba(255, 255, 255, 0.1);
+  --color-footer-muted: #9ca3af;
+  --color-footer-input-border: rgba(255, 255, 255, 0.22);
+  --color-footer-wave: rgba(156, 163, 175, 0.25);
+
   /* ========== RADIUS ========== */
   --radius-sm: 5px;
   --radius-md: 10px;
@@ -93,4 +101,41 @@
   color: var(--color-fg);
   background: var(--color-bg);
   font-family: var(--font-body);
+}
+
+/*
+  Footer consent checkbox: unlayered so Tailwind preflight / @layer rules
+  don’t override appearance, border, or :checked styles.
+*/
+.footer-consent-checkbox[type="checkbox"] {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  background-color: transparent;
+  cursor: pointer;
+  vertical-align: top;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.footer-consent-checkbox[type="checkbox"]:checked {
+  border-color: var(--color-footer-accent);
+  background-color: var(--color-footer-accent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
+  background-size: 0.875rem 0.875rem;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.footer-consent-checkbox[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--color-footer-accent);
+  outline-offset: 2px;
 }

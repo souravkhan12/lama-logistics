@@ -1,5 +1,5 @@
-import SectionBadge from "@/components/section-badge";
 import { ServiceCard } from "@/components/home/service-card";
+import SectionBadge from "@/components/section-badge";
 
 const services = [
   {
