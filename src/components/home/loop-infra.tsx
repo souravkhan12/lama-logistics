@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/button";
+import { VideoBackground } from "@/components/video-background";
 
 const iconClass = "text-[var(--color-primary)] [&_svg]:size-6 [&_svg]:shrink-0";
 
@@ -28,19 +29,15 @@ export default function LoopInfra() {
   return (
     <section className="py-(--space-section-padding)">
       <div className="layout-container-edge relative h-[480px] overflow-hidden lg:h-[807px]">
-        <Image
-          src="/loop-infra.png"
-          alt="Loop Infrastructure"
-          fill
-          className="object-cover"
-          priority
-          sizes="(max-width: 1440px) 100vw, 1440px"
-        />
+        {/* <VideoBackground
+          videoSrc="/videos/second.mp4"
+          imageSrc="/loop-infra.png"
+        /> */}
 
         <div className="absolute inset-0 bg-black/40" aria-hidden />
 
         <div className="absolute text-white inset-0 z-10 flex flex-col justify-between px-(--space-container-padding) py-10 sm:py-12 lg:flex-row lg:items-start lg:justify-between ">
-          <p className="font-display text-h0 leading-tight text-[#FFFAEB]">
+          <p className="font-display text-h0 leading-tight text-(--color-surface-cream)">
             Closing the Loop on <br />
             Telecom Infrastructure
           </p>

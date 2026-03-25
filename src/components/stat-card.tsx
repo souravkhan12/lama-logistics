@@ -10,7 +10,7 @@ export default function StatCard({ value, content }: CardProps) {
         {value}
       </div>
 
-      <div className="text-[14px] text-[#444] leading-snug max-w-[180px]">
+      <div className="max-w-[180px] text-[14px] leading-snug text-(--color-text-secondary)">
         {content}
       </div>
     </div>

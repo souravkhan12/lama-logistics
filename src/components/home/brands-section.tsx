@@ -5,27 +5,27 @@ const brands = [
   {
     name: "Verizon",
     src: "/brands/verizon.svg",
-    bg: "bg-[#1F1F1F]",
+    bg: "bg-(--color-brand-tile-1)",
   },
   {
     name: "AT&T",
     src: "/brands/at&t.svg",
-    bg: "bg-[#1DA1C2]",
+    bg: "bg-(--color-brand-tile-2)",
   },
   {
     name: "Google Cloud",
     src: "/brands/google-cloud.svg",
-    bg: "bg-[#EDEDED]",
+    bg: "bg-(--color-brand-tile-3)",
   },
   {
     name: "AWS",
     src: "/brands/aws.svg",
-    bg: "bg-[#232F3D]",
+    bg: "bg-(--color-brand-tile-4)",
   },
   {
     name: "Lumen",
     src: "/brands/lumen.svg",
-    bg: "bg-[#2B8DBF]",
+    bg: "bg-(--color-brand-tile-5)",
   },
 ];
 
@@ -35,7 +35,10 @@ export default function BrandsSection() {
       <div className="layout-container-edge">
         <div className="flex flex-col gap-6">
           <div className="flex items-start justify-between">
-            <SectionBadge label="WHY CHOOSE US" backgroundColor="#FFFAEB" />
+            <SectionBadge
+              label="WHY CHOOSE US"
+              backgroundColor="var(--color-surface-cream)"
+            />
 
             <h2 className="font-display text-h1 max-w-[786px] ">
               We’ve built long lasting partnerships with the most ambitious

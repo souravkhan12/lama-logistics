@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import Button from "@/components/button";
 
 const SCROLL_TOP_THRESHOLD = 48;
 const MIN_DELTA = 8;
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [hidden, setHidden] = useState(false);
   const lastScrollY = useRef(0);
   const ticking = useRef(false);
@@ -68,8 +69,10 @@ export default function Navbar() {
                   ABOUT
                 </Link>
                 <Link
-                  href="#"
-                  className="font-display text-b2 font-medium uppercase transition-colors hover:text-primary"
+                  href="/services"
+                  className={`font-display text-b2 font-medium uppercase transition-colors hover:text-primary ${
+                    pathname === "/services" ? "text-primary" : ""
+                  }`}
                 >
                   SERVICES
                 </Link>
@@ -85,14 +88,13 @@ export default function Navbar() {
                 >
                   CAREERS
                 </Link>
+                <Link
+                  href="/#contact"
+                  className="font-display text-b2 font-medium uppercase transition-colors hover:text-primary"
+                >
+                  CONTACT US
+                </Link>
               </nav>
-
-              <Button
-                isArrow={false}
-                className="hidden text-b2 font-light font-display uppercase sm:flex"
-              >
-                LET&apos;S TALK
-              </Button>
 
               <button
                 type="button"

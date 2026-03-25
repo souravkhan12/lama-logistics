@@ -37,17 +37,20 @@ function Field({ label }: { label: string }) {
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden  bg-(--color-footer-bg) text-white">
+    <footer
+      id="contact"
+      className="relative overflow-hidden bg-(--color-footer-bg) text-white"
+    >
       <div className="layout-container relative flex flex-col gap-20 py-(--space-section-padding)">
         {/* TOP */}
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24 px-(--space-container-padding)">
           {/* LEFT */}
           <div className="flex max-w-[465px] flex-col gap-8">
             <h2 className="font-display text-h0 leading-tight">
               Let’s plan your <br /> next transition!
             </h2>
 
-            <p className="text-b1 text-[#D9D9D9]">
+            <p className="text-b1 text-(--color-neutral-icon)">
               Complex infrastructure needs a trusted partner, not just a vendor.
               Share your project details, and we’ll reach out with a tailored
               strategy and a clear path forward.
@@ -59,10 +62,10 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="inline-flex w-fit items-stretch gap-3 overflow-hidden py-8 text-black"
             >
-              <span className="flex size-14 shrink-0 items-center justify-center rounded-sm bg-[#FFFAEB]">
+              <span className="flex size-14 shrink-0 items-center justify-center rounded-sm bg-(--color-surface-cream)">
                 <Calendar className="size-6" />
               </span>
-              <span className="flex h-14 min-w-0 items-center rounded-sm bg-[#FFFAEB] px-(--space-btn-x) font-mono text-b2 uppercase">
+              <span className="flex h-14 min-w-0 items-center rounded-sm bg-(--color-surface-cream) px-(--space-btn-x) font-mono text-b2 uppercase">
                 Pick a time with Calendly
               </span>
             </a>
@@ -98,10 +101,6 @@ export default function Footer() {
                 phone number above.
               </span>
             </label>
-
-            <div className="rounded-sm border border-(--color-footer-divider) bg-black/20 px-4 py-5 text-caption text-(--color-footer-muted)">
-              reCAPTCHA placeholder
-            </div>
 
             <div className="pt-2">
               <Button variant="accent" isArrow type="submit">

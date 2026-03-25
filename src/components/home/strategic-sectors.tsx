@@ -9,13 +9,15 @@ const sectors = [
   { id: "04", title: "Enterprise Networks" },
 ];
 
-function cellDividers(index: number) {
-  const line = "border-dashed border-[#CCCCCC]";
-  if (index === 0) return `border-r border-b ${line}`;
-  if (index === 1) return `border-b ${line}`;
-  if (index === 2) return `border-r ${line}`;
-  return "";
-}
+/** Fine dashed rules: longer dashes + wider gaps than CSS border-dashed */
+const dashedLineV = {
+  backgroundImage:
+    "repeating-linear-gradient(to bottom, var(--color-border-dashed) 0 6px, transparent 6px 18px)",
+} as const;
+const dashedLineH = {
+  backgroundImage:
+    "repeating-linear-gradient(to right, var(--color-border-dashed) 0 6px, transparent 6px 18px)",
+} as const;
 
 export default function StrategicSectors() {
   return (
@@ -24,7 +26,7 @@ export default function StrategicSectors() {
         <div className="flex max-w-[420px] shrink-0 flex-col gap-8">
           <SectionBadge
             label="KEY INDUSTRIES"
-            backgroundColor="#FFFBEB"
+            backgroundColor="var(--color-surface-cream-alt)"
             className="w-fit"
           />
 
@@ -43,18 +45,32 @@ export default function StrategicSectors() {
           {sectors.map((item, index) => (
             <div
               key={item.id}
-              className={`relative flex flex-col justify-between bg-[#FFFBEB] px-8 py-4 ${cellDividers(index)}`}
+              className="relative flex cursor-pointer flex-col justify-between bg-(--color-surface-cream-alt) px-8 py-4 transition-colors duration-200 ease-out hover:bg-(--color-surface-sector-hover)"
             >
+              {(index === 0 || index === 2) && (
+                <span
+                  className="pointer-events-none absolute inset-y-0 right-0 w-px"
+                  style={dashedLineV}
+                  aria-hidden
+                />
+              )}
+              {(index === 0 || index === 1) && (
+                <span
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-px"
+                  style={dashedLineH}
+                  aria-hidden
+                />
+              )}
               <div className="flex items-center justify-between gap-4">
                 <span className="font-mono text-sm leading-none tracking-wide">
                   {item.id}
                 </span>
                 <button
                   type="button"
-                  className="flex size-10 shrink-0 items-center justify-center rounded-sm bg-[#D9D9D9] transition-colors hover:bg-[#D1D5DB]"
+                  className="flex size-10 shrink-0 items-center justify-center rounded-sm bg-(--color-neutral-icon) transition-colors hover:bg-(--color-neutral-icon-hover)"
                   aria-label={`More about ${item.title}`}
                 >
-                  <ArrowUpRight className="size-4" strokeWidth={2} />
+                  <ArrowUpRight className="size-6" strokeWidth={2} />
                 </button>
               </div>
               <div className="flex h-[76px]">

@@ -1,4 +1,4 @@
-import { ServiceCard } from "@/components/home/service-card";
+import { ServicesSectionCard } from "@/components/home/services-section-card";
 import SectionBadge from "@/components/section-badge";
 
 const services = [
@@ -39,7 +39,7 @@ export default function ServicesSection() {
         <div className="flex flex-col gap-(--space-gap-lg) mb-10">
           <SectionBadge
             label="OUR SERVICES"
-            backgroundColor="#FDF7ED"
+            backgroundColor="var(--color-surface-blush)"
             className="w-fit"
           />
 
@@ -64,7 +64,7 @@ export default function ServicesSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {services.map((service) => (
-            <ServiceCard key={service.title} {...service} />
+            <ServicesSectionCard key={service.title} {...service} />
           ))}
         </div>
       </div>

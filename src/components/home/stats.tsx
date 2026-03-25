@@ -15,7 +15,7 @@ export default function Stats() {
           />
         </div>
 
-        <div className="w-1/2 h-full bg-[#FFFAEB] flex items-center">
+        <div className="flex h-full w-1/2 items-center bg-(--color-surface-cream)">
           <div className="grid grid-cols-2 gap-y-12 gap-x-16 px-16 w-full">
             <StatCard value="99%" content="On-Time Project Delivery" />
             <StatCard

@@ -17,7 +17,10 @@ export default function AboutSection() {
 
         <div className="relative z-10 flex flex-col gap-(--space-gap-lg) lg:flex-row lg:justify-between lg:items-center lg:gap-12 w-full">
           <div className="shrink-0 self-start">
-            <SectionBadge label="WHO WE ARE" backgroundColor="#FFFAEB" />
+            <SectionBadge
+              label="WHO WE ARE"
+              backgroundColor="var(--color-surface-cream)"
+            />
           </div>
 
           <div className="flex min-w-0 flex-col">
