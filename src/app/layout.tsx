@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import "lenis/dist/lenis.css";
+
+import { LenisProvider } from "@/components/lenis-provider";
 import { funnelDisplay, martianMono, matter } from "@/utils/fonts";
 import "@/styles/globals.css";
 
@@ -28,7 +31,9 @@ export default function RootLayout({
       lang="en"
       className={`${funnelDisplay.variable} ${martianMono.variable} ${matter.variable}`}
     >
-      <body className="font-body antialiased">{children}</body>
+      <body className="font-body antialiased">
+        <LenisProvider>{children}</LenisProvider>
+      </body>
     </html>
   );
 }

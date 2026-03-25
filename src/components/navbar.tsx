@@ -1,15 +1,19 @@
 "use client";
 
+import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+
+import { siteEase } from "@/lib/motion-presets";
 
 const SCROLL_TOP_THRESHOLD = 48;
 const MIN_DELTA = 8;
 
 export default function Navbar() {
   const pathname = usePathname();
+  const reduce = useReducedMotion();
   const [hidden, setHidden] = useState(false);
   const lastScrollY = useRef(0);
   const ticking = useRef(false);
@@ -48,7 +52,12 @@ export default function Navbar() {
           hidden ? "-translate-y-full" : "translate-y-0"
         }`}
       >
-        <div className="layout-container">
+        <motion.div
+          className="layout-container"
+          initial={reduce ? false : { opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, ease: siteEase }}
+        >
           <div className="flex h-(--space-navbar-height) items-center justify-between">
             <div className="flex items-center gap-3">
               <Image src="/favicon.svg" alt="logo" width={65} height={35} />
@@ -119,7 +128,7 @@ export default function Navbar() {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </header>
       <div className="h-(--space-navbar-height) shrink-0" aria-hidden />
     </>

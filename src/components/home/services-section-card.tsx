@@ -1,5 +1,10 @@
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+
+import { siteEase } from "@/lib/motion-presets";
 
 export interface ServicesSectionCardProps {
   title: string;
@@ -12,8 +17,18 @@ export function ServicesSectionCard({
   description,
   image,
 }: ServicesSectionCardProps) {
+  const reduce = useReducedMotion();
+
   return (
-    <article className="flex h-full w-[332px] flex-col overflow-hidden rounded-md bg-(--color-surface-blush)">
+    <motion.article
+      className="flex h-full w-[332px] flex-col overflow-hidden rounded-md bg-(--color-surface-blush)"
+      whileHover={
+        reduce
+          ? undefined
+          : { y: -6, boxShadow: "0 18px 40px -12px rgba(15, 23, 42, 0.12)" }
+      }
+      transition={{ duration: 0.28, ease: siteEase }}
+    >
       <div className="relative aspect-video w-full shrink-0">
         <Image
           src={image}
@@ -36,6 +51,6 @@ export function ServicesSectionCard({
           Read more
         </Link>
       </div>
-    </article>
+    </motion.article>
   );
 }

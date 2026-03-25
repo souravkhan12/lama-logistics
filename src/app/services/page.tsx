@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import ServicesHero from "@/components/services/services-hero";
 import ServicesDecomissiong from "@/components/services/services-decomissiong";
+import ServicesHero from "@/components/services/services-hero";
 
 export const metadata: Metadata = {
   title: "Services",

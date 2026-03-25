@@ -1,14 +1,21 @@
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
+
 import Button from "@/components/button";
+import { ScrollReveal } from "@/components/motion";
 import SectionBadge from "@/components/section-badge";
+import { siteEase } from "@/lib/motion-presets";
 
 export default function ServicesHero() {
+  const reduce = useReducedMotion();
+
   return (
-    <section className="relative bg-(--color-bg) pb-16 pt-6 md:pb-24 md:pt-10 overflow-hidden">
+    <section className="relative overflow-hidden bg-(--color-bg) pt-6 pb-16 md:pt-10 md:pb-24">
       <div className="layout-container relative">
-        <div className="flex  justify-between items-center">
-          {/* LEFT CONTENT */}
-          <div className="flex flex-1 flex-col justify-center gap-6 max-w-[700px] z-10 pl-(--space-container-padding)">
+        <div className="flex items-center justify-between">
+          <ScrollReveal className="z-10 flex max-w-[700px] flex-1 flex-col justify-center gap-6 pl-(--space-container-padding)">
             <SectionBadge
               label="OUR SERVICES"
               backgroundColor="var(--color-surface-blush)"
@@ -25,15 +32,19 @@ export default function ServicesHero() {
               ensuring environmental compliance.
             </p>
 
-            <div className="pt-2 flex items-center gap-3">
-              <Button variant="secondary">LET&apos;S TALK</Button>      
+            <div className="flex items-center gap-3 pt-2">
+              <Button variant="secondary">LET&apos;S TALK</Button>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
-        {/* RIGHT IMAGE */}
-        <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2">
-          <div className="relative w-[650px] h-[460px]">
+        <motion.div
+          className="absolute top-1/2 right-0 hidden -translate-y-1/2 lg:block"
+          initial={reduce ? false : { opacity: 0, x: 36 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.65, ease: siteEase, delay: 0.12 }}
+        >
+          <div className="relative h-[460px] w-[650px]">
             <Image
               src="/services/landing.svg"
               alt="Operations professional working"
@@ -42,7 +53,7 @@ export default function ServicesHero() {
               priority
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

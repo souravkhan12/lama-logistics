@@ -1,14 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
 import Button from "@/components/button";
 import SectionBadge from "@/components/section-badge";
-import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+
+import { defaultViewport, siteEase } from "@/lib/motion-presets";
 
 import { services } from "./services-decommissioning-data";
 
-const easeOut = [0.25, 0.1, 0.25, 1] as const;
 const springContent = { type: "spring" as const, stiffness: 380, damping: 34 };
 
 export default function ServicesDecomissiong() {
@@ -22,8 +23,8 @@ export default function ServicesDecomissiong() {
             className="flex max-w-[480px] flex-col gap-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.55, ease: easeOut }}
+            viewport={defaultViewport}
+            transition={{ duration: 0.55, ease: siteEase }}
           >
             <SectionBadge
               label="SERVICE 01"
@@ -31,7 +32,7 @@ export default function ServicesDecomissiong() {
               className="w-fit"
             />
 
-            <span className="font-display text-h1  leading-tight ">
+            <span className="font-display text-h1  leading-tight">
               Strategic Decommissioning Approach
             </span>
 
@@ -49,7 +50,7 @@ export default function ServicesDecomissiong() {
             className="flex min-w-0 flex-col"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-32px" }}
+            viewport={defaultViewport}
             variants={{
               visible: {
                 transition: { staggerChildren: 0.07, delayChildren: 0.08 },
@@ -68,11 +69,10 @@ export default function ServicesDecomissiong() {
                     visible: {
                       opacity: 1,
                       y: 0,
-                      transition: { duration: 0.45, ease: easeOut },
+                      transition: { duration: 0.45, ease: siteEase },
                     },
                   }}
                   className="border-b border-[#E0E0E0] first:border-t first:border-[#E0E0E0]"
-                  layout
                 >
                   <motion.button
                     type="button"
@@ -107,7 +107,7 @@ export default function ServicesDecomissiong() {
                             initial={{ opacity: 0, scale: 0.82, rotate: -12 }}
                             animate={{ opacity: 1, scale: 1, rotate: 0 }}
                             exit={{ opacity: 0, scale: 0.82, rotate: 12 }}
-                            transition={{ duration: 0.22, ease: easeOut }}
+                            transition={{ duration: 0.22, ease: siteEase }}
                           >
                             <ArrowUpRight size={32} />
                           </motion.span>
@@ -118,7 +118,7 @@ export default function ServicesDecomissiong() {
                             initial={{ opacity: 0, scale: 0.82, rotate: 12 }}
                             animate={{ opacity: 1, scale: 1, rotate: 0 }}
                             exit={{ opacity: 0, scale: 0.82, rotate: -12 }}
-                            transition={{ duration: 0.22, ease: easeOut }}
+                            transition={{ duration: 0.22, ease: siteEase }}
                           >
                             <ArrowDownRight size={32} />
                           </motion.span>
@@ -137,7 +137,7 @@ export default function ServicesDecomissiong() {
                           opacity: 1,
                           transition: {
                             height: springContent,
-                            opacity: { duration: 0.28, ease: easeOut },
+                            opacity: { duration: 0.28, ease: siteEase },
                           },
                         }}
                         exit={{
@@ -145,7 +145,7 @@ export default function ServicesDecomissiong() {
                           opacity: 0,
                           transition: {
                             height: { ...springContent, stiffness: 420 },
-                            opacity: { duration: 0.2, ease: easeOut },
+                            opacity: { duration: 0.2, ease: siteEase },
                           },
                         }}
                         className="overflow-hidden"
@@ -165,9 +165,9 @@ export default function ServicesDecomissiong() {
                               },
                             }}
                           >
-                            {item.bullets.map((bullet, i) => (
+                            {item.bullets.map((bullet) => (
                               <motion.li
-                                key={i}
+                                key={bullet}
                                 variants={{
                                   hidden: { opacity: 0, x: -8 },
                                   show: {
@@ -175,7 +175,7 @@ export default function ServicesDecomissiong() {
                                     x: 0,
                                     transition: {
                                       duration: 0.35,
-                                      ease: easeOut,
+                                      ease: siteEase,
                                     },
                                   },
                                 }}

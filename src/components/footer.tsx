@@ -4,6 +4,7 @@ import { Calendar } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/button";
+import { ScrollReveal } from "@/components/motion";
 
 const SERVICES = [
   { label: "Decommissioning Services", href: "#" },
@@ -43,9 +44,9 @@ export default function Footer() {
     >
       <div className="layout-container relative flex flex-col gap-20 py-(--space-section-padding)">
         {/* TOP */}
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24 px-(--space-container-padding)">
+        <div className="grid grid-cols-1 gap-16 px-(--space-container-padding) lg:grid-cols-2 lg:gap-24">
           {/* LEFT */}
-          <div className="flex max-w-[465px] flex-col gap-8">
+          <ScrollReveal className="flex max-w-[465px] flex-col gap-8">
             <h2 className="font-display text-h0 leading-tight">
               Let’s plan your <br /> next transition!
             </h2>
@@ -69,50 +70,53 @@ export default function Footer() {
                 Pick a time with Calendly
               </span>
             </a>
-          </div>
+          </ScrollReveal>
 
           {/* RIGHT FORM */}
-          <form
-            className="relative z-10 flex flex-col gap-6"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <Field label="Your Full Name" />
-            <Field label="Company’s Name" />
-
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <Field label="Work Email Address" />
-              <Field label="Work Phone" />
-            </div>
-
-            <Field label="Tell us more about your needs (Optional)" />
-
-            <label
-              htmlFor="footer-consent"
-              className="flex max-w-[382px] cursor-pointer items-center gap-4 pt-8"
+          <ScrollReveal className="flex flex-col" delay={0.08}>
+            <form
+              className="relative z-10 flex flex-col gap-6"
+              onSubmit={(e) => e.preventDefault()}
             >
-              <input
-                id="footer-consent"
-                name="consent"
-                type="checkbox"
-                className="footer-consent-checkbox mt-0.5"
-              />
-              <span className="text-b2 leading-relaxed text-white">
-                I agree that Lama Telecom may contact me at the email address or
-                phone number above.
-              </span>
-            </label>
+              <Field label="Your Full Name" />
+              <Field label="Company’s Name" />
 
-            <div className="pt-2">
-              <Button variant="accent" isArrow type="submit">
-                SEND
-              </Button>
-            </div>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <Field label="Work Email Address" />
+                <Field label="Work Phone" />
+              </div>
 
-            <p className="text-b3 text-(--color-footer-muted)">
-              By completing this form, I have read, acknowledged and <br />{" "}
-              agree to the <span className="text-white">Privacy Statement</span>
-            </p>
-          </form>
+              <Field label="Tell us more about your needs (Optional)" />
+
+              <label
+                htmlFor="footer-consent"
+                className="flex max-w-[382px] cursor-pointer items-center gap-4 pt-8"
+              >
+                <input
+                  id="footer-consent"
+                  name="consent"
+                  type="checkbox"
+                  className="footer-consent-checkbox mt-0.5"
+                />
+                <span className="text-b2 leading-relaxed text-white">
+                  I agree that Lama Telecom may contact me at the email address
+                  or phone number above.
+                </span>
+              </label>
+
+              <div className="pt-2">
+                <Button variant="accent" isArrow type="submit">
+                  SEND
+                </Button>
+              </div>
+
+              <p className="text-b3 text-(--color-footer-muted)">
+                By completing this form, I have read, acknowledged and <br />{" "}
+                agree to the{" "}
+                <span className="text-white">Privacy Statement</span>
+              </p>
+            </form>
+          </ScrollReveal>
         </div>
 
         {/* WAVE (FIXED) */}
@@ -127,7 +131,7 @@ export default function Footer() {
         </div>
 
         {/* FOOTER LINKS — 2-col grid matches top: brand under copy, nav columns under form */}
-        <div className="mt-20 border-t border-(--color-footer-divider) pt-12">
+        <ScrollReveal className="mt-20 border-t border-(--color-footer-divider) pt-12">
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-24">
             <div className="flex max-w-[465px] flex-col gap-6">
               <Image
@@ -221,16 +225,16 @@ export default function Footer() {
               </nav>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* BOTTOM */}
-        <div className="flex flex-col gap-4 border-t border-(--color-footer-divider) pt-8 text-b3 text-(--color-footer-muted) sm:flex-row sm:justify-between">
+        <ScrollReveal className="flex flex-col gap-4 border-t border-(--color-footer-divider) pt-8 text-b3 text-(--color-footer-muted) sm:flex-row sm:justify-between">
           <span>© 2026 Lama Telecom Services. All Rights Reserved.</span>
           <div className="flex gap-6">
             <Link href="#">Terms and Conditions</Link>
             <Link href="#">Privacy Policy</Link>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </footer>
   );
