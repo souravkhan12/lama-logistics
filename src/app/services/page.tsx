@@ -3,6 +3,7 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import ServicesDecomissiong from "@/components/services/services-decomissiong";
 import ServicesHero from "@/components/services/services-hero";
+import ServicesNetworkExpertise from "@/components/services/services-network-expertise";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -16,6 +17,7 @@ export default function ServicesPage() {
       <Navbar />
       <ServicesHero />
       <ServicesDecomissiong />
+      <ServicesNetworkExpertise />
       <Footer />
     </div>
   );

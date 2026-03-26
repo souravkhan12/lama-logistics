@@ -28,7 +28,7 @@ export default function ServicesDecomissiong() {
           >
             <SectionBadge
               label="SERVICE 01"
-              backgroundColor="#EEF1F7"
+              backgroundColor="var(--color-surface-cream)"
               className="w-fit"
             />
 
