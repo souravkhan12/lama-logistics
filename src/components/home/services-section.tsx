@@ -1,4 +1,9 @@
-import { ServiceCard } from "@/components/home/service-card";
+import { ServicesSectionCard } from "@/components/home/services-section-card";
+import {
+  ScrollReveal,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/motion";
 import SectionBadge from "@/components/section-badge";
 
 const services = [
@@ -36,37 +41,39 @@ export default function ServicesSection() {
   return (
     <section className="bg-(--color-bg) py-(--space-section-padding)">
       <div className="layout-container">
-        <div className="flex flex-col gap-(--space-gap-lg) mb-10">
+        <ScrollReveal className="mb-10 flex flex-col gap-(--space-gap-lg)">
           <SectionBadge
             label="OUR SERVICES"
-            backgroundColor="#FDF7ED"
+            backgroundColor="var(--color-surface-blush)"
             className="w-fit"
           />
 
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-            <h2 className="flex-1  font-display text-h2 md:text-h1 leading-tight text-(--color-fg)">
+          <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
+            <h2 className="flex-1 font-display text-h2 leading-tight text-(--color-fg) md:text-h1">
               Protecting{" "}
               <span className="text-(--color-muted)">your value</span> through
               <br />
               every network cycle
             </h2>
 
-            <p className="flex-1  text-b1">
+            <p className="flex-1 text-b1">
               We remove, recover, and repurpose your assets across all
               <br />
               environments—maximizing value with zero disruption and
               <br /> total environmental compliance.
             </p>
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="border-t border-(--color-border) mb-10" />
+        <div className="mb-10 border-t border-(--color-border)" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <StaggerContainer className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
-            <ServiceCard key={service.title} {...service} />
+            <StaggerItem key={service.title}>
+              <ServicesSectionCard {...service} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

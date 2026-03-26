@@ -54,6 +54,41 @@
   --color-muted: #6b7280;
   --color-border: #e5e7eb;
 
+  /* Warm surfaces (home sections, cards, badges) */
+  --color-surface-cream: #fffaeb;
+  --color-surface-cream-alt: #fffbeb;
+  --color-surface-blush: #fdf7ed;
+  --color-surface-warm-muted: #efe6d6;
+
+  /* Neutrals & chrome */
+  --color-border-dashed: #a8a8a8;
+  --color-neutral-icon: #d9d9d9;
+  --color-neutral-icon-hover: #d1d5db;
+  --color-text-secondary: #444444;
+  /* Long-form body on light sections (e.g. services hero) */
+  --color-text-body: #555555;
+  --color-link-muted: #8e8e93;
+
+  /* Sector grid hover */
+  --color-surface-sector-hover: #ebe6d9;
+
+  /* Brand logo tile backgrounds (home) */
+  --color-brand-tile-1: #1f1f1f;
+  --color-brand-tile-2: #1da1c2;
+  --color-brand-tile-3: #ededed;
+  --color-brand-tile-4: #232f3d;
+  --color-brand-tile-5: #2b8dbf;
+
+  /* Section badge — gradient dot */
+  --gradient-badge-icon: linear-gradient(
+    180deg,
+    #0a0227 0%,
+    #1f0280 33.17%,
+    #495aee 59.62%,
+    #92a9ec 81.25%,
+    #dce1f4 100%
+  );
+
   /* Footer / dark contact (see .cursor/patterns.mdx) */
   --color-footer-bg: #0a0227;
   --color-footer-accent: #4d63ff;
@@ -81,6 +116,11 @@
 }
 
 @layer components {
+  /* Gradient fill for section badge icon (see `section-badge.tsx`) */
+  .bg-badge-icon-gradient {
+    background-image: var(--gradient-badge-icon);
+  }
+
   /* Max-width + horizontal padding — default page column */
   .layout-container {
     width: 100%;

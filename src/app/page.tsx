@@ -1,11 +1,11 @@
 import Footer from "@/components/footer";
+import AboutSection from "@/components/home/about-section";
 import BrandsSection from "@/components/home/brands-section";
 import Hero from "@/components/home/hero";
 import LoopInfra from "@/components/home/loop-infra";
-import ServicesSection from "@/components/home/services";
+import ServicesSection from "@/components/home/services-section";
 import Stats from "@/components/home/stats";
 import StrategicSectors from "@/components/home/strategic-sectors";
-import WhoWeAre from "@/components/home/who-we-are";
 import Navbar from "@/components/navbar";
 
 function Page() {
@@ -14,7 +14,7 @@ function Page() {
       <Navbar />
       <Hero />
 
-      <WhoWeAre />
+      <AboutSection />
       <Stats />
       <ServicesSection />
       <LoopInfra />

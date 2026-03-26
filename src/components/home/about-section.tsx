@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Button from "@/components/button";
+import { ScrollReveal } from "@/components/motion";
 import SectionBadge from "@/components/section-badge";
 
 export default function AboutSection() {
   return (
     <section>
-      <div className="layout-container relative h-[665px] overflow-hidden flex items-center">
+      <div className="layout-container relative flex h-[665px] items-center overflow-hidden">
         <div className="absolute left-10 top-0 bottom-0 z-0 h-full w-full opacity-60">
           <Image
             src="/grid-home.svg"
@@ -15,12 +16,15 @@ export default function AboutSection() {
           />
         </div>
 
-        <div className="relative z-10 flex flex-col gap-(--space-gap-lg) lg:flex-row lg:justify-between lg:items-center lg:gap-12 w-full">
-          <div className="shrink-0 self-start">
-            <SectionBadge label="WHO WE ARE" backgroundColor="#FFFAEB" />
-          </div>
+        <div className="relative z-10 flex w-full flex-col gap-(--space-gap-lg) lg:flex-row lg:items-center lg:justify-between lg:gap-12">
+          <ScrollReveal className="shrink-0 self-start">
+            <SectionBadge
+              label="WHO WE ARE"
+              backgroundColor="var(--color-surface-cream)"
+            />
+          </ScrollReveal>
 
-          <div className="flex min-w-0 flex-col">
+          <ScrollReveal className="flex min-w-0 flex-col" delay={0.06}>
             <h2 className="max-w-[879px] font-display text-h1 leading-tight text-(--color-fg)">
               We help organizations unlock lasting value from their network and
               IT <br />
@@ -43,7 +47,7 @@ export default function AboutSection() {
             <div className="mt-8 flex items-center gap-(--space-gap-sm)">
               <Button variant="secondary">ABOUT US</Button>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

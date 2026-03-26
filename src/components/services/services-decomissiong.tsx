@@ -1,0 +1,199 @@
+"use client";
+
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
+import Button from "@/components/button";
+import SectionBadge from "@/components/section-badge";
+
+import { defaultViewport, siteEase } from "@/lib/motion-presets";
+
+import { services } from "./services-decommissioning-data";
+
+const springContent = { type: "spring" as const, stiffness: 380, damping: 34 };
+
+export default function ServicesDecomissiong() {
+  const [openId, setOpenId] = useState("01" as string | null);
+
+  return (
+    <section className="bg-[#F8F9FB] py-20">
+      <div className="layout-container">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+          <motion.div
+            className="flex max-w-[480px] flex-col gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={defaultViewport}
+            transition={{ duration: 0.55, ease: siteEase }}
+          >
+            <SectionBadge
+              label="SERVICE 01"
+              backgroundColor="var(--color-surface-cream)"
+              className="w-fit"
+            />
+
+            <span className="font-display text-h1  leading-tight">
+              Strategic Decommissioning Approach
+            </span>
+
+            <p className="text-b1 leading-relaxed text-[#666666]">
+              A high-level overview of how we manage your infrastructure
+              transition from planning to logistics.
+            </p>
+
+            <div className="pt-2">
+              <Button variant="secondary">GET STARTED</Button>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="flex min-w-0 flex-col"
+            initial="hidden"
+            whileInView="visible"
+            viewport={defaultViewport}
+            variants={{
+              visible: {
+                transition: { staggerChildren: 0.07, delayChildren: 0.08 },
+              },
+            }}
+          >
+            {services.map((item) => {
+              const isOpen = openId === item.id;
+              const hasBullets = item.bullets.length > 0;
+
+              return (
+                <motion.div
+                  key={item.id}
+                  variants={{
+                    hidden: { opacity: 0, y: 14 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.45, ease: siteEase },
+                    },
+                  }}
+                  className="border-b border-[#E0E0E0] first:border-t first:border-[#E0E0E0]"
+                >
+                  <motion.button
+                    type="button"
+                    aria-expanded={isOpen}
+                    className="flex w-full cursor-pointer items-start justify-between gap-4 py-6 text-left transition-colors hover:bg-black/2"
+                    onClick={() =>
+                      setOpenId((prev) => (prev === item.id ? null : item.id))
+                    }
+                    whileTap={{ scale: 0.995 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="flex min-w-0 flex-1 items-start gap-4">
+                      <span
+                        className="flex h-[57px] w-[57px] text-h2 shrink-0 items-center justify-center rounded-xs bg-[#E8EAFB] font-display text-footer-bg"
+                        aria-hidden
+                      >
+                        {item.id}
+                      </span>
+                      <span className="min-w-0 pt-1.5 text-h2 font-display">
+                        {item.title}
+                      </span>
+                    </div>
+                    <motion.span
+                      className="relative flex h-8 w-8 shrink-0 items-center justify-center pt-1 text-[#000000]"
+                      aria-hidden
+                    >
+                      <AnimatePresence mode="popLayout" initial={false}>
+                        {isOpen ? (
+                          <motion.span
+                            key="up"
+                            className="absolute inset-0 flex items-center justify-center"
+                            initial={{ opacity: 0, scale: 0.82, rotate: -12 }}
+                            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                            exit={{ opacity: 0, scale: 0.82, rotate: 12 }}
+                            transition={{ duration: 0.22, ease: siteEase }}
+                          >
+                            <ArrowUpRight size={32} />
+                          </motion.span>
+                        ) : (
+                          <motion.span
+                            key="down"
+                            className="absolute inset-0 flex items-center justify-center"
+                            initial={{ opacity: 0, scale: 0.82, rotate: 12 }}
+                            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                            exit={{ opacity: 0, scale: 0.82, rotate: -12 }}
+                            transition={{ duration: 0.22, ease: siteEase }}
+                          >
+                            <ArrowDownRight size={32} />
+                          </motion.span>
+                        )}
+                      </AnimatePresence>
+                    </motion.span>
+                  </motion.button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && hasBullets && (
+                      <motion.div
+                        key={`${item.id}-panel`}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{
+                          height: "auto",
+                          opacity: 1,
+                          transition: {
+                            height: springContent,
+                            opacity: { duration: 0.28, ease: siteEase },
+                          },
+                        }}
+                        exit={{
+                          height: 0,
+                          opacity: 0,
+                          transition: {
+                            height: { ...springContent, stiffness: 420 },
+                            opacity: { duration: 0.2, ease: siteEase },
+                          },
+                        }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-6 pl-[72px] pr-2">
+                          <motion.ul
+                            className="list-disc space-y-3 pl-4 text-b2"
+                            initial="hidden"
+                            animate="show"
+                            variants={{
+                              hidden: {},
+                              show: {
+                                transition: {
+                                  staggerChildren: 0.06,
+                                  delayChildren: 0.04,
+                                },
+                              },
+                            }}
+                          >
+                            {item.bullets.map((bullet) => (
+                              <motion.li
+                                key={bullet}
+                                variants={{
+                                  hidden: { opacity: 0, x: -8 },
+                                  show: {
+                                    opacity: 1,
+                                    x: 0,
+                                    transition: {
+                                      duration: 0.35,
+                                      ease: siteEase,
+                                    },
+                                  },
+                                }}
+                              >
+                                {bullet}
+                              </motion.li>
+                            ))}
+                          </motion.ul>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
