@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { funnelDisplay, martianMono, matter } from "@/utils/fonts";
 import "@/styles/globals.css";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
   title: {
@@ -28,7 +30,11 @@ export default function RootLayout({
       lang="en"
       className={`${funnelDisplay.variable} ${martianMono.variable} ${matter.variable}`}
     >
-      <body className="font-body antialiased">{children}</body>
+      <body className="font-body antialiased">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

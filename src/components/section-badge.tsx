@@ -15,7 +15,7 @@ export default function SectionBadge({
   return (
     <div
       style={{ backgroundColor }}
-      className={`inline-flex items-center gap-2 px-4 py-3 ${
+      className={`inline-flex items-center gap-2 px-4 py-3 w-fit ${
         pill ? "rounded-full" : "rounded-sm"
       } ${className}`}
     >
