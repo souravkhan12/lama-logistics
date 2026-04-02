@@ -1,0 +1,18 @@
+---
+description: Lama repo — design tokens, typography, layout, motion (always follow)
+alwaysApply: true
+---
+
+# Lama implementation conventions
+
+**Tokens:** `src/styles/globals.css` (`@theme inline`) is the source of truth. Use Tailwind CSS-variable syntax: `text-(--color-fg)`, `bg-(--color-bg)`, `border-(--color-border)`, surfaces (`--color-surface-*`), footer tokens, spacing `py-(--space-section-padding)`, `gap-(--space-gap-sm|md|lg)`. Add new colors/spacing in `@theme inline` instead of scattered hex in JSX.
+
+**Radius:** Use **`rounded-sm`**, **`rounded-md`**, **`rounded-lg`** (they follow `--radius-sm|md|lg` in `@theme`). Avoid arbitrary radius utilities that embed `var(--radius-…)` or invalid `rounded-(--radius-…)`.
+
+**Typography:** `font-display` + `text-h0`–`text-h3` for headings; `font-body` + `text-b1`–`text-b3`; `font-mono` + `text-o1` for labels. Match patterns in `section-badge.tsx`, `button.tsx`, and existing section heroes.
+
+**Layout:** Use `layout-container` or `layout-container-edge`; reuse `SectionBadge`, `Button`, and existing section components when possible.
+
+**Motion:** Use `siteEase` and `defaultViewport` from `src/lib/motion-presets.ts` with `motion/react`; prefer `ScrollReveal` / stagger helpers under `src/components/motion/` over one-off viewport config.
+
+**Setup / init:** Full install, Biome, and build steps live in `.cursor/skills/init/SKILL.md`.
