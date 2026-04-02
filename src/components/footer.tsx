@@ -3,6 +3,7 @@
 import { Calendar } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Button from "@/components/button";
 import { ScrollReveal } from "@/components/motion";
 
@@ -21,8 +22,9 @@ const INDUSTRIES = [
 ];
 
 const ABOUT = [
+  { label: "About Us", href: "/about" },
   { label: "Careers", href: "#" },
-  { label: "Contact Us", href: "#" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 function Field({ label }: { label: string }) {
@@ -37,6 +39,8 @@ function Field({ label }: { label: string }) {
 }
 
 export default function Footer() {
+  const router = useRouter();
+
   return (
     <footer
       id="contact"
@@ -113,7 +117,12 @@ export default function Footer() {
               <p className="text-b3 text-(--color-footer-muted)">
                 By completing this form, I have read, acknowledged and <br />{" "}
                 agree to the{" "}
-                <span className="text-white">Privacy Statement</span>
+                <Link
+                  href="/privacy"
+                  className="text-white underline-offset-2 hover:text-(--color-footer-accent) hover:underline"
+                >
+                  Privacy Policy
+                </Link>
               </p>
             </form>
           </ScrollReveal>
@@ -134,12 +143,19 @@ export default function Footer() {
         <ScrollReveal className="mt-20 border-t border-(--color-footer-divider) pt-12">
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-24">
             <div className="flex max-w-[465px] flex-col gap-6">
-              <Image
-                src="/footer/logo.svg"
-                alt="Lama Telecom"
-                width={197}
-                height={40}
-              />
+              <button
+                type="button"
+                onClick={() => router.push("/")}
+                className="w-fit cursor-pointer border-0 bg-transparent p-0"
+                aria-label="Go to home"
+              >
+                <Image
+                  src="/footer/logo.svg"
+                  alt="Lama Telecom"
+                  width={197}
+                  height={40}
+                />
+              </button>
 
               <p className="text-b2 leading-relaxed text-(--color-footer-muted)">
                 2161 Shattuck Ave, Ste 232 <br />
@@ -230,9 +246,19 @@ export default function Footer() {
         {/* BOTTOM */}
         <ScrollReveal className="flex flex-col gap-4 border-t border-(--color-footer-divider) pt-8 text-b3 text-(--color-footer-muted) sm:flex-row sm:justify-between">
           <span>© 2026 Lama Telecom Services. All Rights Reserved.</span>
-          <div className="flex gap-6">
-            <Link href="#">Terms and Conditions</Link>
-            <Link href="#">Privacy Policy</Link>
+          <div className="flex flex-wrap gap-6">
+            <Link
+              href="/terms"
+              className="transition-colors hover:text-(--color-footer-accent)"
+            >
+              Terms and Conditions
+            </Link>
+            <Link
+              href="/privacy"
+              className="transition-colors hover:text-(--color-footer-accent)"
+            >
+              Privacy Policy
+            </Link>
           </div>
         </ScrollReveal>
       </div>

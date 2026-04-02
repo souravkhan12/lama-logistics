@@ -41,7 +41,7 @@ export default function Button({
     "h-[54px] min-h-[54px] px-[var(--space-btn-x)] flex items-center shrink-0";
   const arrowCell =
     "h-[54px] w-[54px] min-h-[54px] min-w-[54px] flex items-center justify-center shrink-0";
-  const borderRadius = "rounded-[var(--radius-sm)]";
+  const borderRadius = "rounded-sm";
 
   if (isArrow) {
     return (

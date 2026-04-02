@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
+import BrandsSection from "@/components/home/brands-section";
 import ServicesDecomissiong from "@/components/services/services-decomissiong";
+import ServicesEnterpriseNetwork from "@/components/services/services-enterprise-network";
 import ServicesHero from "@/components/services/services-hero";
 import ServicesNetworkExpertise from "@/components/services/services-network-expertise";
+import ServicesResponsibleRecycling from "@/components/services/services-responsible-recycling";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -14,11 +15,12 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <div className="min-h-screen">
-      <Navbar />
       <ServicesHero />
       <ServicesDecomissiong />
       <ServicesNetworkExpertise />
-      <Footer />
+      <ServicesResponsibleRecycling />
+      <ServicesEnterpriseNetwork />
+      <BrandsSection />
     </div>
   );
 }

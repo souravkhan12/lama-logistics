@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import { siteEase } from "@/lib/motion-presets";
@@ -13,6 +13,7 @@ const MIN_DELTA = 8;
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const reduce = useReducedMotion();
   const [hidden, setHidden] = useState(false);
   const lastScrollY = useRef(0);
@@ -59,21 +60,28 @@ export default function Navbar() {
           transition={{ duration: 0.45, ease: siteEase }}
         >
           <div className="flex h-(--space-navbar-height) items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Image src="/favicon.svg" alt="logo" width={65} height={35} />
+            <button
+              type="button"
+              onClick={() => router.push("/")}
+              className="flex cursor-pointer items-center gap-3 border-0 bg-transparent p-0 text-left"
+              aria-label="Go to home"
+            >
+              <Image src="/favicon.svg" alt="" width={65} height={35} />
               <div className="flex flex-col leading-tight">
                 <span className="font-display font-medium text-h3">Lama</span>
                 <span className="font-display font-medium text-h3">
                   Telecom
                 </span>
               </div>
-            </div>
+            </button>
 
             <div className="flex items-center gap-(--space-gap-md)">
               <nav className="hidden items-center gap-(--space-gap-md) md:flex">
                 <Link
-                  href="#"
-                  className="font-display text-b2 font-medium uppercase transition-colors hover:text-primary"
+                  href="/about"
+                  className={`font-display text-b2 font-medium uppercase transition-colors hover:text-primary ${
+                    pathname === "/about" ? "text-primary" : ""
+                  }`}
                 >
                   ABOUT
                 </Link>
@@ -86,8 +94,10 @@ export default function Navbar() {
                   SERVICES
                 </Link>
                 <Link
-                  href="#"
-                  className="font-display text-b2 font-medium uppercase transition-colors hover:text-primary"
+                  href="/industries"
+                  className={`font-display text-b2 font-medium uppercase transition-colors hover:text-primary ${
+                    pathname === "/industries" ? "text-primary" : ""
+                  }`}
                 >
                   INDUSTRIES
                 </Link>
@@ -98,8 +108,10 @@ export default function Navbar() {
                   CAREERS
                 </Link>
                 <Link
-                  href="/#contact"
-                  className="font-display text-b2 font-medium uppercase transition-colors hover:text-primary"
+                  href="/contact"
+                  className={`font-display text-b2 font-medium uppercase transition-colors hover:text-primary ${
+                    pathname === "/contact" ? "text-primary" : ""
+                  }`}
                 >
                   CONTACT US
                 </Link>

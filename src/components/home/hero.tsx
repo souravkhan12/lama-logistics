@@ -1,9 +1,11 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import Image from "next/image";
 
 import { siteEase } from "@/lib/motion-presets";
+
+const HERO_VIDEO = "/videos/hero.mp4";
+const HERO_POSTER = "/home-banner.png";
 
 export default function Hero() {
   const reduce = useReducedMotion();
@@ -18,13 +20,17 @@ export default function Hero() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.15, ease: siteEase }}
           >
-            <Image
-              src="/home-banner.png"
-              alt="hero"
-              fill
-              className="object-cover"
-              priority
-            />
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster={HERO_POSTER}
+              aria-hidden
+            >
+              <source src={HERO_VIDEO} type="video/mp4" />
+            </video>
           </motion.div>
 
           <div className="absolute inset-0 bg-black/50" />
