@@ -9,10 +9,10 @@ alwaysApply: true
 
 **Radius:** Use **`rounded-sm`**, **`rounded-md`**, **`rounded-lg`** (they follow `--radius-sm|md|lg` in `@theme`). Avoid arbitrary radius utilities that embed `var(--radius-…)` or invalid `rounded-(--radius-…)`.
 
-**Typography:** `font-display` + `text-h0`–`text-h3` for headings; `font-body` + `text-b1`–`text-b3`; `font-mono` + `text-o1` for labels. Match patterns in `section-badge.tsx`, `button.tsx`, and existing section heroes.
+**Typography (strict):** On headings and body copy, use **only** **`font-display`**, **`font-body`**, or **`font-mono`** plus the step from `@theme inline`: **`text-h0`–`text-h3`**, **`text-b1`–`text-b3`**, **`text-o1`**, **`text-caption`**. **Do not** stack extra type utilities on those elements: no **`leading-*`**, no **`text-(--color-*)`** / arbitrary text colors (let **`color`** inherit from section or `:root` in `globals.css`), no redundant **`font-weight`**, **`tracking-*`**, or arbitrary **`text-[length]`**. Reserve **`text-(--color-*)`** for non-typography UI (icons, badges, borders) or rare exceptions agreed in review. Match `section-badge.tsx`, `button.tsx`, and section heroes.
 
 **Layout:** Use `layout-container` or `layout-container-edge`; reuse `SectionBadge`, `Button`, and existing section components when possible.
 
-**Motion:** Use `siteEase` and `defaultViewport` from `src/lib/motion-presets.ts` with `motion/react`; prefer `ScrollReveal` / stagger helpers under `src/components/motion/` over one-off viewport config.
+**Motion:** Use `siteEase`, `siteDuration`, `defaultViewport`, and (for accordions) `siteSpringContent` from `src/lib/motion-presets.ts` with `motion/react`; prefer `ScrollReveal` / stagger helpers under `src/components/motion/` over one-off viewport config. Reuse preset durations/easing instead of scattered magic numbers for a consistent, premium feel.
 
 **Setup / init:** Full install, Biome, and build steps live in `.cursor/skills/init/SKILL.md`.

@@ -204,7 +204,7 @@ export default function ServicesResponsibleRecycling() {
                 <span className="flex h-[54px] items-center rounded-sm bg-(--color-surface-cream) px-(--space-btn-x)">
                   GET STARTED
                 </span>
-                <span className="flex h-[54px] w-[54px] items-center justify-center rounded-sm bg-(--color-surface-cream) transition-transform duration-300 group-hover:translate-x-1">
+                <span className="flex h-[54px] w-[54px] items-center justify-center rounded-sm bg-(--color-surface-cream) transition-transform duration-400 group-hover:translate-x-1">
                   <Image
                     src="/arrow.svg"
                     alt=""

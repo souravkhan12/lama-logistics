@@ -6,7 +6,7 @@ import Image from "next/image";
 import Button from "@/components/button";
 import { ScrollReveal } from "@/components/motion";
 import SectionBadge from "@/components/section-badge";
-import { siteEase } from "@/lib/motion-presets";
+import { siteDuration, siteEase } from "@/lib/motion-presets";
 
 export default function ServicesHero() {
   const reduce = useReducedMotion();
@@ -40,9 +40,13 @@ export default function ServicesHero() {
 
         <motion.div
           className="absolute top-1/2 right-0 hidden -translate-y-1/2 lg:block"
-          initial={reduce ? false : { opacity: 0, x: 36 }}
+          initial={reduce ? false : { opacity: 0, x: 28 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.65, ease: siteEase, delay: 0.12 }}
+          transition={{
+            duration: siteDuration.heroAsideServices,
+            ease: siteEase,
+            delay: 0.12,
+          }}
         >
           <div className="relative h-[460px] w-[650px]">
             <Image

@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 
-import { siteEase } from "@/lib/motion-presets";
+import { siteDuration, siteEase } from "@/lib/motion-presets";
 
 const HERO_VIDEO = "/videos/hero.mp4";
 const HERO_POSTER = "/home-banner.png";
@@ -18,7 +18,7 @@ export default function Hero() {
             className="absolute inset-0"
             initial={reduce ? false : { scale: 1.04, opacity: 0.92 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.15, ease: siteEase }}
+            transition={{ duration: siteDuration.heroMedia, ease: siteEase }}
           >
             <video
               className="absolute inset-0 h-full w-full object-cover"
@@ -40,7 +40,11 @@ export default function Hero() {
               className="max-w-4xl font-display text-h0 leading-tight text-white"
               initial={reduce ? false : { opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, ease: siteEase, delay: 0.2 }}
+              transition={{
+                duration: siteDuration.heroHeadline,
+                ease: siteEase,
+                delay: 0.2,
+              }}
             >
               Powering a Smarter,
               <br />

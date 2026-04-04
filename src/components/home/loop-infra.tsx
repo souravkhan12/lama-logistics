@@ -55,7 +55,7 @@ export default function LoopInfra() {
                 <StaggerItem key={item.label}>
                   <div className="flex flex-col items-start gap-3 text-center">
                     <div
-                      className={`flex size-12 items-center justify-center rounded-xl bg-white shadow-md ${iconClass}`}
+                      className={`flex size-12 items-center justify-center rounded-sm bg-white shadow-md ${iconClass}`}
                     >
                       {item.icon}
                     </div>

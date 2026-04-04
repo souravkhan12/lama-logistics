@@ -4,14 +4,17 @@ import localFont from "next/font/local";
 const funnelDisplay = Funnel_Display({
   subsets: ["latin"],
   variable: "--font-funnel-display",
+  display: "swap",
 });
 
 const martianMono = Martian_Mono({
   subsets: ["latin"],
   variable: "--font-martian-mono",
+  display: "swap",
 });
 
 const matter = localFont({
+  display: "swap",
   src: [
     { path: "../assets/fonts/Matter-Light.ttf", weight: "300" },
     { path: "../assets/fonts/Matter-Regular.ttf", weight: "400" },

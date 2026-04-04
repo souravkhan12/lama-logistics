@@ -6,7 +6,7 @@ import Image from "next/image";
 import Button from "@/components/button";
 import { ScrollReveal } from "@/components/motion";
 import SectionBadge from "@/components/section-badge";
-import { siteEase } from "@/lib/motion-presets";
+import { siteDuration, siteEase } from "@/lib/motion-presets";
 
 const description =
   "From hyper-scale data centers to national telecom networks, we deliver the precision, security, and sustainability required to manage your most critical technology environments.";
@@ -45,9 +45,13 @@ export default function IndustriesHero() {
         {/* SVG Illustration */}
         <motion.div
           className="pointer-events-none relative z-20 flex w-full items-end justify-end lg:absolute lg:-right-6 lg:bottom-0 lg:w-[55%] xl:-right-12 xl:w-[50%]"
-          initial={reduce ? false : { opacity: 0, x: 40 }}
+          initial={reduce ? false : { opacity: 0, x: 32 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: siteEase, delay: 0.1 }}
+          transition={{
+            duration: siteDuration.heroAsideIndustries,
+            ease: siteEase,
+            delay: 0.1,
+          }}
         >
           <div className="relative aspect-4/3 w-full lg:aspect-square">
             <Image

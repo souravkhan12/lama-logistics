@@ -11,14 +11,10 @@ export default function AboutHero() {
         src={HERO_IMAGE}
         alt=""
         fill
-        className="object-cover object-center"
+        className="object-cover object-center grayscale contrast-105"
         priority
         sizes="100vw"
         unoptimized
-      />
-      <div
-        className="absolute inset-0 bg-linear-to-r from-black/80 via-black/45 to-black/10"
-        aria-hidden
       />
     </section>
   );

@@ -72,6 +72,14 @@
   /* Sector grid hover */
   --color-surface-sector-hover: #ebe6d9;
 
+  /* About — stat cards (light neutral panel) */
+  --color-surface-about-stat-card: #f4f4f5;
+
+  /* About — leadership accordion expanded row */
+  --color-leadership-expanded-bg: #05051a;
+  --color-leadership-expanded-fg: #ffffff;
+  --color-leadership-expanded-divider: rgb(255 255 255 / 0.14);
+
   /* Brand logo tile backgrounds (home) */
   --color-brand-tile-1: #1f1f1f;
   --color-brand-tile-2: #1da1c2;
@@ -109,6 +117,12 @@
   --radius-sm: 5px;
   --radius-md: 10px;
   --radius-lg: 14px;
+  --radius-xl: 24px;
+
+  /* About — mission / vision / approach carousel cards */
+  --color-about-carousel-card-mission: #4f46e5;
+  --color-about-carousel-card-vision: #3b52f1;
+  --color-about-carousel-card-approach: #2563eb;
 
   /* ========== SPACING TOKENS (optional but useful) ========== */
   --space-btn-x: 32px;
@@ -121,6 +135,10 @@
   --space-gap-sm: 16px;
   --space-gap-md: 24px;
   --space-gap-lg: 32px;
+
+  /* About — stat cards (fixed layout from design) */
+  --size-about-stat-card-w: 452px;
+  --size-about-stat-card-h: 440px;
 }
 
 @layer components {
@@ -134,7 +152,12 @@
     width: 100%;
     max-width: var(--space-container-max-width);
     margin-inline: auto;
-    padding-inline: var(--space-container-padding);
+    /* Smooth edges on narrow viewports; caps at design token */
+    padding-inline: clamp(
+      var(--space-gap-sm),
+      4vw,
+      var(--space-container-padding)
+    );
   }
 
   /* Max-width only (full-bleed media inside, add your own inner padding) */
@@ -149,6 +172,13 @@
   color: var(--color-fg);
   background: var(--color-bg);
   font-family: var(--font-body);
+  /* Carousel cards — duplicated here so inline `var(--color-about-carousel-*)` always resolves */
+  --color-about-carousel-card-mission: #4f46e5;
+  --color-about-carousel-card-vision: #3b52f1;
+  --color-about-carousel-card-approach: #2563eb;
+  --color-leadership-expanded-bg: #05051a;
+  --color-leadership-expanded-fg: #ffffff;
+  --color-leadership-expanded-divider: rgb(255 255 255 / 0.14);
 }
 
 /*

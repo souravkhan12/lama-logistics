@@ -9,6 +9,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/motion";
+import { siteDuration, siteEase } from "@/lib/motion-presets";
 import SectionBadge from "@/components/section-badge";
 
 import {
@@ -33,7 +34,7 @@ function ExpertiseRow({ item, reduceMotion }: ExpertiseRowProps) {
         {/* LEFT IMAGE */}
         <motion.div
           className="relative w-[160px] md:w-[220px] h-[120px] md:h-[140px] shrink-0 overflow-hidden rounded-md"
-          transition={{ duration: 0.3 }}
+          transition={{ duration: siteDuration.hoverSubtle, ease: siteEase }}
           whileHover={reduceMotion ? undefined : { scale: 1.02 }}
         >
           <Image

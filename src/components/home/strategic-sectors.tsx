@@ -49,7 +49,7 @@ export default function StrategicSectors() {
         <StaggerContainer className="grid h-[594px] min-h-0 w-full min-w-0 max-w-[min(100%,758px)] grid-cols-2">
           {sectors.map((item, index) => (
             <StaggerItem key={item.id}>
-              <div className="relative flex h-full cursor-pointer flex-col justify-between bg-(--color-surface-cream-alt) px-8 py-4 transition-colors duration-200 ease-out hover:bg-(--color-surface-sector-hover)">
+              <div className="relative flex h-full cursor-pointer flex-col justify-between bg-(--color-surface-cream-alt) px-8 py-4 transition-colors duration-350 ease-out hover:bg-(--color-surface-sector-hover)">
                 {(index === 0 || index === 2) && (
                   <span
                     className="pointer-events-none absolute inset-y-0 right-0 w-px"

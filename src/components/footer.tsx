@@ -140,7 +140,7 @@ export default function Footer() {
         </div>
 
         {/* FOOTER LINKS — 2-col grid matches top: brand under copy, nav columns under form */}
-        <ScrollReveal className="mt-20 border-t border-(--color-footer-divider) pt-12">
+        <ScrollReveal className="mt-20 border-t border-(--color-footer-divider) pt-12 px-(--space-container-padding)">
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-24">
             <div className="flex max-w-[465px] flex-col gap-6">
               <button
@@ -244,7 +244,7 @@ export default function Footer() {
         </ScrollReveal>
 
         {/* BOTTOM */}
-        <ScrollReveal className="flex flex-col gap-4 border-t border-(--color-footer-divider) pt-8 text-b3 text-(--color-footer-muted) sm:flex-row sm:justify-between">
+        <ScrollReveal className="flex flex-col gap-4 border-t border-(--color-footer-divider) pt-8 pb-1 text-b3 text-(--color-footer-muted) sm:flex-row sm:justify-between px-(--space-container-padding)">
           <span>© 2026 Lama Telecom Services. All Rights Reserved.</span>
           <div className="flex flex-wrap gap-6">
             <Link

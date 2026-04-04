@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-import { siteEase } from "@/lib/motion-presets";
+import { siteDuration, siteEase } from "@/lib/motion-presets";
 
 const SCROLL_TOP_THRESHOLD = 48;
 const MIN_DELTA = 8;
@@ -49,7 +49,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-sm transition-transform duration-300 ease-out will-change-transform ${
+        className={`fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-sm transition-transform duration-500 ease-out will-change-transform ${
           hidden ? "-translate-y-full" : "translate-y-0"
         }`}
       >
@@ -57,7 +57,7 @@ export default function Navbar() {
           className="layout-container"
           initial={reduce ? false : { opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, ease: siteEase }}
+          transition={{ duration: siteDuration.navbar, ease: siteEase }}
         >
           <div className="flex h-(--space-navbar-height) items-center justify-between">
             <button

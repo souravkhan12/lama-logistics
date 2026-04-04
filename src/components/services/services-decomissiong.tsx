@@ -6,11 +6,14 @@ import { useState } from "react";
 import Button from "@/components/button";
 import SectionBadge from "@/components/section-badge";
 
-import { defaultViewport, siteEase } from "@/lib/motion-presets";
+import {
+  defaultViewport,
+  siteDuration,
+  siteEase,
+  siteSpringContent,
+} from "@/lib/motion-presets";
 
 import { services } from "./services-decommissioning-data";
-
-const springContent = { type: "spring" as const, stiffness: 380, damping: 34 };
 
 export default function ServicesDecomissiong() {
   const [openId, setOpenId] = useState("01" as string | null);
@@ -24,7 +27,10 @@ export default function ServicesDecomissiong() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={defaultViewport}
-            transition={{ duration: 0.55, ease: siteEase }}
+            transition={{
+              duration: siteDuration.sectionReveal,
+              ease: siteEase,
+            }}
           >
             <SectionBadge
               label="SERVICE 01"
@@ -53,7 +59,10 @@ export default function ServicesDecomissiong() {
             viewport={defaultViewport}
             variants={{
               visible: {
-                transition: { staggerChildren: 0.07, delayChildren: 0.08 },
+                transition: {
+                  staggerChildren: siteDuration.staggerGap,
+                  delayChildren: siteDuration.accordionListDelayChildren,
+                },
               },
             }}
           >
@@ -69,7 +78,10 @@ export default function ServicesDecomissiong() {
                     visible: {
                       opacity: 1,
                       y: 0,
-                      transition: { duration: 0.45, ease: siteEase },
+                      transition: {
+                        duration: siteDuration.staggerRow,
+                        ease: siteEase,
+                      },
                     },
                   }}
                   className="border-b border-[#E0E0E0] first:border-t first:border-[#E0E0E0]"
@@ -82,7 +94,10 @@ export default function ServicesDecomissiong() {
                       setOpenId((prev) => (prev === item.id ? null : item.id))
                     }
                     whileTap={{ scale: 0.995 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{
+                      duration: siteDuration.micro,
+                      ease: siteEase,
+                    }}
                   >
                     <div className="flex min-w-0 flex-1 items-start gap-4">
                       <span
@@ -107,7 +122,10 @@ export default function ServicesDecomissiong() {
                             initial={{ opacity: 0, scale: 0.82, rotate: -12 }}
                             animate={{ opacity: 1, scale: 1, rotate: 0 }}
                             exit={{ opacity: 0, scale: 0.82, rotate: 12 }}
-                            transition={{ duration: 0.22, ease: siteEase }}
+                            transition={{
+                              duration: siteDuration.iconSwap,
+                              ease: siteEase,
+                            }}
                           >
                             <ArrowUpRight size={32} />
                           </motion.span>
@@ -118,7 +136,10 @@ export default function ServicesDecomissiong() {
                             initial={{ opacity: 0, scale: 0.82, rotate: 12 }}
                             animate={{ opacity: 1, scale: 1, rotate: 0 }}
                             exit={{ opacity: 0, scale: 0.82, rotate: -12 }}
-                            transition={{ duration: 0.22, ease: siteEase }}
+                            transition={{
+                              duration: siteDuration.iconSwap,
+                              ease: siteEase,
+                            }}
                           >
                             <ArrowDownRight size={32} />
                           </motion.span>
@@ -136,16 +157,22 @@ export default function ServicesDecomissiong() {
                           height: "auto",
                           opacity: 1,
                           transition: {
-                            height: springContent,
-                            opacity: { duration: 0.28, ease: siteEase },
+                            height: siteSpringContent,
+                            opacity: {
+                              duration: siteDuration.accordionOpacity,
+                              ease: siteEase,
+                            },
                           },
                         }}
                         exit={{
                           height: 0,
                           opacity: 0,
                           transition: {
-                            height: { ...springContent, stiffness: 420 },
-                            opacity: { duration: 0.2, ease: siteEase },
+                            height: { ...siteSpringContent, stiffness: 420 },
+                            opacity: {
+                              duration: siteDuration.micro,
+                              ease: siteEase,
+                            },
                           },
                         }}
                         className="overflow-hidden"
@@ -159,8 +186,10 @@ export default function ServicesDecomissiong() {
                               hidden: {},
                               show: {
                                 transition: {
-                                  staggerChildren: 0.06,
-                                  delayChildren: 0.04,
+                                  staggerChildren:
+                                    siteDuration.bulletStaggerGap,
+                                  delayChildren:
+                                    siteDuration.bulletStaggerDelay,
                                 },
                               },
                             }}
@@ -174,7 +203,7 @@ export default function ServicesDecomissiong() {
                                     opacity: 1,
                                     x: 0,
                                     transition: {
-                                      duration: 0.35,
+                                      duration: siteDuration.bullet,
                                       ease: siteEase,
                                     },
                                   },

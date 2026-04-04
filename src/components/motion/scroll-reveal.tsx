@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 
-import { defaultViewport, siteEase } from "@/lib/motion-presets";
+import { defaultViewport, siteDuration, siteEase } from "@/lib/motion-presets";
 
 type ScrollRevealProps = {
   children: ReactNode;
@@ -31,7 +31,7 @@ export function ScrollReveal({
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={defaultViewport}
-      transition={{ duration: 0.52, ease: siteEase, delay }}
+      transition={{ duration: siteDuration.reveal, ease: siteEase, delay }}
     >
       {children}
     </motion.div>
@@ -48,8 +48,8 @@ type StaggerContainerProps = {
 export function StaggerContainer({
   children,
   className,
-  stagger = 0.07,
-  delayChildren = 0.06,
+  stagger = siteDuration.staggerGap,
+  delayChildren = siteDuration.staggerDelay,
 }: StaggerContainerProps) {
   const reduce = useReducedMotion();
   if (reduce) {
@@ -93,7 +93,7 @@ export function StaggerItem({ children, className }: StaggerItemProps) {
         visible: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.46, ease: siteEase },
+          transition: { duration: siteDuration.staggerChild, ease: siteEase },
         },
       }}
     >

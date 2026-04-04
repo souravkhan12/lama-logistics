@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { siteEase } from "@/lib/motion-presets";
+import { siteDuration, siteEase } from "@/lib/motion-presets";
 
 export interface ServicesSectionCardProps {
   title: string;
@@ -25,9 +25,9 @@ export function ServicesSectionCard({
       whileHover={
         reduce
           ? undefined
-          : { y: -6, boxShadow: "0 18px 40px -12px rgba(15, 23, 42, 0.12)" }
+          : { y: -5, boxShadow: "0 20px 44px -14px rgba(15, 23, 42, 0.14)" }
       }
-      transition={{ duration: 0.28, ease: siteEase }}
+      transition={{ duration: siteDuration.hoverLift, ease: siteEase }}
     >
       <div className="relative aspect-video w-full shrink-0">
         <Image

@@ -29,7 +29,7 @@ export default function Button({
   const isAccent = variant === "accent";
 
   const base =
-    "inline-flex items-center h-[54px] gap-[var(--space-gap-sm)] font-mono text-b2 leading-none tracking-wide transition-all duration-300";
+    "inline-flex items-center h-[54px] gap-[var(--space-gap-sm)] font-mono text-b2 leading-none tracking-wide transition-all duration-400";
 
   const segment = isAccent
     ? "bg-[var(--color-footer-accent)] text-[var(--color-on-primary)] group-hover:opacity-90"
@@ -53,13 +53,13 @@ export default function Button({
         <span
           className={`${labelCell} ${borderRadius} ${segment} ${
             clicked ? "font-bold tracking-wide" : ""
-          } transition-all duration-200`}
+          } transition-all duration-300`}
         >
           {children}
         </span>
 
         <span
-          className={`${arrowCell} ${borderRadius} ${segment} transition-all duration-300 transform group-hover:translate-x-1`}
+          className={`${arrowCell} ${borderRadius} ${segment} transition-all duration-400 transform group-hover:translate-x-1`}
           aria-hidden
         >
           <Image src="/arrow.svg" alt="arrow" width={20} height={20} />
@@ -77,7 +77,7 @@ export default function Button({
       <span
         className={`${labelCell} ${borderRadius} ${segment} ${
           clicked ? "font-bold tracking-wide" : ""
-        } transition-all duration-200`}
+        } transition-all duration-300`}
       >
         {children}
       </span>
