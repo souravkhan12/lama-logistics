@@ -102,8 +102,10 @@ export default function Navbar() {
                   INDUSTRIES
                 </Link>
                 <Link
-                  href="#"
-                  className="font-display text-b2 font-medium uppercase transition-colors hover:text-primary"
+                  href="/careers"
+                  className={`font-display text-b2 font-medium uppercase transition-colors hover:text-primary ${
+                    pathname === "/careers" ? "text-primary" : ""
+                  }`}
                 >
                   CAREERS
                 </Link>

@@ -9,8 +9,8 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/motion";
-import { siteDuration, siteEase } from "@/lib/motion-presets";
 import SectionBadge from "@/components/section-badge";
+import { siteDuration, siteEase } from "@/lib/motion-presets";
 
 import {
   type NetworkExpertiseItem,

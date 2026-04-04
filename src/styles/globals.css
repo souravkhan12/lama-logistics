@@ -52,7 +52,7 @@
   --color-fg: #171717;
 
   --color-muted: #6b7280;
-  --color-border: #e5e7eb;
+  --color-border: #8e8e93;
 
   /* Warm surfaces (home sections, cards, badges) */
   --color-surface-cream: #fffaeb;
@@ -74,6 +74,15 @@
 
   /* About — stat cards (light neutral panel) */
   --color-surface-about-stat-card: #f4f4f5;
+
+  /* About — operational workflow (large muted step titles) */
+  --color-about-workflow-step-title: #d1d5db;
+
+  /* Careers page (`/careers`) */
+  --color-careers-hero-bg: #eef1f8;
+  --color-careers-panel-bg: #eceef8;
+  /* Job row meta line (`Decom • xxx • xxx`) — medium neutral gray on panel */
+  --color-careers-opening-meta: #8e8e93;
 
   /* About — leadership accordion expanded row */
   --color-leadership-expanded-bg: #05051a;
@@ -124,6 +133,21 @@
   --color-about-carousel-card-vision: #3b52f1;
   --color-about-carousel-card-approach: #2563eb;
 
+  /* About — join team CTA strip */
+  --gradient-about-join-team-cta: linear-gradient(
+    180deg,
+    #0a0227 0%,
+    #1f0280 33.17%,
+    #495aee 59.62%,
+    #92a9ec 81.25%,
+    #dce1f4 100%
+  );
+  --color-about-joincta-surface: #fffaeb;
+  --color-about-joincta-label-fg: #0a0227;
+
+  /* About — join team CTA (`join.svg` artboard 1440×308) */
+  --size-about-join-cta-h: 308px;
+
   /* ========== SPACING TOKENS (optional but useful) ========== */
   --space-btn-x: 32px;
   --space-btn-y: 16px;
@@ -161,6 +185,44 @@
     max-width: var(--space-container-max-width);
     margin-inline: auto;
   }
+
+  .bg-about-join-team-cta {
+    background-image: var(--gradient-about-join-team-cta);
+  }
+
+  /**
+   * Horizontal padding matches `public/about/leadership/join.svg`:
+   * left inset 102px, right inset 197px at 1440px (scaled with viewport).
+   */
+  .layout-about-join-cta-inner {
+    width: 100%;
+    max-width: var(--space-container-max-width);
+    margin-inline: auto;
+    min-height: var(--size-about-join-cta-h);
+    padding-inline-start: clamp(20px, 7.083vw, 102px);
+    padding-inline-end: clamp(20px, 13.681vw, 197px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  @media (width < 1024px) {
+    .layout-about-join-cta-inner {
+      min-height: 0;
+      padding-block: 2.5rem;
+    }
+  }
+
+  @media (width >= 1024px) {
+    .layout-about-join-cta-inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
 }
 
 :root {
@@ -171,6 +233,20 @@
   --color-about-carousel-card-mission: #4f46e5;
   --color-about-carousel-card-vision: #3b52f1;
   --color-about-carousel-card-approach: #2563eb;
+  --gradient-about-join-team-cta: linear-gradient(
+    180deg,
+    #0a0227 0%,
+    #1f0280 33.17%,
+    #495aee 59.62%,
+    #92a9ec 81.25%,
+    #dce1f4 100%
+  );
+  --color-about-joincta-surface: #fffaeb;
+  --color-about-joincta-label-fg: #0a0227;
+  --size-about-join-cta-h: 308px;
+  --color-about-workflow-step-title: #d1d5db;
+  --color-careers-hero-bg: #eef1f8;
+  --color-careers-panel-bg: #dce1f4;
   --color-leadership-expanded-bg: #05051a;
   --color-leadership-expanded-fg: #ffffff;
   --color-leadership-expanded-divider: rgb(255 255 255 / 0.14);
