@@ -54,7 +54,9 @@ export default function ServicesHero() {
               alt="Operations professional working"
               fill
               className="object-contain"
+              sizes="(max-width: 1024px) 100vw, 50vw"
               priority
+              unoptimized
             />
           </div>
         </motion.div>

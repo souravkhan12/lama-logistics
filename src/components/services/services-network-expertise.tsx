@@ -42,6 +42,8 @@ function ExpertiseRow({ item, reduceMotion }: ExpertiseRowProps) {
             alt={item.title}
             fill
             className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            unoptimized
           />
         </motion.div>
 

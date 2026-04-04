@@ -16,7 +16,8 @@ export default function Stats() {
             alt="ring"
             fill
             className="object-cover"
-            priority
+            sizes="50vw"
+            unoptimized
           />
         </ScrollReveal>
 

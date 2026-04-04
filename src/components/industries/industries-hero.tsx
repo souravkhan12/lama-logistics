@@ -58,8 +58,8 @@ export default function IndustriesHero() {
               src="/industries/home.svg"
               alt=""
               fill
-              // 3. object-bottom makes sure the graphic sits right on the transition line
               className="object-contain object-bottom lg:object-bottom-right"
+              sizes="(max-width: 1024px) 100vw, 50vw"
               priority
               unoptimized
             />

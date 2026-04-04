@@ -136,6 +136,7 @@ export default function Footer() {
             width={1440}
             height={300}
             className="w-full object-contain"
+            unoptimized
           />
         </div>
 

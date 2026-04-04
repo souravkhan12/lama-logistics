@@ -89,7 +89,7 @@ export default function ServicesEnterpriseNetwork() {
                   fill
                   className="object-cover object-center"
                   sizes="700px"
-                  priority={false}
+                  unoptimized
                 />
               </div>
 

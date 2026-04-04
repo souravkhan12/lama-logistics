@@ -13,6 +13,8 @@ export default function AboutSection() {
             alt="background"
             fill
             className="object-contain object-left"
+            sizes="50vw"
+            unoptimized
           />
         </div>
 
