@@ -152,12 +152,7 @@
     width: 100%;
     max-width: var(--space-container-max-width);
     margin-inline: auto;
-    /* Smooth edges on narrow viewports; caps at design token */
-    padding-inline: clamp(
-      var(--space-gap-sm),
-      4vw,
-      var(--space-container-padding)
-    );
+    padding-inline: var(--space-container-padding);
   }
 
   /* Max-width only (full-bleed media inside, add your own inner padding) */

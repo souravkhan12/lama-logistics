@@ -137,9 +137,9 @@ export default function AboutMissionCarousel() {
               ))}
 
               <div className="relative z-10 flex min-h-[min(72vh,640px)] w-full items-center justify-center px-5 py-12 sm:px-8 lg:min-h-[600px] lg:px-10 lg:py-14">
-                <div className="flex w-full max-w-5xl flex-col items-center justify-center gap-10 lg:flex-row lg:items-center lg:justify-center lg:gap-12 xl:gap-16">
-                  {/* Dots + title — centered with card */}
-                  <div className="flex min-w-0 flex-row items-center justify-center gap-6 text-white lg:max-w-xl lg:gap-8">
+                {/* Full-width row: dots + large label (left) · card (right) — matches design reference */}
+                <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-8 xl:gap-12 2xl:gap-16">
+                  <div className="flex min-w-0 flex-1 flex-row items-center justify-center gap-5 text-white sm:gap-6 lg:justify-start lg:gap-8 xl:gap-10">
                     <div
                       className="flex shrink-0 flex-col items-center gap-3"
                       role="tablist"
@@ -154,7 +154,7 @@ export default function AboutMissionCarousel() {
                           aria-controls={`about-carousel-panel-${s.id}`}
                           id={`about-carousel-tab-${s.id}`}
                           onClick={() => goTo(i)}
-                          className={`size-2.5 shrink-0 rounded-md transition-colors duration-500 ease-out ${
+                          className={`size-2.5 shrink-0 rounded-full transition-colors duration-500 ease-out ${
                             i === active
                               ? "bg-white"
                               : "bg-white/45 hover:bg-white/70"
@@ -162,11 +162,11 @@ export default function AboutMissionCarousel() {
                         />
                       ))}
                     </div>
-                    <div className="min-w-0 overflow-hidden text-center lg:max-w-md">
+                    <div className="min-w-0 flex-1 overflow-hidden text-center lg:text-left">
                       <AnimatePresence mode="wait" initial={false}>
                         <motion.h2
                           key={slide.id}
-                          className="font-display text-h2"
+                          className="font-display text-h1 md:text-h0"
                           initial={titleMotion.initial}
                           animate={titleMotion.animate}
                           exit={titleMotion.exit}
@@ -178,7 +178,7 @@ export default function AboutMissionCarousel() {
                     </div>
                   </div>
 
-                  <div className="flex w-full shrink-0 justify-center lg:w-auto lg:max-w-[min(100%,520px)]">
+                  <div className="flex w-full shrink-0 justify-center lg:w-auto lg:max-w-[min(100%,540px)] lg:flex-none lg:justify-end">
                     <div className="relative w-full max-w-[520px] overflow-hidden rounded-md">
                       <AnimatePresence mode="wait" initial={false}>
                         <motion.article
