@@ -6,7 +6,7 @@ import CareersLeadership from "./careers-leadership";
 import CareersLifeField from "./careers-life-field";
 import CareersLtsWay from "./careers-lts-way";
 import CareersOpenings from "./careers-openings";
-import CareersPartnerships from "./careers-partnerships";
+import BrandsSection from "../home/brands-section";
 
 export default function CareersPage() {
   return (
@@ -17,7 +17,7 @@ export default function CareersPage() {
       <CareersOpenings />
       <CareersDontSeeRole />
       <CareersLeadership />
-      <CareersPartnerships />
+      <BrandsSection />
     </main>
   );
 }

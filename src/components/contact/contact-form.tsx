@@ -49,7 +49,7 @@ function UnderlineField({
 
 export default function ContactForm() {
   return (
-    <div className="rounded-lg bg-(--color-surface-cream) p-8 lg:p-10 xl:p-12">
+    <div className="rounded-lg bg-(--color-surface-cream) p-6 sm:p-8 lg:p-10 xl:p-12">
       <form
         className="flex flex-col gap-8"
         onSubmit={(e) => {

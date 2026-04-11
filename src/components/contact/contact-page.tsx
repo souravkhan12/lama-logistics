@@ -9,12 +9,12 @@ const PHONE_HREF = "tel:+18313469383";
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-(--color-bg) pb-24 pt-32 text-(--color-fg) lg:pb-32">
+    <main className="min-h-screen bg-(--color-bg) pb-16 pt-8 text-(--color-fg) lg:pb-32 lg:pt-32">
       <div className="layout-container">
-        <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-2 lg:gap-x-16 xl:gap-x-24">
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-x-16 xl:gap-x-24">
           {/* Left — copy & contact details */}
           <div className="flex max-w-xl flex-col gap-8 lg:max-w-none">
-            <h1 className="font-display text-h1 leading-tight md:text-h0">
+            <h1 className="font-display text-h1 leading-tight lg:text-h0">
               Let’s Talk!
             </h1>
             <p className="font-body text-b1">
@@ -95,7 +95,13 @@ function Box({ href, alt, src }: { href: string; alt: string; src: string }) {
       className="transition-opacity rounded-sm hover:opacity-80 bg-[#0A0227]"
       aria-label={alt}
     >
-      <Image src={src} alt={alt} width={60} height={60} />
+      <Image
+        src={src}
+        alt={alt}
+        width={60}
+        height={60}
+        className="size-12 lg:size-[60px]"
+      />
     </Link>
   );
 }
