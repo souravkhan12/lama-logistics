@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { siteEase } from "@/lib/motion-presets";
+import { siteDuration, siteEase } from "@/lib/motion-presets";
 
 export interface ServicesSectionCardProps {
   title: string;
@@ -21,13 +21,13 @@ export function ServicesSectionCard({
 
   return (
     <motion.article
-      className="flex h-full w-[332px] flex-col overflow-hidden rounded-md bg-(--color-surface-blush)"
+      className="flex h-full w-full flex-col overflow-hidden rounded-md bg-(--color-surface-blush)"
       whileHover={
         reduce
           ? undefined
-          : { y: -6, boxShadow: "0 18px 40px -12px rgba(15, 23, 42, 0.12)" }
+          : { y: -5, boxShadow: "0 20px 44px -14px rgba(15, 23, 42, 0.14)" }
       }
-      transition={{ duration: 0.28, ease: siteEase }}
+      transition={{ duration: siteDuration.hoverLift, ease: siteEase }}
     >
       <div className="relative aspect-video w-full shrink-0">
         <Image
@@ -40,7 +40,7 @@ export function ServicesSectionCard({
       </div>
 
       <div className="flex min-h-[220px] flex-1 flex-col p-6">
-        <h3 className="font-display text-b1 mb-2">{title}</h3>
+        <h3 className="font-display text-h2 md:text-b1 mb-2">{title}</h3>
 
         <p className="mb-4 flex-1 text-b3">{description}</p>
 

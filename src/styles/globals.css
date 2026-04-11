@@ -52,7 +52,7 @@
   --color-fg: #171717;
 
   --color-muted: #6b7280;
-  --color-border: #e5e7eb;
+  --color-border: #8e8e93;
 
   /* Warm surfaces (home sections, cards, badges) */
   --color-surface-cream: #fffaeb;
@@ -71,6 +71,23 @@
 
   /* Sector grid hover */
   --color-surface-sector-hover: #ebe6d9;
+
+  /* About — stat cards (light neutral panel) */
+  --color-surface-about-stat-card: #f4f4f5;
+
+  /* About — operational workflow (large muted step titles) */
+  --color-about-workflow-step-title: #d1d5db;
+
+  /* Careers page (`/careers`) */
+  --color-careers-hero-bg: #eef1f8;
+  --color-careers-panel-bg: #eceef8;
+  /* Job row meta line (`Decom • xxx • xxx`) — medium neutral gray on panel */
+  --color-careers-opening-meta: #8e8e93;
+
+  /* About — leadership accordion expanded row */
+  --color-leadership-expanded-bg: #05051a;
+  --color-leadership-expanded-fg: #ffffff;
+  --color-leadership-expanded-divider: rgb(255 255 255 / 0.14);
 
   /* Brand logo tile backgrounds (home) */
   --color-brand-tile-1: #1f1f1f;
@@ -109,6 +126,27 @@
   --radius-sm: 5px;
   --radius-md: 10px;
   --radius-lg: 14px;
+  --radius-xl: 24px;
+
+  /* About — mission / vision / approach carousel cards */
+  --color-about-carousel-card-mission: #4f46e5;
+  --color-about-carousel-card-vision: #3b52f1;
+  --color-about-carousel-card-approach: #2563eb;
+
+  /* About — join team CTA strip */
+  --gradient-about-join-team-cta: linear-gradient(
+    180deg,
+    #0a0227 0%,
+    #1f0280 33.17%,
+    #495aee 59.62%,
+    #92a9ec 81.25%,
+    #dce1f4 100%
+  );
+  --color-about-joincta-surface: #fffaeb;
+  --color-about-joincta-label-fg: #0a0227;
+
+  /* About — join team CTA (`join.svg` artboard 1440×308) */
+  --size-about-join-cta-h: 308px;
 
   /* ========== SPACING TOKENS (optional but useful) ========== */
   --space-btn-x: 32px;
@@ -121,9 +159,57 @@
   --space-gap-sm: 16px;
   --space-gap-md: 24px;
   --space-gap-lg: 32px;
+
+  /* About — stat cards (fixed layout from design) */
+  --size-about-stat-card-w: 452px;
+  --size-about-stat-card-h: 440px;
 }
 
 @layer components {
+  /* Mobile floating navbar pill */
+  .mobile-nav-pill {
+    position: relative;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+  }
+
+  .mobile-nav-pill::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      88.71deg,
+      rgba(255, 250, 235, 0.4) 86.8%,
+      rgba(0, 0, 0, 0.1) 119.98%
+    );
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+  }
+
+  @media (width >= 768px) {
+    .mobile-nav-pill {
+      border-radius: 0;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    .mobile-nav-pill::before {
+      display: none;
+    }
+  }
+
   /* Gradient fill for section badge icon (see `section-badge.tsx`) */
   .bg-badge-icon-gradient {
     background-image: var(--gradient-badge-icon);
@@ -134,7 +220,13 @@
     width: 100%;
     max-width: var(--space-container-max-width);
     margin-inline: auto;
-    padding-inline: var(--space-container-padding);
+    padding-inline: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .layout-container {
+      padding-inline: var(--space-container-padding);
+    }
   }
 
   /* Max-width only (full-bleed media inside, add your own inner padding) */
@@ -143,12 +235,106 @@
     max-width: var(--space-container-max-width);
     margin-inline: auto;
   }
+
+  .bg-about-join-team-cta {
+    background-image: var(--gradient-about-join-team-cta);
+  }
+
+  /**
+   * Horizontal padding matches `public/about/leadership/join.svg`:
+   * left inset 102px, right inset 197px at 1440px (scaled with viewport).
+   */
+  .layout-about-join-cta-inner {
+    width: 100%;
+    max-width: var(--space-container-max-width);
+    margin-inline: auto;
+    min-height: var(--size-about-join-cta-h);
+    padding-inline-start: clamp(20px, 7.083vw, 102px);
+    padding-inline-end: clamp(20px, 13.681vw, 197px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  @media (width < 1024px) {
+    .layout-about-join-cta-inner {
+      min-height: 0;
+      padding-block: 2.5rem;
+    }
+  }
+
+  @media (width >= 1024px) {
+    .layout-about-join-cta-inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+}
+
+@layer utilities {
+  @media (max-width: 767px) {
+    .text-h0 {
+      font-size: 40px !important;
+      line-height: 1.2 !important;
+    }
+
+    .text-h1 {
+      font-size: 33px !important;
+      line-height: 1.2 !important;
+      font-weight: 400 !important;
+    }
+
+    .text-b1 {
+      font-size: 16px !important;
+    }
+
+    .text-h2 {
+      font-size: 28px !important;
+      font-weight: 400 !important;
+    }
+
+    .text-b3 {
+      font-size: 16px !important;
+      font-weight: 400 !important;
+    }
+
+    .text-o1 {
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 1.2 !important;
+    }
+  }
 }
 
 :root {
   color: var(--color-fg);
   background: var(--color-bg);
   font-family: var(--font-body);
+  /* Carousel cards — duplicated here so inline `var(--color-about-carousel-*)` always resolves */
+  --color-about-carousel-card-mission: #4f46e5;
+  --color-about-carousel-card-vision: #3b52f1;
+  --color-about-carousel-card-approach: #2563eb;
+  --gradient-about-join-team-cta: linear-gradient(
+    180deg,
+    #0a0227 0%,
+    #1f0280 33.17%,
+    #495aee 59.62%,
+    #92a9ec 81.25%,
+    #dce1f4 100%
+  );
+  --color-about-joincta-surface: #fffaeb;
+  --color-about-joincta-label-fg: #0a0227;
+  --size-about-join-cta-h: 308px;
+  --color-about-workflow-step-title: #d1d5db;
+  --color-careers-hero-bg: #eef1f8;
+  --color-careers-panel-bg: #dce1f4;
+  --color-leadership-expanded-bg: #05051a;
+  --color-leadership-expanded-fg: #ffffff;
+  --color-leadership-expanded-divider: rgb(255 255 255 / 0.14);
 }
 
 /*

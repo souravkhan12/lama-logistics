@@ -10,6 +10,7 @@ import {
   StaggerItem,
 } from "@/components/motion";
 import SectionBadge from "@/components/section-badge";
+import { siteDuration, siteEase } from "@/lib/motion-presets";
 
 import {
   type NetworkExpertiseItem,
@@ -29,11 +30,11 @@ type ExpertiseRowProps = {
 function ExpertiseRow({ item, reduceMotion }: ExpertiseRowProps) {
   return (
     <article className={rowArticle}>
-      <div className=" flex items-center justify-between gap-6 md:gap-10">
-        {/* LEFT IMAGE */}
+      {/* Mobile: image full-width on top, content below */}
+      <div className="flex flex-col gap-4 md:hidden">
         <motion.div
-          className="relative w-[160px] md:w-[220px] h-[120px] md:h-[140px] shrink-0 overflow-hidden rounded-md"
-          transition={{ duration: 0.3 }}
+          className="relative h-[200px] w-full overflow-hidden rounded-md"
+          transition={{ duration: siteDuration.hoverSubtle, ease: siteEase }}
           whileHover={reduceMotion ? undefined : { scale: 1.02 }}
         >
           <Image
@@ -41,19 +42,42 @@ function ExpertiseRow({ item, reduceMotion }: ExpertiseRowProps) {
             alt={item.title}
             fill
             className="object-cover"
+            sizes="100vw"
+            unoptimized
           />
         </motion.div>
+        <div className="flex items-start gap-4">
+          <span className="shrink-0 font-display text-h3">{item.id}</span>
+          <div className="flex flex-col gap-1.5">
+            <h3 className="font-display text-h3">{item.title}</h3>
+            <p className="font-body text-b2 text-(--color-muted)">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      </div>
 
-        {/* RIGHT CONTENT */}
+      {/* Desktop: image left, content right */}
+      <div className="hidden items-center justify-between gap-10 md:flex">
+        <motion.div
+          className="relative h-[140px] w-[220px] shrink-0 overflow-hidden rounded-md"
+          transition={{ duration: siteDuration.hoverSubtle, ease: siteEase }}
+          whileHover={reduceMotion ? undefined : { scale: 1.02 }}
+        >
+          <Image
+            src={item.image}
+            alt={item.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            unoptimized
+          />
+        </motion.div>
         <div className="flex items-start gap-6">
-          {/* NUMBER */}
-          <span className="shrink-0 text-h2 font-display">{item.id}</span>
-
-          {/* TEXT CONTENT */}
+          <span className="shrink-0 font-display text-h2">{item.id}</span>
           <div className="flex flex-col gap-2">
             <h3 className="font-display text-h2">{item.title}</h3>
-
-            <p className="text-b1 font-body max-w-[744px] text-(--color-muted)">
+            <p className="font-body max-w-[744px] text-b1 text-(--color-muted)">
               {item.description}
             </p>
           </div>

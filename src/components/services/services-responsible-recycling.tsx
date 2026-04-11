@@ -126,7 +126,102 @@ function TimelineStep({
   );
 }
 
-export default function ServicesResponsibleRecycling() {
+function MobileLayout() {
+  return (
+    <div className="relative lg:hidden">
+      <div className="pointer-events-none absolute inset-0" role="presentation">
+        <Image
+          src={SECTION_BG}
+          alt=""
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          unoptimized
+        />
+      </div>
+
+      <div className="layout-container relative z-10 flex flex-col gap-10 py-(--space-section-padding) text-white">
+        {/* Header */}
+        <div className="flex flex-col gap-(--space-gap-md)">
+          <SectionBadge
+            label="SERVICE 03"
+            backgroundColor="var(--color-surface-cream)"
+            className="w-fit text-black"
+          />
+          <h2 className="font-display text-h1 text-white">
+            Responsible Recycling
+            <br />
+            &amp; Value Recovery
+          </h2>
+          <p className="font-body text-b2 leading-relaxed text-white/80">
+            Turning retired infrastructure into renewed capital through
+            sustainable asset management.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            {headerIcons.map((item) => (
+              <div key={item.label} className="flex items-center gap-2">
+                <div className="flex size-6 items-center justify-center">
+                  <Image src={item.src} alt={item.alt} width={18} height={18} />
+                </div>
+                <span className="font-body text-b2 leading-none text-white/90">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <Link
+            href="/contact"
+            className="group mt-2 inline-flex h-[48px] w-fit items-center gap-1 font-mono text-b2 leading-none tracking-wide text-(--color-fg) transition-opacity hover:opacity-95"
+          >
+            <span className="flex h-[48px] items-center rounded-sm bg-(--color-surface-cream) px-(--space-btn-x)">
+              GET STARTED
+            </span>
+            <span className="flex h-[48px] w-[48px] items-center justify-center rounded-sm bg-(--color-surface-cream) transition-transform duration-400 group-hover:translate-x-1">
+              <Image
+                src="/arrow.svg"
+                alt=""
+                width={20}
+                height={20}
+                className="brightness-0"
+              />
+            </span>
+          </Link>
+        </div>
+
+        {/* Steps — stacked vertically */}
+        <div className="flex flex-col gap-8">
+          {responsibleRecyclingSteps.map((step) => (
+            <div key={step.id} className="flex items-start gap-4">
+              <div className="mt-0.5 size-[32px] shrink-0">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 38 38"
+                  fill="none"
+                  role="presentation"
+                >
+                  <path d={NODE_PATH} fill="#FFFFFF" />
+                </svg>
+              </div>
+              <div className="flex flex-col gap-1">
+                <h3 className="font-display text-h3 text-white">
+                  {step.title}
+                </h3>
+                <p className="font-body text-b2 leading-relaxed text-white/70">
+                  {step.body}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DesktopLayout() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -137,7 +232,7 @@ export default function ServicesResponsibleRecycling() {
   const timelineProgress = useTransform(scrollYProgress, [0.08, 0.88], [0, 1]);
 
   return (
-    <div ref={scrollRef} className="relative min-h-[300vh]">
+    <div ref={scrollRef} className="relative hidden min-h-[300vh] lg:block">
       <div className="sticky top-0 flex h-dvh flex-col justify-center overflow-hidden text-white">
         <div
           className="pointer-events-none absolute inset-0"
@@ -153,8 +248,8 @@ export default function ServicesResponsibleRecycling() {
           />
         </div>
 
-        <div className="layout-container relative z-10 flex flex-col gap-16 lg:gap-24">
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-x-16 xl:gap-x-20">
+        <div className="layout-container relative z-10 flex flex-col gap-24">
+          <div className="grid grid-cols-2 items-start gap-x-16 xl:gap-x-20">
             <div className="flex max-w-[min(100%,680px)] flex-col gap-(--space-gap-md)">
               <SectionBadge
                 label="SERVICE 03"
@@ -168,14 +263,14 @@ export default function ServicesResponsibleRecycling() {
               </h2>
             </div>
 
-            <div className="flex flex-col gap-(--space-gap-lg) lg:ml-auto lg:max-w-[min(100%,520px)]">
+            <div className="ml-auto flex max-w-[min(100%,520px)] flex-col gap-(--space-gap-lg)">
               <StaggerContainer
-                className="flex flex-wrap items-center gap-x-8 gap-y-(--space-gap-md) sm:gap-x-10"
+                className="flex flex-wrap items-center gap-x-10 gap-y-(--space-gap-md)"
                 stagger={0.05}
               >
                 {headerIcons.map((item) => (
                   <StaggerItem key={item.label}>
-                    <div className="flex items-center gap-2.5 sm:gap-3">
+                    <div className="flex items-center gap-3">
                       <div className="flex size-7 items-center justify-center">
                         <Image
                           src={item.src}
@@ -204,7 +299,7 @@ export default function ServicesResponsibleRecycling() {
                 <span className="flex h-[54px] items-center rounded-sm bg-(--color-surface-cream) px-(--space-btn-x)">
                   GET STARTED
                 </span>
-                <span className="flex h-[54px] w-[54px] items-center justify-center rounded-sm bg-(--color-surface-cream) transition-transform duration-300 group-hover:translate-x-1">
+                <span className="flex h-[54px] w-[54px] items-center justify-center rounded-sm bg-(--color-surface-cream) transition-transform duration-400 group-hover:translate-x-1">
                   <Image
                     src="/arrow.svg"
                     alt=""
@@ -216,8 +311,8 @@ export default function ServicesResponsibleRecycling() {
               </Link>
             </div>
           </div>
-          {/* Timeline */}
-          <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-14 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-0">
+
+          <div className="grid grid-cols-4 gap-x-6">
             {responsibleRecyclingSteps.map((step, index) => (
               <TimelineStep
                 key={step.id}
@@ -230,5 +325,14 @@ export default function ServicesResponsibleRecycling() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ServicesResponsibleRecycling() {
+  return (
+    <>
+      <MobileLayout />
+      <DesktopLayout />
+    </>
   );
 }

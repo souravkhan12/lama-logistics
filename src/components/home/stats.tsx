@@ -9,19 +9,20 @@ import StatCard from "@/components/stat-card";
 export default function Stats() {
   return (
     <section>
-      <div className="layout-container-edge relative flex h-[520px] overflow-hidden">
-        <ScrollReveal className="relative h-full w-1/2">
+      <div className="layout-container-edge relative flex flex-col overflow-hidden lg:h-[520px] lg:flex-row">
+        <ScrollReveal className="relative h-[260px] w-full lg:h-full lg:w-1/2">
           <Image
             src="/ring.svg"
             alt="ring"
             fill
             className="object-cover"
-            priority
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            unoptimized
           />
         </ScrollReveal>
 
-        <div className="flex h-full w-1/2 items-center bg-(--color-surface-cream)">
-          <StaggerContainer className="grid w-full grid-cols-2 gap-x-16 gap-y-12 px-16">
+        <div className="flex w-full items-center bg-(--color-surface-cream) py-10 lg:h-full lg:w-1/2 lg:py-0">
+          <StaggerContainer className="grid w-full grid-cols-2 gap-x-8 gap-y-10 px-6 sm:gap-x-12 sm:gap-y-12 sm:px-10 lg:gap-x-16 lg:px-16">
             <StaggerItem>
               <StatCard value="99%" content="On-Time Project Delivery" />
             </StaggerItem>

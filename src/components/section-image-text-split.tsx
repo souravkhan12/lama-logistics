@@ -34,12 +34,14 @@ function TextBody({
   listItems,
   withLeadCta,
   ctaLabel,
+  showMobileCta,
 }: {
   paragraphs: readonly string[];
   listHeading: string;
   listItems: readonly string[];
   withLeadCta?: boolean;
   ctaLabel: string;
+  showMobileCta?: boolean;
 }) {
   return (
     <div className="flex min-w-0 flex-col gap-6 lg:justify-start lg:gap-8">
@@ -54,13 +56,37 @@ function TextBody({
         ))}
       </div>
       <div className="flex flex-col gap-3">
-        <p className="text-b1">{listHeading}</p>
-        <ul className="list-disc space-y-2 pl-5 text-b1">
+        <p className="font-display text-h3 lg:font-body lg:text-b1">
+          {listHeading}
+        </p>
+
+        {/* Desktop: bullet list */}
+        <ul className="hidden list-disc space-y-2 pl-5 text-b1 lg:block">
           {listItems.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
+
+        {/* Mobile: numbered cards */}
+        <div className="flex flex-col lg:hidden">
+          {listItems.map((item, i) => (
+            <div key={item}>
+              <div className="flex items-center gap-4 py-4">
+                <span className="flex h-10 w-12 shrink-0 items-center justify-center rounded-sm bg-[#DCE1F44D] font-mono text-b2">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-display text-b1">{item}</span>
+              </div>
+              {i < listItems.length - 1 && <div className="h-px bg-black/10" />}
+            </div>
+          ))}
+        </div>
       </div>
+      {showMobileCta ? (
+        <div className="lg:hidden">
+          <Button variant="secondary">{ctaLabel}</Button>
+        </div>
+      ) : null}
     </div>
   );
 }
@@ -104,18 +130,21 @@ export default function SectionImageTextSplit({
     const mediaOnRight = imagePosition === "right";
     const textColumn = (
       <div className="flex min-w-0 flex-col gap-6 lg:gap-8">
-        <h2 className="font-display text-h0">{title}</h2>
+        <h2 className="font-display text-h1 lg:text-h0">{title}</h2>
         <TextBody
           paragraphs={paragraphs}
           listHeading={listHeading}
           listItems={listItems}
           ctaLabel={ctaLabel}
+          showMobileCta
         />
       </div>
     );
     const mediaColumn = (
       <div className="flex h-full min-w-0 flex-col gap-6 lg:gap-8">
-        <Button variant="secondary">{ctaLabel}</Button>
+        <div className="hidden lg:block">
+          <Button variant="secondary">{ctaLabel}</Button>
+        </div>
         <ImageArea areaClassName="min-h-[280px] flex-1" />
       </div>
     );
@@ -149,7 +178,7 @@ export default function SectionImageTextSplit({
     );
   }
 
-  const stretchImage = "min-h-[280px]";
+  const stretchImage = "min-h-[220px] lg:min-h-[280px]";
 
   const contentGrid = `grid w-full items-stretch ${gridGap}`;
 
@@ -160,8 +189,10 @@ export default function SectionImageTextSplit({
   const headerRow = (
     <ScrollReveal className="w-full">
       <div className={`grid w-full ${gridGap} lg:items-end`}>
-        <h2 className="font-display text-h0">{title}</h2>
-        <Button variant="secondary">{ctaLabel}</Button>
+        <h2 className="font-display text-h1 lg:text-h0">{title}</h2>
+        <div className="hidden lg:block">
+          <Button variant="secondary">{ctaLabel}</Button>
+        </div>
       </div>
     </ScrollReveal>
   );
@@ -181,6 +212,7 @@ export default function SectionImageTextSplit({
           listHeading={listHeading}
           listItems={listItems}
           ctaLabel={ctaLabel}
+          showMobileCta
         />
       </div>
     </ScrollReveal>

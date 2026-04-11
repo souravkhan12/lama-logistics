@@ -66,6 +66,8 @@ Single source of truth: **`src/styles/globals.css`** (`@theme inline { ... }`). 
 - **Body:** `font-body` with `text-b1`, `text-b2`, `text-b3` as appropriate.
 - **Mono / labels:** `font-mono` with `text-o1` (uppercase section labels, buttons copy style per existing components).
 
+**Do not stack redundant `leading-*`, font-size, or font-weight utilities** on those `text-*` classes — size, line-height, and weight already come from `@theme inline` in `globals.css`. See **`.cursor/skills/skills.md`** (typography tokens skill).
+
 Match heading hierarchy and sizes to neighboring sections; copy **`section-badge.tsx`**, **`button.tsx`**, and existing heroes for patterns.
 
 ### Spacing and layout
@@ -83,7 +85,7 @@ Radius scales are defined in `@theme inline` as `--radius-sm`, `--radius-md`, `-
 
 ### Motion
 
-- Reuse **`src/lib/motion-presets.ts`**: `siteEase`, `defaultViewport` for scroll/enter animations.
+- Reuse **`src/lib/motion-presets.ts`**: `siteEase`, `siteDuration`, `defaultViewport`, and `siteSpringContent` (accordions) for scroll, hero, and micro-interactions — avoid one-off duration/easing values when a preset fits.
 - Prefer **`ScrollReveal`**, **`StaggerContainer`**, **`StaggerItem`** from `src/components/motion/` instead of one-off viewport logic unless the design requires it.
 
 ### Components
