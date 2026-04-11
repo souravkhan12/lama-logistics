@@ -24,7 +24,7 @@ export default function CareersLifeField() {
                   label="Our structure"
                   backgroundColor="var(--color-surface-cream)"
                 />
-                <h2 className="font-display text-h1 font-light md:text-h0">
+                <h2 className="font-display text-h1 font-light lg:text-h0">
                   Life in the Field
                 </h2>
               </div>
@@ -39,8 +39,34 @@ export default function CareersLifeField() {
               </div>
             </div>
 
-            {/* Rows: fixed-size images (left) + copy (right), vertically centered per row */}
-            <div className="grid grid-cols-1 items-center gap-y-10 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-14 xl:gap-x-16">
+            {/* Mobile: stacked cards with full-width images */}
+            <div className="flex flex-col gap-10 lg:hidden">
+              {CAREERS_FIELD_ROWS.map((row, i) => (
+                <div key={row.id}>
+                  <div className="flex flex-col gap-4">
+                    <div className="relative aspect-[3/2] w-full overflow-hidden rounded-md">
+                      <Image
+                        src={row.imageSrc}
+                        alt=""
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                      />
+                    </div>
+                    <p className="font-display text-h3 text-(--color-muted)">
+                      {row.titleMuted}
+                    </p>
+                    <p className="font-body text-b1">{row.titleLead}</p>
+                  </div>
+                  {i < CAREERS_FIELD_ROWS.length - 1 && (
+                    <div className="mt-10 h-px bg-(--color-border)" />
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop: 2-col grid with fixed-size images */}
+            <div className="hidden items-center gap-y-14 lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
               {CAREERS_FIELD_ROWS.map((row) => (
                 <Fragment key={row.id}>
                   <div className="relative h-[200px] w-full max-w-[296px] shrink-0 overflow-hidden rounded-md">

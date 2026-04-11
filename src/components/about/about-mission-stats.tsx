@@ -22,19 +22,19 @@ export default function AboutMissionStats() {
   return (
     <section className="bg-(--color-bg) py-(--space-section-padding) text-(--color-fg)">
       <div className="layout-container flex flex-col gap-10 lg:gap-16">
-        <h2 className="font-display max-w-[700px] text-h1 leading-tight md:text-h0 md:leading-tight">
+        <h2 className="font-display max-w-[700px] text-h1 leading-tight lg:text-h0 lg:leading-tight">
           We’re here to clear the path for{" "}
           <span className="text-(--color-muted)">what’s next.</span>
         </h2>
 
         <div className="flex justify-end items-end w-full">
           <div className="flex flex-col gap-6 lg:max-w-[660px]">
-            <p className="font-body text-h2 ">
+            <p className="font-body text-b1 lg:text-h2">
               We’ve built our team on a simple promise: to handle your
               infrastructure with the same care and precision you used to build
               it.
             </p>
-            <p className="font-body text-h2 ">
+            <p className="font-body text-b1 lg:text-h2">
               Whether we are auditing a live site or recovering value from
               retired assets, we treat every project as a true partnership. For
               us, it’s about being responsive, staying disciplined, and ensuring
@@ -50,7 +50,7 @@ export default function AboutMissionStats() {
               className="flex flex-col overflow-hidden rounded-lg bg-(--color-surface-about-stat-card)"
             >
               <div className="flex flex-col gap-3 px-6 pt-8 pb-2">
-                <p className="font-display text-h0">{item.value}</p>
+                <p className="font-display text-h1 lg:text-h0">{item.value}</p>
                 <p className="font-body text-b1">{item.label}</p>
               </div>
 

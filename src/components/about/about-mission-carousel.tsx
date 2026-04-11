@@ -141,7 +141,7 @@ export default function AboutMissionCarousel() {
                 <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-8 xl:gap-12 2xl:gap-16">
                   <div className="flex min-w-0 flex-1 flex-row items-center justify-center gap-5 text-white sm:gap-6 lg:justify-start lg:gap-8 xl:gap-10">
                     <div
-                      className="flex shrink-0 flex-col items-center gap-3"
+                      className="shrink-0 flex-col items-center gap-3 hidden lg:flex"
                       role="tablist"
                       aria-label="Choose slide"
                     >

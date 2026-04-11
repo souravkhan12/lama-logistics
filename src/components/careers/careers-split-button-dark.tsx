@@ -18,12 +18,12 @@ export default function CareersSplitButtonDark({
     <Link
       href={href}
       aria-label={ariaLabel ?? label}
-      className="group inline-flex h-[54px] w-fit items-center gap-(--space-gap-sm) font-mono text-b2 leading-none tracking-wide text-white transition-all duration-400"
+      className="group inline-flex h-[48px] w-auto items-center gap-1 font-mono text-o1 leading-none tracking-wide text-white transition-all duration-400 md:h-[54px] md:gap-(--space-gap-sm) md:text-b2"
     >
-      <span className="flex h-[54px] min-h-[54px] shrink-0 items-center rounded-sm bg-black px-(--space-btn-x) transition-colors group-hover:bg-(--color-primary)">
+      <span className="flex h-[48px] min-h-[48px] shrink-0 items-center whitespace-nowrap rounded-sm bg-black px-4 transition-colors group-hover:bg-(--color-primary) md:h-[54px] md:min-h-[54px] md:px-(--space-btn-x)">
         {label}
       </span>
-      <span className="flex h-[54px] w-[54px] min-h-[54px] min-w-[54px] shrink-0 items-center justify-center rounded-sm bg-black transition-all duration-400 group-hover:translate-x-1 group-hover:bg-(--color-primary)">
+      <span className="flex h-[48px] w-[48px] min-h-[48px] min-w-[48px] shrink-0 items-center justify-center rounded-sm bg-black transition-all duration-400 group-hover:translate-x-1 group-hover:bg-(--color-primary) md:h-[54px] md:w-[54px] md:min-h-[54px] md:min-w-[54px]">
         <Image src="/arrow.svg" alt="" width={20} height={20} />
       </span>
     </Link>

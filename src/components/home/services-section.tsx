@@ -52,15 +52,16 @@ export default function ServicesSection() {
             <h2 className="flex-1 font-display text-h2 leading-tight text-(--color-fg) md:text-h1">
               Protecting{" "}
               <span className="text-(--color-muted)">your value</span> through
-              <br />
+              <br className="hidden md:block" /> {""}
               every network cycle
             </h2>
 
             <p className="flex-1 text-b1">
               We remove, recover, and repurpose your assets across all
-              <br />
+              <br className="hidden md:block" /> {""}
               environments—maximizing value with zero disruption and
-              <br /> total environmental compliance.
+              <br className="hidden md:block" /> {""} total environmental
+              compliance.
             </p>
           </div>
         </ScrollReveal>

@@ -6,8 +6,8 @@ import SectionBadge from "@/components/section-badge";
 export default function AboutSection() {
   return (
     <section>
-      <div className="layout-container relative flex h-[665px] items-center overflow-hidden">
-        <div className="absolute left-10 top-0 bottom-0 z-0 h-full w-full opacity-60">
+      <div className="layout-container relative flex items-center overflow-hidden py-(--space-section-padding) lg:h-[665px] lg:py-0">
+        <div className="absolute left-10 top-0 bottom-0 z-0 hidden h-full w-full opacity-60 lg:block">
           <Image
             src="/grid-home.svg"
             alt="background"
@@ -37,7 +37,13 @@ export default function AboutSection() {
               </span>
             </h2>
 
-            <p className="mt-6 max-w-[600px] text-b2 leading-relaxed text-(--color-muted)">
+            <p className="md:hidden mt-6 max-w-[600px] text-b2 leading-relaxed text-(--color-muted)">
+              We streamline infrastructure retirement to minimize risk and
+              maximize sustainability, returning legacy assets to the circular
+              economy.
+            </p>
+
+            <p className="hidden md:block mt-6 max-w-[600px] text-b2 leading-relaxed text-(--color-muted)">
               Our decommissioning and asset lifecycle management services ensure
               legacy infrastructure is removed efficiently, risk is minimized in
               live environments, and materials and equipment are returned to the

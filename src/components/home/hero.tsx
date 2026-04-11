@@ -12,8 +12,8 @@ export default function Hero() {
 
   return (
     <section>
-      <div className="layout-container">
-        <div className="relative grid h-(--space-hero-height) overflow-hidden rounded-t-lg">
+      <div className="mx-auto max-w-(--space-container-max-width) md:px-(--space-container-padding)">
+        <div className="relative grid h-[705px] overflow-hidden rounded-none md:rounded-t-lg lg:h-(--space-hero-height)">
           <motion.div
             className="absolute inset-0"
             initial={reduce ? false : { scale: 1.04, opacity: 0.92 }}
@@ -35,9 +35,9 @@ export default function Hero() {
 
           <div className="absolute inset-0 bg-black/50" />
 
-          <div className="relative z-10 grid items-end p-6 sm:p-8 lg:p-10">
+          <div className="relative z-10 grid items-end p-4 sm:p-8 lg:p-10">
             <motion.h1
-              className="max-w-4xl font-display text-h0 leading-tight text-white"
+              className="md:max-w-4xl font-display text-h0 leading-tight text-white"
               initial={reduce ? false : { opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -47,8 +47,9 @@ export default function Hero() {
               }}
             >
               Powering a Smarter,
-              <br />
-              Circular Telecom Economy
+              <br className="hidden md:block" />
+              Circular
+              <br className="md:hidden" /> Telecom Economy
             </motion.h1>
           </div>
         </div>

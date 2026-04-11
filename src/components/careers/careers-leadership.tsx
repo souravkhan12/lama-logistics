@@ -18,7 +18,7 @@ export default function CareersLeadership() {
             label="WORK WITH US"
             backgroundColor="var(--color-surface-cream)"
           />
-          <h2 className="font-display text-h1 font-light md:text-h0">
+          <h2 className="font-display text-h1 font-light lg:text-h0">
             Meet the Leadership
           </h2>
           <p className="max-w-xl font-body text-b1 text-(--color-text-body)">

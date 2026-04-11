@@ -27,7 +27,48 @@ export default function CareersPartnerships() {
           </div>
         </ScrollReveal>
 
-        <StaggerContainer className="mt-14 flex flex-wrap justify-center gap-4">
+        {/* Mobile grid */}
+        <div className="mt-10 lg:hidden">
+          <div className="grid grid-cols-3 gap-2">
+            {CAREERS_BRAND_TILES.slice(0, 3).map((brand) => (
+              <div
+                key={brand.name}
+                className={`flex h-[110px] items-center justify-center ${brand.bg}`}
+                style={{ borderRadius: "9.89px" }}
+              >
+                <Image
+                  src={brand.src}
+                  alt={brand.name}
+                  width={80}
+                  height={32}
+                  className="object-contain"
+                />
+              </div>
+            ))}
+          </div>
+          {CAREERS_BRAND_TILES.length > 3 && (
+            <div className="mt-2 flex justify-center gap-2">
+              {CAREERS_BRAND_TILES.slice(3).map((brand) => (
+                <div
+                  key={brand.name}
+                  className={`flex h-[110px] w-[calc(33.333%-4px)] items-center justify-center ${brand.bg}`}
+                  style={{ borderRadius: "9.89px" }}
+                >
+                  <Image
+                    src={brand.src}
+                    alt={brand.name}
+                    width={80}
+                    height={32}
+                    className="object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Desktop grid */}
+        <StaggerContainer className="mt-14 hidden flex-wrap justify-center gap-4 lg:flex">
           {CAREERS_BRAND_TILES.map((brand) => (
             <StaggerItem key={brand.name}>
               <div

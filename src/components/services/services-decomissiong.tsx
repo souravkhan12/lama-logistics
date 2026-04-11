@@ -101,12 +101,12 @@ export default function ServicesDecomissiong() {
                   >
                     <div className="flex min-w-0 flex-1 items-start gap-4">
                       <span
-                        className="flex h-[57px] w-[57px] text-h2 shrink-0 items-center justify-center rounded-xs bg-[#E8EAFB] font-display text-footer-bg"
+                        className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-xs bg-[#E8EAFB] font-display text-h3 text-footer-bg md:h-[57px] md:w-[57px] md:text-h2"
                         aria-hidden
                       >
                         {item.id}
                       </span>
-                      <span className="min-w-0 pt-1.5 text-h2 font-display">
+                      <span className="min-w-0 pt-1.5 font-display text-h3 md:text-h2">
                         {item.title}
                       </span>
                     </div>

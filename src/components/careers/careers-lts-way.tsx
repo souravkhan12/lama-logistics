@@ -20,7 +20,7 @@ export default function CareersLtsWay() {
               label="Our core values"
               backgroundColor="var(--color-surface-cream)"
             />
-            <h2 className="font-display text-h1 font-light md:text-h0">
+            <h2 className="font-display text-h1 font-light lg:text-h0">
               The LTS Way
             </h2>
           </div>
@@ -33,7 +33,7 @@ export default function CareersLtsWay() {
         <StaggerContainer className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {CAREERS_LTS_PILLARS.map((pillar) => (
             <StaggerItem key={pillar.id}>
-              <article className="flex h-[335px] w-[448px] max-w-full flex-col gap-4 overflow-hidden rounded-lg bg-(--color-surface-cream) p-8 shadow-sm">
+              <article className="flex h-auto min-h-[280px] w-full flex-col gap-4 overflow-hidden rounded-lg bg-(--color-surface-cream) p-6 shadow-sm sm:p-8 lg:h-[335px] lg:w-[448px] lg:max-w-full">
                 <div className="relative h-[100px] w-[100px] shrink-0">
                   <Image
                     src={pillar.illustrationSrc}

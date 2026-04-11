@@ -110,7 +110,7 @@ export default function AboutLeadership() {
 
       <div className="layout-container">
         <ScrollReveal className="mb-12 lg:mb-16">
-          <h2 className="font-display text-h1 md:text-h0">Leadership Team</h2>
+          <h2 className="font-display text-h1 lg:text-h0">Leadership Team</h2>
         </ScrollReveal>
 
         <ul className="flex flex-col border-t border-(--color-border)">

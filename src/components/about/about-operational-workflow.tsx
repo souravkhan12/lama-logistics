@@ -20,7 +20,7 @@ export default function AboutOperationalWorkflow() {
           <div className="text-(--color-footer-bg)">
             <h2
               id="about-operational-workflow-heading"
-              className="font-display text-h1 md:text-h0"
+              className="font-display text-h1 lg:text-h0"
             >
               Operational Workflow
             </h2>
@@ -32,7 +32,9 @@ export default function AboutOperationalWorkflow() {
             <StaggerItem key={step.id}>
               <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-x-12 xl:gap-x-20 2xl:gap-x-24">
                 <div className="text-(--color-about-workflow-step-title)">
-                  <h3 className="font-display text-h0">{step.title}</h3>
+                  <h3 className="font-display text-h1 lg:text-h0">
+                    {step.title}
+                  </h3>
                 </div>
                 <div className="flex min-w-0 flex-col gap-4">
                   <p className="font-mono text-o1 text-(--color-neutral-icon)">

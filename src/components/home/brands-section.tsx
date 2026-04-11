@@ -38,21 +38,63 @@ export default function BrandsSection() {
   return (
     <section className="py-(--space-section-padding)">
       <div className="layout-container-edge">
-        <ScrollReveal className="flex flex-col gap-6">
-          <div className="flex items-start justify-between">
+        <ScrollReveal className="flex flex-col gap-6 px-(--space-container-padding)">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
             <SectionBadge
               label="WHY CHOOSE US"
               backgroundColor="var(--color-surface-cream)"
             />
 
-            <h2 className="max-w-[786px] font-display text-h1">
-              We’ve built long lasting partnerships with the most ambitious
+            <h2 className="max-w-[786px] font-display text-h2 lg:text-h1">
+              We&apos;ve built long lasting partnerships with the most ambitious
               brands across the globe
             </h2>
           </div>
         </ScrollReveal>
 
-        <StaggerContainer className="mt-14 flex flex-wrap justify-center gap-4">
+        {/* Mobile: row 1 — 3 equal cards, row 2 — 2 same-size cards centered */}
+        <div className="mt-10 flex flex-col gap-3 px-(--space-container-padding) lg:hidden">
+          <StaggerContainer className="grid grid-cols-3 gap-3">
+            {brands.slice(0, 3).map((brand) => (
+              <StaggerItem key={brand.name}>
+                <div
+                  className={`flex h-[110px] w-full items-center justify-center ${brand.bg}`}
+                  style={{ borderRadius: "9.89px" }}
+                >
+                  <Image
+                    src={brand.src}
+                    alt={brand.name}
+                    width={80}
+                    height={32}
+                    className="object-contain"
+                  />
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <StaggerContainer className="flex justify-center gap-3">
+            {brands.slice(3).map((brand) => (
+              <StaggerItem key={brand.name} className="w-[calc(33.333%-4px)]">
+                <div
+                  className={`flex h-[110px] w-full items-center justify-center ${brand.bg}`}
+                  style={{ borderRadius: "9.89px" }}
+                >
+                  <Image
+                    src={brand.src}
+                    alt={brand.name}
+                    width={80}
+                    height={32}
+                    className="object-contain"
+                  />
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+
+        {/* Desktop: original flex-wrap layout */}
+        <StaggerContainer className="mt-14 hidden flex-wrap justify-center gap-4 px-(--space-container-padding) lg:flex">
           {brands.map((brand) => (
             <StaggerItem key={brand.name}>
               <div

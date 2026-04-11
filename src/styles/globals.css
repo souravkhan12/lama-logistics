@@ -166,6 +166,50 @@
 }
 
 @layer components {
+  /* Mobile floating navbar pill */
+  .mobile-nav-pill {
+    position: relative;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+  }
+
+  .mobile-nav-pill::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      88.71deg,
+      rgba(255, 250, 235, 0.4) 86.8%,
+      rgba(0, 0, 0, 0.1) 119.98%
+    );
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+  }
+
+  @media (width >= 768px) {
+    .mobile-nav-pill {
+      border-radius: 0;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    .mobile-nav-pill::before {
+      display: none;
+    }
+  }
+
   /* Gradient fill for section badge icon (see `section-badge.tsx`) */
   .bg-badge-icon-gradient {
     background-image: var(--gradient-badge-icon);
@@ -176,7 +220,13 @@
     width: 100%;
     max-width: var(--space-container-max-width);
     margin-inline: auto;
-    padding-inline: var(--space-container-padding);
+    padding-inline: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .layout-container {
+      padding-inline: var(--space-container-padding);
+    }
   }
 
   /* Max-width only (full-bleed media inside, add your own inner padding) */
@@ -221,6 +271,41 @@
       align-items: center;
       justify-content: space-between;
       gap: 0;
+    }
+  }
+}
+
+@layer utilities {
+  @media (max-width: 767px) {
+    .text-h0 {
+      font-size: 40px !important;
+      line-height: 1.2 !important;
+    }
+
+    .text-h1 {
+      font-size: 33px !important;
+      line-height: 1.2 !important;
+      font-weight: 400 !important;
+    }
+
+    .text-b1 {
+      font-size: 16px !important;
+    }
+
+    .text-h2 {
+      font-size: 28px !important;
+      font-weight: 400 !important;
+    }
+
+    .text-b3 {
+      font-size: 16px !important;
+      font-weight: 400 !important;
+    }
+
+    .text-o1 {
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 1.2 !important;
     }
   }
 }

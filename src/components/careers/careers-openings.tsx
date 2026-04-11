@@ -20,7 +20,7 @@ export default function CareersOpenings() {
                 label="WORK WITH US"
                 backgroundColor="var(--color-surface-cream)"
               />
-              <h2 className="font-display text-h1 md:text-h0">
+              <h2 className="font-display text-h1 lg:text-h0">
                 Current Openings
               </h2>
             </div>
@@ -47,12 +47,12 @@ export default function CareersOpenings() {
                   <p className="font-body text-b1">{job.subtitle}</p>
                 </div>
               </div>
-              <div className="flex justify-center px-2 lg:flex-1">
-                <p className="max-w-full text-center whitespace-normal font-body text-b1 text-(--color-careers-opening-meta) md:whitespace-nowrap">
+              <div className="flex px-0 lg:justify-center lg:px-2 lg:flex-1">
+                <p className="max-w-full whitespace-normal font-body text-b1 text-(--color-careers-opening-meta) lg:text-center md:whitespace-nowrap">
                   {job.meta}
                 </p>
               </div>
-              <div className="flex justify-end lg:flex-1">
+              <div className="flex lg:justify-end lg:flex-1">
                 <CareersSplitButtonDark
                   href={`mailto:${CAREERS_HR_EMAIL}?subject=${encodeURIComponent(`Application: ${job.title}`)}`}
                   label="APPLY NOW"

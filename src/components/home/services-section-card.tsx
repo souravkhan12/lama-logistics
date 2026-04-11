@@ -21,7 +21,7 @@ export function ServicesSectionCard({
 
   return (
     <motion.article
-      className="flex h-full w-[332px] flex-col overflow-hidden rounded-md bg-(--color-surface-blush)"
+      className="flex h-full w-full flex-col overflow-hidden rounded-md bg-(--color-surface-blush)"
       whileHover={
         reduce
           ? undefined
@@ -40,7 +40,7 @@ export function ServicesSectionCard({
       </div>
 
       <div className="flex min-h-[220px] flex-1 flex-col p-6">
-        <h3 className="font-display text-b1 mb-2">{title}</h3>
+        <h3 className="font-display text-h2 md:text-b1 mb-2">{title}</h3>
 
         <p className="mb-4 flex-1 text-b3">{description}</p>
 
