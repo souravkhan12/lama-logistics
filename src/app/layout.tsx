@@ -30,7 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${funnelDisplay.variable} ${martianMono.variable} ${matter.variable}`}
     >
-      <body className="font-body antialiased">
+      <body className="font-body overflow-x-clip antialiased">
         <Navbar />
         {children}
         <Footer />

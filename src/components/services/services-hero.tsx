@@ -12,12 +12,12 @@ export default function ServicesHero() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative w-full overflow-x-hidden bg-(--color-bg) pt-6 pb-16 md:pt-10 md:pb-24">
+    <section className="relative w-full overflow-x-hidden bg-(--color-bg) pt-8 pb-16 md:pt-10 md:pb-24">
       <div className="layout-container relative xl:min-h-[min(360px,42vh)] 2xl:min-h-[min(400px,46vh)]">
         {/* Mobile / tablet layout: image on top, text below */}
         <div className="flex flex-col gap-8 xl:hidden">
           <motion.div
-            className="relative h-[280px] w-full sm:h-[300px] md:h-[320px]"
+            className="relative mx-auto h-[min(260px,52vw)] w-full max-w-[min(100%,560px)] sm:h-[min(280px,48vw)] sm:max-w-[min(100%,620px)] md:h-[300px] md:max-w-none lg:h-[320px]"
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{

@@ -15,11 +15,11 @@ export default function IndustriesHero() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="layout-container relative overflow-visible bg-(--color-bg) pb-0 pt-6 xl:pt-(--space-section-padding)">
+    <section className="layout-container relative overflow-x-clip bg-(--color-bg) pb-0 pt-6 md:pt-8 xl:overflow-x-visible xl:pt-(--space-section-padding)">
       {/* Mobile / tablet: image on top, text below (matches services & about heroes) */}
       <div className="flex flex-col gap-8 xl:hidden">
         <motion.div
-          className="pointer-events-none relative aspect-4/3 w-full"
+          className="pointer-events-none relative mx-auto aspect-4/3 w-full max-w-[min(100%,480px)] sm:max-w-[min(100%,520px)] md:max-w-[min(100%,580px)]"
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{

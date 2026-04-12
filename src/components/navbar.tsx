@@ -26,7 +26,6 @@ const NAV_LINKS = [
   { href: "/about", label: "ABOUT" },
   { href: "/services", label: "SERVICES" },
   { href: "/industries", label: "INDUSTRIES" },
-  { href: "/careers", label: "CAREERS" },
 ] as const;
 
 const navGetStartedClassName =
@@ -137,7 +136,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => router.push("/")}
-              className="flex cursor-pointer items-center gap-3 border-0 bg-transparent p-0 text-left"
+              className="flex shrink-0 cursor-pointer items-center gap-2 border-0 bg-transparent p-0 text-left md:gap-3"
               aria-label="Go to home"
             >
               <Image
@@ -157,8 +156,8 @@ export default function Navbar() {
               </div>
             </button>
 
-            <div className="flex items-center gap-(--space-gap-md)">
-              <nav className="hidden items-center gap-(--space-gap-md) md:flex">
+            <div className="flex shrink-0 items-center gap-2 md:gap-(--space-gap-md)">
+              <nav className="hidden items-center gap-4 lg:gap-(--space-gap-md) lg:flex">
                 {NAV_LINKS.map((link) => (
                   <Link
                     key={link.href}
@@ -180,7 +179,7 @@ export default function Navbar() {
 
               <button
                 type="button"
-                className="flex size-10 items-center justify-center md:hidden"
+                className="flex size-10 shrink-0 items-center justify-center lg:hidden"
                 onClick={toggleMenu}
                 aria-label={menuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={menuOpen}
@@ -203,7 +202,7 @@ export default function Navbar() {
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.35, ease: siteEase }}
-                className="overflow-hidden md:hidden"
+                className="overflow-hidden lg:hidden"
                 aria-label="Mobile navigation"
               >
                 <div className="flex flex-col gap-1 border-t border-black/8 px-2 py-4">
