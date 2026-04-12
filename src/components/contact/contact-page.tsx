@@ -9,7 +9,7 @@ const PHONE_HREF = "tel:+18313469383";
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-(--color-bg) pb-16 pt-8 text-(--color-fg) lg:pb-32 lg:pt-32">
+    <main className="min-h-screen bg-(--color-bg) pb-10 pt-8 text-(--color-fg) lg:pb-14 lg:pt-32">
       <div className="layout-container">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-x-16 xl:gap-x-24">
           {/* Left — copy & contact details */}

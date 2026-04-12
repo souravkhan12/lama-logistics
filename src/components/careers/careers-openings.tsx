@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
+
 import { ScrollReveal } from "@/components/motion";
 import SectionBadge from "@/components/section-badge";
-import { CAREERS_HR_EMAIL, CAREERS_JOBS } from "@/data/careers-data";
+import { CAREERS_JOBS } from "@/data/careers-data";
 
 import CareersSplitButtonDark from "./careers-split-button-dark";
 
@@ -41,12 +43,15 @@ export default function CareersOpenings() {
               key={job.id}
               className="flex flex-col gap-6 border-b border-(--color-border) py-10 last:border-b-0 lg:flex-row lg:items-center lg:gap-8 lg:py-12"
             >
-              <div className="min-w-0 lg:flex-1">
+              <Link
+                href={`/careers/${job.id}`}
+                className="min-w-0 text-left transition-opacity hover:opacity-80 lg:flex-1"
+              >
                 <p className="font-display text-h1 font-light">{job.title}</p>
                 <div className="mt-1">
                   <p className="font-body text-b1">{job.subtitle}</p>
                 </div>
-              </div>
+              </Link>
               <div className="flex px-0 lg:justify-center lg:px-2 lg:flex-1">
                 <p className="max-w-full whitespace-normal font-body text-b1 text-(--color-careers-opening-meta) lg:text-center md:whitespace-nowrap">
                   {job.meta}
@@ -54,9 +59,9 @@ export default function CareersOpenings() {
               </div>
               <div className="flex lg:justify-end lg:flex-1">
                 <CareersSplitButtonDark
-                  href={`mailto:${CAREERS_HR_EMAIL}?subject=${encodeURIComponent(`Application: ${job.title}`)}`}
+                  href={`/careers/${job.id}`}
                   label="APPLY NOW"
-                  ariaLabel={`Apply for ${job.title}`}
+                  ariaLabel={`View ${job.title} role details`}
                 />
               </div>
             </li>

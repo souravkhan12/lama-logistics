@@ -5,9 +5,9 @@ import { ScrollReveal } from "@/components/motion";
 
 export default function ExploreServicesCta() {
   return (
-    <section className="relative flex flex-col overflow-hidden bg-(--color-surface-cream) pt-14 lg:h-[440px] lg:min-h-[400px] lg:flex-row lg:items-center lg:pt-0 lg:py-0">
-      <div className="layout-container relative z-10 w-full">
-        <ScrollReveal className="flex max-w-[580px] shrink-0 flex-col gap-6">
+    <section className="relative overflow-hidden bg-(--color-surface-cream) py-14 lg:py-12">
+      <div className="layout-container relative z-10 flex w-full flex-col gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-10 xl:gap-14">
+        <ScrollReveal className="flex max-w-[min(100%,580px)] shrink-0 flex-col gap-6">
           <div className="flex flex-col gap-4">
             <h2 className="font-display text-h1 leading-[1.1] text-(--color-fg)">
               Ready to streamline your <br className="hidden md:block" />
@@ -32,20 +32,17 @@ export default function ExploreServicesCta() {
             </Link>
           </div>
         </ScrollReveal>
-      </div>
 
-      {/* Corrected Pattern Container */}
-      <div className="pointer-events-none relative mt-10 h-[160px] w-full shrink-0 lg:absolute lg:inset-y-0 lg:right-0 lg:mt-0 lg:h-full lg:w-1/2 xl:w-[45%]">
-        <Image
-          src="/industries/explore.svg"
-          alt=""
-          fill
-          // object-cover ensures it fills the entire vertical space from top to bottom
-          // object-right anchors the pattern to the right edge as seen in your screenshot
-          className="object-cover object-right"
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          unoptimized
-        />
+        <div className="pointer-events-none relative aspect-[2/1] w-full min-w-0 max-w-full shrink-0 sm:aspect-[5/2] lg:aspect-auto lg:h-[min(360px,42vw)] lg:max-w-[min(100%,480px)] xl:max-w-[520px]">
+          <Image
+            src="/industries/explore.svg"
+            alt=""
+            fill
+            className="object-contain object-right object-bottom lg:object-cover lg:object-right"
+            sizes="(max-width: 1024px) 100vw, 480px"
+            unoptimized
+          />
+        </div>
       </div>
     </section>
   );

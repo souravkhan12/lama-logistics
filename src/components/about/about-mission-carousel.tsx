@@ -138,8 +138,8 @@ export default function AboutMissionCarousel() {
 
               <div className="relative z-10 flex min-h-[min(72vh,640px)] w-full items-center justify-center px-5 py-12 sm:px-8 lg:min-h-[600px] lg:px-10 lg:py-14">
                 {/* Full-width row: dots + large label (left) · card (right) — matches design reference */}
-                <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-8 xl:gap-12 2xl:gap-16">
-                  <div className="flex min-w-0 flex-1 flex-row items-center justify-center gap-5 text-white sm:gap-6 lg:justify-start lg:gap-8 xl:gap-10">
+                <div className="mx-auto flex w-full max-w-[min(100%,1120px)] flex-col items-center justify-center gap-10 lg:flex-row lg:items-center lg:justify-center lg:gap-12 xl:gap-14 2xl:gap-16">
+                  <div className="flex min-w-0 flex-row items-center justify-center gap-5 text-white sm:gap-6 lg:max-w-[min(100%,420px)] lg:flex-1 lg:justify-start lg:gap-8">
                     <div
                       className="shrink-0 flex-col items-center gap-3 hidden lg:flex"
                       role="tablist"
@@ -178,7 +178,7 @@ export default function AboutMissionCarousel() {
                     </div>
                   </div>
 
-                  <div className="flex w-full shrink-0 justify-center lg:w-auto lg:max-w-[min(100%,540px)] lg:flex-none lg:justify-end">
+                  <div className="flex w-full shrink-0 justify-center lg:w-auto lg:max-w-[min(100%,480px)] lg:flex-none">
                     <div className="relative w-full max-w-[520px] overflow-hidden rounded-md">
                       <AnimatePresence mode="wait" initial={false}>
                         <motion.article

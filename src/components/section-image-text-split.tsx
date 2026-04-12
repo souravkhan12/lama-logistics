@@ -26,7 +26,7 @@ export type SectionImageTextSplitProps = {
 
 const defaultListHeading = "Typical support includes:";
 
-const gridGap = "gap-8 lg:grid-cols-2 lg:gap-x-10 xl:gap-x-12";
+const gridGap = "gap-8 lg:grid-cols-2 lg:gap-x-6 xl:gap-x-10 2xl:gap-x-12";
 
 function TextBody({
   paragraphs,
@@ -145,7 +145,7 @@ export default function SectionImageTextSplit({
         <div className="hidden lg:block">
           <Button variant="secondary">{ctaLabel}</Button>
         </div>
-        <ImageArea areaClassName="min-h-[280px] flex-1" />
+        <ImageArea areaClassName="aspect-[4/3] min-h-[240px] max-h-[480px] w-full sm:max-h-[520px]" />
       </div>
     );
 
@@ -178,7 +178,8 @@ export default function SectionImageTextSplit({
     );
   }
 
-  const stretchImage = "min-h-[220px] lg:min-h-[280px]";
+  const stretchImage =
+    "aspect-[4/3] min-h-[200px] max-h-[360px] w-full sm:max-h-[400px] lg:aspect-[5/4] lg:max-h-[min(52vw,520px)] lg:min-h-0";
 
   const contentGrid = `grid w-full items-stretch ${gridGap}`;
 
