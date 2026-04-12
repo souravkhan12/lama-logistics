@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 interface ButtonProps {
@@ -9,6 +10,8 @@ interface ButtonProps {
   variant?: "primary" | "secondary" | "accent";
   isArrow?: boolean;
   type?: "button" | "submit" | "reset";
+  /** When set, renders as a link with the same visual treatment as the button. */
+  href?: string;
 }
 
 export default function Button({
@@ -17,6 +20,7 @@ export default function Button({
   variant = "primary",
   isArrow = true,
   type = "button",
+  href,
 }: ButtonProps) {
   const [clicked, setClicked] = useState(false);
 
@@ -43,44 +47,48 @@ export default function Button({
     "h-[48px] w-[48px] min-h-[48px] min-w-[48px] md:h-[54px] md:w-[54px] md:min-h-[54px] md:min-w-[54px] flex items-center justify-center shrink-0";
   const borderRadius = "rounded-sm";
 
-  if (isArrow) {
-    return (
-      <button
-        onClick={handleClick}
-        className={`group ${base} ${className ?? ""}`}
-        type={type}
-      >
-        <span
-          className={`${labelCell} ${borderRadius} ${segment} ${
-            clicked ? "font-bold tracking-wide" : ""
-          } transition-all duration-300`}
-        >
-          {children}
-        </span>
+  const rootClass = `group ${base} ${className ?? ""}`;
+  const labelClassName = `${labelCell} ${borderRadius} ${segment} ${
+    clicked ? "font-bold tracking-wide" : ""
+  } transition-all duration-300`;
 
+  if (isArrow) {
+    const arrow = (
+      <>
+        <span className={labelClassName}>{children}</span>
         <span
           className={`${arrowCell} ${borderRadius} ${segment} transition-all duration-400 transform group-hover:translate-x-1`}
           aria-hidden
         >
           <Image src="/arrow.svg" alt="arrow" width={20} height={20} />
         </span>
+      </>
+    );
+    if (href) {
+      return (
+        <Link href={href} className={rootClass} onClick={handleClick}>
+          {arrow}
+        </Link>
+      );
+    }
+    return (
+      <button onClick={handleClick} className={rootClass} type={type}>
+        {arrow}
       </button>
     );
   }
 
+  const labelOnly = <span className={labelClassName}>{children}</span>;
+  if (href) {
+    return (
+      <Link href={href} className={rootClass} onClick={handleClick}>
+        {labelOnly}
+      </Link>
+    );
+  }
   return (
-    <button
-      onClick={handleClick}
-      className={`group ${base} ${className ?? ""}`}
-      type={type}
-    >
-      <span
-        className={`${labelCell} ${borderRadius} ${segment} ${
-          clicked ? "font-bold tracking-wide" : ""
-        } transition-all duration-300`}
-      >
-        {children}
-      </span>
+    <button onClick={handleClick} className={rootClass} type={type}>
+      {labelOnly}
     </button>
   );
 }

@@ -1,10 +1,12 @@
 "use client";
 
-import SectionBadge from "@/components/section-badge";
-import { defaultViewport, siteDuration, siteEase } from "@/lib/motion-presets";
-import Button from "@/components/button";
-import { ServicesDecomissiongContent } from "@/components/services/services-decomissiong";
 import { motion } from "motion/react";
+
+import Button from "@/components/button";
+import SectionBadge from "@/components/section-badge";
+import { ServicesDecomissiongContent } from "@/components/services/services-decomissiong";
+import { defaultViewport, siteDuration, siteEase } from "@/lib/motion-presets";
+import { FOOTER_CONTACT_HREF } from "@/lib/site-routes";
 
 export function AboutOperationalWorkflow() {
   return (
@@ -32,7 +34,9 @@ export function AboutOperationalWorkflow() {
             </span>
 
             <div className="pt-2 mt-10">
-              <Button variant="secondary">GET STARTED</Button>
+              <Button variant="secondary" href={FOOTER_CONTACT_HREF}>
+                GET STARTED
+              </Button>
             </div>
           </motion.div>
           <ServicesDecomissiongContent />

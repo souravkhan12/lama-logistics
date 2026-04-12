@@ -12,12 +12,16 @@ import {
   siteEase,
   siteSpringContent,
 } from "@/lib/motion-presets";
+import { FOOTER_CONTACT_HREF } from "@/lib/site-routes";
 
 import { services } from "./services-decommissioning-data";
 
 export default function ServicesDecomissiong() {
   return (
-    <section className="bg-[#F8F9FB] py-20">
+    <section
+      id="strategic-decommissioning"
+      className="scroll-mt-28 bg-[#F8F9FB] py-20"
+    >
       <div className="layout-container">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <motion.div
@@ -46,7 +50,9 @@ export default function ServicesDecomissiong() {
             </p>
 
             <div className="pt-2">
-              <Button variant="secondary">GET STARTED</Button>
+              <Button variant="secondary" href={FOOTER_CONTACT_HREF}>
+                GET STARTED
+              </Button>
             </div>
           </motion.div>
           <ServicesDecomissiongContent />

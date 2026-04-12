@@ -16,8 +16,29 @@ export default function IndustriesHero() {
 
   return (
     <section className="layout-container relative overflow-visible bg-(--color-bg) pb-0 pt-6 xl:pt-(--space-section-padding)">
-      {/* ── Mobile / tablet: text first, image below ── */}
-      <div className="flex flex-col xl:hidden">
+      {/* Mobile / tablet: image on top, text below (matches services & about heroes) */}
+      <div className="flex flex-col gap-8 xl:hidden">
+        <motion.div
+          className="pointer-events-none relative aspect-4/3 w-full"
+          initial={reduce ? false : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: siteDuration.heroAsideIndustries,
+            ease: siteEase,
+            delay: 0.1,
+          }}
+        >
+          <Image
+            src="/industries/home.svg"
+            alt=""
+            fill
+            className="object-contain object-bottom"
+            sizes="100vw"
+            priority
+            unoptimized
+          />
+        </motion.div>
+
         <ScrollReveal className="flex flex-col gap-6">
           <SectionBadge
             label="INDUSTRIES WE SERVE"
@@ -37,26 +58,6 @@ export default function IndustriesHero() {
             <Button variant="secondary">LET&apos;S TALK</Button>
           </div>
         </ScrollReveal>
-
-        <motion.div
-          className="pointer-events-none relative aspect-4/3 w-full"
-          initial={reduce ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: siteDuration.heroAsideIndustries,
-            ease: siteEase,
-          }}
-        >
-          <Image
-            src="/industries/home.svg"
-            alt=""
-            fill
-            className="object-contain object-bottom"
-            sizes="100vw"
-            priority
-            unoptimized
-          />
-        </motion.div>
       </div>
 
       {/* ── Desktop: original side-by-side ── */}

@@ -9,6 +9,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { siteDuration, siteEase } from "@/lib/motion-presets";
+import { FOOTER_CONTACT_HREF } from "@/lib/site-routes";
 
 const DotLottieReact = dynamic(
   () =>
@@ -26,8 +27,10 @@ const NAV_LINKS = [
   { href: "/services", label: "SERVICES" },
   { href: "/industries", label: "INDUSTRIES" },
   { href: "/careers", label: "CAREERS" },
-  { href: "/contact", label: "CONTACT US" },
 ] as const;
+
+const navGetStartedClassName =
+  "inline-flex h-[54px] w-[164px] shrink-0 items-center justify-center gap-2.5 rounded-sm bg-(--color-nav-get-started-bg) px-5 py-4 font-mono text-nav-get-started text-(--color-on-primary) transition-opacity hover:opacity-90";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -125,12 +128,12 @@ export default function Navbar() {
         }`}
       >
         <motion.div
-          className="layout-container"
+          className="layout-container min-w-0"
           initial={reduce ? false : { opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: siteDuration.navbar, ease: siteEase }}
         >
-          <div className="flex h-16 items-center justify-between md:h-(--space-navbar-height)">
+          <div className="flex min-w-0 items-center justify-between gap-3 md:gap-4 h-16 md:h-(--space-navbar-height)">
             <button
               type="button"
               onClick={() => router.push("/")}
@@ -145,8 +148,10 @@ export default function Navbar() {
                 className="h-8 w-auto md:h-auto md:w-auto"
               />
               <div className="hidden flex-col leading-tight md:flex">
-                <span className="font-display text-h3 font-medium">Lama</span>
-                <span className="font-display text-h3 font-medium">
+                <span className="font-display text-[22px] font-medium">
+                  Lama
+                </span>
+                <span className="font-display text-[20px] font-medium">
                   Telecom
                 </span>
               </div>
@@ -165,6 +170,12 @@ export default function Navbar() {
                     {link.label}
                   </Link>
                 ))}
+                <Link
+                  href={FOOTER_CONTACT_HREF}
+                  className={navGetStartedClassName}
+                >
+                  GET STARTED
+                </Link>
               </nav>
 
               <button
@@ -210,6 +221,13 @@ export default function Navbar() {
                       {link.label}
                     </Link>
                   ))}
+                  <Link
+                    href={FOOTER_CONTACT_HREF}
+                    className={`mx-2 mt-2 ${navGetStartedClassName}`}
+                    onClick={closeMenu}
+                  >
+                    GET STARTED
+                  </Link>
                 </div>
               </motion.nav>
             )}

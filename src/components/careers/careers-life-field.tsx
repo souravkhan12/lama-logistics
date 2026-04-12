@@ -44,7 +44,7 @@ export default function CareersLifeField() {
               {CAREERS_FIELD_ROWS.map((row, i) => (
                 <div key={row.id}>
                   <div className="flex flex-col gap-4">
-                    <div className="relative aspect-[3/2] w-full overflow-hidden rounded-md">
+                    <div className="relative aspect-3/2 w-full overflow-hidden rounded-md">
                       <Image
                         src={row.imageSrc}
                         alt=""
@@ -53,13 +53,13 @@ export default function CareersLifeField() {
                         sizes="100vw"
                       />
                     </div>
-                    <p className="font-display text-h3 text-(--color-muted)">
+                    <p className="font-display text-b1 text-(--color-muted)">
                       {row.titleMuted}
                     </p>
-                    <p className="font-body text-b1">{row.titleLead}</p>
+                    <p className="font-body text-b2">{row.titleLead}</p>
                   </div>
                   {i < CAREERS_FIELD_ROWS.length - 1 && (
-                    <div className="mt-10 h-px bg-(--color-border)" />
+                    <div className="mt-10 h-px bg-[#D9D9D9]" />
                   )}
                 </div>
               ))}
@@ -81,7 +81,7 @@ export default function CareersLifeField() {
                   </div>
                   <div className="flex min-w-0 flex-col gap-4 lg:max-w-[min(100%,670px)]">
                     <div className="text-(--color-muted)">
-                      <p className="font-display text-h3">{row.titleMuted}</p>
+                      <p className="font-display text-h2">{row.titleMuted}</p>
                     </div>
                     <div className="text-(--color-fg)">
                       <p className="font-display text-h2">{row.titleLead}</p>

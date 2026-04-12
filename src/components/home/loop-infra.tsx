@@ -80,7 +80,12 @@ export default function LoopInfra() {
               </p>
 
               <div className="flex gap-3">
-                <Button variant="primary">READ MORE</Button>
+                <Button
+                  variant="primary"
+                  href="/services#responsible-recycling"
+                >
+                  READ MORE
+                </Button>
               </div>
             </ScrollReveal>
           </div>
@@ -99,7 +104,9 @@ export default function LoopInfra() {
           </p>
         </ScrollReveal>
         <div className="flex gap-3">
-          <Button variant="secondary">READ MORE</Button>
+          <Button variant="secondary" href="/services#responsible-recycling">
+            READ MORE
+          </Button>
         </div>
       </div>
     </section>

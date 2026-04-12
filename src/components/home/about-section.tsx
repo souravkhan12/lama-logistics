@@ -53,7 +53,9 @@ export default function AboutSection() {
             </p>
 
             <div className="mt-8 flex items-center gap-(--space-gap-sm)">
-              <Button variant="secondary">ABOUT US</Button>
+              <Button variant="secondary" href="/about">
+                ABOUT US
+              </Button>
             </div>
           </ScrollReveal>
         </div>

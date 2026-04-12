@@ -6,24 +6,24 @@ export const siteEase = [0.25, 0.1, 0.25, 1] as const;
  * Durations (seconds). Tuned to match pre-refactor literals site-wide.
  */
 export const siteDuration = {
-  /** ScrollReveal */
-  reveal: 0.52,
+  /** ScrollReveal — typography / blocks easing into view */
+  reveal: 0.72,
   /** Section intros that were slightly slower than ScrollReveal */
-  sectionReveal: 0.55,
+  sectionReveal: 0.78,
   /** StaggerItem (scroll lists) */
-  staggerChild: 0.46,
+  staggerChild: 0.62,
   /** Accordion / service rows in decommissioning */
-  staggerRow: 0.45,
-  staggerGap: 0.07,
-  staggerDelay: 0.06,
+  staggerRow: 0.58,
+  staggerGap: 0.095,
+  staggerDelay: 0.085,
   /** Decommissioning accordion column */
   accordionListDelayChildren: 0.08,
   bulletStaggerGap: 0.06,
   bulletStaggerDelay: 0.04,
   heroMedia: 1.15,
-  heroHeadline: 0.65,
-  heroAsideServices: 0.65,
-  heroAsideIndustries: 0.8,
+  heroHeadline: 0.88,
+  heroAsideServices: 0.88,
+  heroAsideIndustries: 1.05,
   navbar: 0.45,
   hoverLift: 0.28,
   hoverSubtle: 0.3,
@@ -37,7 +37,7 @@ export const siteDuration = {
 } as const;
 
 /** Mission carousel slide crossfade */
-export const carouselCrossfade = 0.62;
+export const carouselCrossfade = 0.82;
 
 export const defaultViewport = {
   once: true,

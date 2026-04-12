@@ -8,23 +8,25 @@ import CareersSplitButtonDark from "./careers-split-button-dark";
 
 export default function CareersHero() {
   return (
-    <section className="pb-14 pt-6 lg:pb-20 lg:pt-32">
-      <div className="layout-container flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-10 xl:gap-16">
-        {/* Image — shown first on mobile, second on desktop */}
-        <div className="relative mx-auto min-h-[360px] w-full max-w-[640px] flex-1 lg:order-2 lg:mx-0 lg:max-w-none lg:min-h-[min(52vh,520px)]">
-          <Image
-            src="/careers/home.svg"
-            alt=""
-            fill
-            className="object-contain object-center lg:object-right"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            priority
-            unoptimized
-          />
+    <section className="pb-14 pt-6 lg:pb-0 lg:pt-32">
+      <div className="layout-container flex flex-col gap-8 lg:flex-row lg:items-stretch lg:gap-10 xl:gap-16">
+        {/* Image — shown first on mobile, second on desktop; lg+ sits on bottom like services/industries heroes */}
+        <div className="relative mx-auto flex w-full max-w-[640px] flex-1 flex-col justify-end lg:order-2 lg:mx-0 lg:max-w-none">
+          <div className="relative h-[300px] w-full sm:h-[340px] lg:h-[clamp(280px,36vh,400px)] 2xl:h-[clamp(320px,38vh,440px)]">
+            <Image
+              src="/careers/home.svg"
+              alt=""
+              fill
+              className="object-contain object-bottom object-center lg:object-bottom lg:object-right"
+              sizes="(min-width: 1536px) 42vw, (min-width: 1024px) 44vw, 100vw"
+              priority
+              unoptimized
+            />
+          </div>
         </div>
 
         {/* Text content */}
-        <ScrollReveal className="flex max-w-[600px] flex-col gap-6 lg:order-1 lg:max-w-[min(100%,600px)]">
+        <ScrollReveal className="flex max-w-[600px] flex-col gap-6 lg:order-1 lg:max-w-[min(100%,600px)] lg:justify-center">
           <h1 className="font-display text-h1 lg:text-h0">
             Build the <span className="text-(--color-muted)">future</span> by
             mastering the past

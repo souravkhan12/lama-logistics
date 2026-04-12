@@ -95,7 +95,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="relative overflow-hidden bg-(--color-footer-bg) text-white"
+      className="scroll-mt-28 relative overflow-hidden bg-(--color-footer-bg) text-white"
     >
       <div className="layout-container relative flex flex-col gap-12 py-12 lg:gap-14 lg:py-16">
         {/* TOP */}

@@ -11,6 +11,7 @@ import {
 } from "@/components/motion";
 import SectionBadge from "@/components/section-badge";
 import { siteDuration, siteEase } from "@/lib/motion-presets";
+import { FOOTER_CONTACT_HREF } from "@/lib/site-routes";
 
 import {
   type NetworkExpertiseItem,
@@ -19,15 +20,27 @@ import {
 
 const introBody = "max-w-[520px] text-b1 leading-relaxed text-(--color-muted)";
 
-const rowArticle =
-  "border-t border-(--color-border) py-12 md:py-16 last:border-b";
-
 type ExpertiseRowProps = {
   item: NetworkExpertiseItem;
   reduceMotion: boolean | null;
+  isFirst: boolean;
+  isLast: boolean;
 };
 
-function ExpertiseRow({ item, reduceMotion }: ExpertiseRowProps) {
+function ExpertiseRow({
+  item,
+  reduceMotion,
+  isFirst,
+  isLast,
+}: ExpertiseRowProps) {
+  const rowArticle = [
+    "border-(--color-border) py-12 md:py-16",
+    !isFirst && "border-t",
+    isLast && "border-b",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <article className={rowArticle}>
       {/* Mobile: image full-width on top, content below */}
@@ -91,7 +104,10 @@ export default function ServicesNetworkExpertise() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="bg-(--color-bg) py-(--space-section-padding)">
+    <section
+      id="network-deinstallation"
+      className="scroll-mt-28 bg-(--color-bg) py-(--space-section-padding)"
+    >
       <div className="layout-container flex flex-col gap-14 md:gap-20">
         {/* HEADER */}
         <ScrollReveal className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
@@ -113,15 +129,25 @@ export default function ServicesNetworkExpertise() {
               Specialized removal services across the entire spectrum of telecom
               and IT environments.
             </p>
-            <Button variant="secondary">GET STARTED</Button>
+            <Button variant="secondary" href={FOOTER_CONTACT_HREF}>
+              GET STARTED
+            </Button>
           </div>
         </ScrollReveal>
 
         {/* LIST */}
-        <StaggerContainer stagger={0.1}>
-          {networkExpertiseItems.map((item) => (
+        <StaggerContainer
+          stagger={0.1}
+          className="border-t border-(--color-border)"
+        >
+          {networkExpertiseItems.map((item, index) => (
             <StaggerItem key={item.id}>
-              <ExpertiseRow item={item} reduceMotion={reduce} />
+              <ExpertiseRow
+                item={item}
+                reduceMotion={reduce}
+                isFirst={index === 0}
+                isLast={index === networkExpertiseItems.length - 1}
+              />
             </StaggerItem>
           ))}
         </StaggerContainer>

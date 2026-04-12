@@ -90,19 +90,19 @@ export const CAREERS_JOBS: CareersJob[] = [
   {
     id: "project-manager",
     title: "Project Manager",
-    subtitle: "(Project Lead / Operations Manager)",
+    subtitle: "Project Lead / Operations Manager",
     meta: "Decom • xxx • xxx",
   },
   {
     id: "lead-deinstaller",
     title: "Lead Deinstaller",
-    subtitle: "(Infrastructure Decommissioning Lead)",
+    subtitle: "Infrastructure Decommissioning Lead",
     meta: "Decom • xxx • xxx",
   },
   {
     id: "data-center-decommissioning-technician",
     title: "Data Center Decommissioning Technician",
-    subtitle: "(Field Technician / Infrastructure Removal Specialist)",
+    subtitle: "Field Technician / Infrastructure Removal Specialist",
     meta: "Decom • xxx • xxx",
   },
 ];

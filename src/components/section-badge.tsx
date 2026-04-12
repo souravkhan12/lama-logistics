@@ -15,12 +15,12 @@ export default function SectionBadge({
   return (
     <div
       style={{ backgroundColor }}
-      className={`inline-flex items-center gap-2 px-4 py-3 w-fit ${
+      className={`inline-flex items-center gap-2  px-4 py-3 w-fit ${
         pill ? "rounded-full" : "rounded-sm"
       } ${className}`}
     >
-      <span className="bg-badge-icon-gradient h-3 w-3 rounded-xs" aria-hidden />
-      <span className="text-o1 font-mono tracking-wider uppercase">
+      <span className="bg-badge-icon-gradient h-5 w-5 rounded-xs" aria-hidden />
+      <span className="text-o1 font-mono  tracking-wider uppercase">
         {label}
       </span>
     </div>

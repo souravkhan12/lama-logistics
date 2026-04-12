@@ -9,6 +9,7 @@ import {
   StaggerItem,
 } from "@/components/motion";
 import SectionBadge from "@/components/section-badge";
+import { FOOTER_CONTACT_HREF } from "@/lib/site-routes";
 
 const intro =
   "Comprehensive lifecycle support from deployment to migration and security.";
@@ -38,7 +39,10 @@ const offerings = [
 
 export default function ServicesEnterpriseNetwork() {
   return (
-    <section className="bg-[#DCE1F44D] py-(--space-section-padding)">
+    <section
+      id="enterprise-network"
+      className="scroll-mt-28 bg-[#DCE1F44D] py-(--space-section-padding)"
+    >
       <div className="layout-container">
         <div className="mx-auto flex w-full max-w-[1360px] flex-col gap-8 lg:gap-10">
           {/* Header */}
@@ -55,7 +59,9 @@ export default function ServicesEnterpriseNetwork() {
               <p className="text-b1 font-body leading-relaxed text-(--color-muted)">
                 {intro}
               </p>
-              <Button variant="secondary">GET STARTED</Button>
+              <Button variant="secondary" href={FOOTER_CONTACT_HREF}>
+                GET STARTED
+              </Button>
             </div>
 
             {/* lg: same 700px | rest column split as the image row below */}
@@ -74,7 +80,9 @@ export default function ServicesEnterpriseNetwork() {
                 <p className="text-b1 font-body leading-snug text-(--color-muted)">
                   {intro}
                 </p>
-                <Button variant="secondary">GET STARTED</Button>
+                <Button variant="secondary" href={FOOTER_CONTACT_HREF}>
+                  GET STARTED
+                </Button>
               </div>
             </div>
           </ScrollReveal>

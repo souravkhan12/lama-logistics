@@ -13,6 +13,7 @@ const services = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ",
     image:
       "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+    readMoreHref: "/services#strategic-decommissioning",
   },
   {
     title: "End-to-End Network Deinstallation Expertise",
@@ -20,6 +21,7 @@ const services = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ",
     image:
       "https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&q=80",
+    readMoreHref: "/services#network-deinstallation",
   },
   {
     title: "Responsible Recycling & Value Recovery",
@@ -27,6 +29,7 @@ const services = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ",
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+    readMoreHref: "/services#responsible-recycling",
   },
   {
     title: "Enterprise Network Solutions",
@@ -34,8 +37,9 @@ const services = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ",
     image:
       "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+    readMoreHref: "/services#enterprise-network",
   },
-];
+] as const;
 
 export default function ServicesSection() {
   return (

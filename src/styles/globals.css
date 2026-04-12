@@ -39,6 +39,11 @@
   --text-o1--line-height: 1.2;
   --text-o1--font-weight: 500;
 
+  /* Navbar GET STARTED — Martian Mono 16 / 140% / 400 */
+  --text-nav-get-started: 16px;
+  --text-nav-get-started--line-height: 1.4;
+  --text-nav-get-started--font-weight: 400;
+
   --text-caption: 12px;
   --text-caption--line-height: 1.3;
   --text-caption--font-weight: 400;
@@ -47,6 +52,8 @@
   --color-primary: #6366f1;
   --color-primary-hover: #5458ee;
   --color-on-primary: #ffffff;
+  /* Navbar GET STARTED (matches service gradient mid-tone) */
+  --color-nav-get-started-bg: #495aee;
 
   --color-bg: #ffffff;
   --color-fg: #171717;
@@ -114,6 +121,15 @@
   --color-footer-input-border: rgba(255, 255, 255, 0.22);
   --color-footer-wave: rgba(156, 163, 175, 0.25);
 
+  /* Service 03 — Responsible Recycling section background */
+  --gradient-service-03-responsible-recycling: linear-gradient(
+    180deg,
+    #0a0227 0%,
+    #1f0280 38.94%,
+    #495aee 67.31%,
+    #92a9ec 100%
+  );
+
   /* Service 03 — recycling timeline on gradient (`services-responsible-recycling`) */
   --color-service-03-timeline-node-idle: #4a5a9a;
   --color-service-03-timeline-line-track: rgb(255 255 255 / 0.2);
@@ -137,10 +153,9 @@
   --gradient-about-join-team-cta: linear-gradient(
     180deg,
     #0a0227 0%,
-    #1f0280 33.17%,
-    #495aee 59.62%,
-    #92a9ec 81.25%,
-    #dce1f4 100%
+    #1f0280 38.94%,
+    #495aee 67.31%,
+    #92a9ec 100%
   );
   --color-about-joincta-surface: #fffaeb;
   --color-about-joincta-label-fg: #0a0227;
@@ -240,6 +255,10 @@
     background-image: var(--gradient-about-join-team-cta);
   }
 
+  .bg-service-03-responsible-recycling {
+    background-image: var(--gradient-service-03-responsible-recycling);
+  }
+
   /**
    * Horizontal padding matches `public/about/leadership/join.svg`:
    * left inset 102px, right inset 197px at 1440px (scaled with viewport).
@@ -321,13 +340,20 @@
   --gradient-about-join-team-cta: linear-gradient(
     180deg,
     #0a0227 0%,
-    #1f0280 33.17%,
-    #495aee 59.62%,
-    #92a9ec 81.25%,
-    #dce1f4 100%
+    #1f0280 38.94%,
+    #495aee 67.31%,
+    #92a9ec 100%
+  );
+  --gradient-service-03-responsible-recycling: linear-gradient(
+    180deg,
+    #0a0227 0%,
+    #1f0280 38.94%,
+    #495aee 67.31%,
+    #92a9ec 100%
   );
   --color-about-joincta-surface: #fffaeb;
   --color-about-joincta-label-fg: #0a0227;
+  --color-nav-get-started-bg: #495aee;
   --size-about-join-cta-h: 308px;
   --color-about-workflow-step-title: #d1d5db;
   --color-careers-hero-bg: #eef1f8;

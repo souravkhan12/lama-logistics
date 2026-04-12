@@ -36,7 +36,7 @@ const brands = [
 
 export default function BrandsSection() {
   return (
-    <section className="py-(--space-section-padding)">
+    <section className="py-(--space-section-padding) bg-[#DCE1F44D]">
       <div className="layout-container-edge">
         <ScrollReveal className="flex flex-col gap-6 px-(--space-container-padding)">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
