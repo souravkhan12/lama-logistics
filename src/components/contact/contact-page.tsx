@@ -7,9 +7,15 @@ const EMAIL = "tenzin.gonpo@lamalogistics.com";
 const PHONE_DISPLAY = "8313469383";
 const PHONE_HREF = "tel:+18313469383";
 
+const ADDRESS_LINE_1 = "2161 Shattuck Ave, Ste 232";
+const ADDRESS_LINE_2 = "Berkeley, CA 94704";
+const MAPS_HREF = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${ADDRESS_LINE_1}, ${ADDRESS_LINE_2}`,
+)}`;
+
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-(--color-bg) pb-16 pt-8 text-(--color-fg) lg:pb-32 lg:pt-32">
+    <main className="min-h-screen bg-(--color-bg) pb-10 pt-8 text-(--color-fg) lg:pb-14 lg:pt-32">
       <div className="layout-container">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-x-16 xl:gap-x-24">
           {/* Left — copy & contact details */}
@@ -54,10 +60,31 @@ export default function ContactPage() {
                   <span className="font-body text-b1">{PHONE_DISPLAY}</span>
                 </a>
               </li>
-              <li className="font-body text-b2 leading-relaxed text-(--color-text-body)">
-                2161 Shattuck Ave, Ste 232
-                <br />
-                Berkeley, CA 94704
+              <li>
+                <a
+                  href={MAPS_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-3 text-(--color-fg) transition-colors hover:text-(--color-primary)"
+                >
+                  <span
+                    className="relative inline-block h-[30px] w-7 shrink-0"
+                    aria-hidden
+                  >
+                    <Image
+                      src="/contact/location.svg"
+                      alt=""
+                      width={20}
+                      height={28}
+                      className="absolute top-[2px] left-[6px] opacity-100"
+                    />
+                  </span>
+                  <span className="font-body text-b1">
+                    {ADDRESS_LINE_1}
+                    <br />
+                    {ADDRESS_LINE_2}
+                  </span>
+                </a>
               </li>
             </ul>
 

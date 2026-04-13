@@ -9,6 +9,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { siteDuration, siteEase } from "@/lib/motion-presets";
+import { FOOTER_CONTACT_HREF } from "@/lib/site-routes";
 
 const DotLottieReact = dynamic(
   () =>
@@ -25,9 +26,10 @@ const NAV_LINKS = [
   { href: "/about", label: "ABOUT" },
   { href: "/services", label: "SERVICES" },
   { href: "/industries", label: "INDUSTRIES" },
-  { href: "/careers", label: "CAREERS" },
-  { href: "/contact", label: "CONTACT US" },
 ] as const;
+
+const navGetStartedClassName =
+  "inline-flex h-[54px] w-[164px] shrink-0 items-center justify-center gap-2.5 rounded-sm bg-(--color-nav-get-started-bg) px-5 py-4 font-mono text-nav-get-started text-(--color-on-primary) transition-opacity hover:opacity-90";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -125,16 +127,16 @@ export default function Navbar() {
         }`}
       >
         <motion.div
-          className="layout-container"
+          className="layout-container min-w-0"
           initial={reduce ? false : { opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: siteDuration.navbar, ease: siteEase }}
         >
-          <div className="flex h-16 items-center justify-between md:h-(--space-navbar-height)">
+          <div className="flex min-w-0 items-center justify-between gap-3 md:gap-4 h-16 md:h-(--space-navbar-height)">
             <button
               type="button"
               onClick={() => router.push("/")}
-              className="flex cursor-pointer items-center gap-3 border-0 bg-transparent p-0 text-left"
+              className="flex shrink-0 cursor-pointer items-center gap-2 border-0 bg-transparent p-0 text-left md:gap-3"
               aria-label="Go to home"
             >
               <Image
@@ -145,15 +147,17 @@ export default function Navbar() {
                 className="h-8 w-auto md:h-auto md:w-auto"
               />
               <div className="hidden flex-col leading-tight md:flex">
-                <span className="font-display text-h3 font-medium">Lama</span>
-                <span className="font-display text-h3 font-medium">
+                <span className="font-display text-[22px] font-medium">
+                  Lama
+                </span>
+                <span className="font-display text-[20px] font-medium">
                   Telecom
                 </span>
               </div>
             </button>
 
-            <div className="flex items-center gap-(--space-gap-md)">
-              <nav className="hidden items-center gap-(--space-gap-md) md:flex">
+            <div className="flex shrink-0 items-center gap-2 md:gap-(--space-gap-md)">
+              <nav className="hidden items-center gap-4 lg:gap-(--space-gap-md) lg:flex">
                 {NAV_LINKS.map((link) => (
                   <Link
                     key={link.href}
@@ -165,11 +169,17 @@ export default function Navbar() {
                     {link.label}
                   </Link>
                 ))}
+                <Link
+                  href={FOOTER_CONTACT_HREF}
+                  className={navGetStartedClassName}
+                >
+                  GET STARTED
+                </Link>
               </nav>
 
               <button
                 type="button"
-                className="flex size-10 items-center justify-center md:hidden"
+                className="flex size-10 shrink-0 items-center justify-center lg:hidden"
                 onClick={toggleMenu}
                 aria-label={menuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={menuOpen}
@@ -192,7 +202,7 @@ export default function Navbar() {
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.35, ease: siteEase }}
-                className="overflow-hidden md:hidden"
+                className="overflow-hidden lg:hidden"
                 aria-label="Mobile navigation"
               >
                 <div className="flex flex-col gap-1 border-t border-black/8 px-2 py-4">
@@ -210,6 +220,13 @@ export default function Navbar() {
                       {link.label}
                     </Link>
                   ))}
+                  <Link
+                    href={FOOTER_CONTACT_HREF}
+                    className={`mx-2 mt-2 ${navGetStartedClassName}`}
+                    onClick={closeMenu}
+                  >
+                    GET STARTED
+                  </Link>
                 </div>
               </motion.nav>
             )}

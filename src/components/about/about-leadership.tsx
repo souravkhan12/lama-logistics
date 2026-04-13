@@ -199,10 +199,10 @@ function LeadershipRow({
           <span className="shrink-0 font-mono text-o1 tabular-nums">
             {member.indexLabel}
           </span>
-          <span className="min-w-0 flex-1 truncate font-display text-h2 sm:flex-none sm:text-h1">
+          <span className="min-w-0 flex-1 truncate font-display text-b2 sm:flex-none sm:text-h2">
             {member.name}
           </span>
-          <span className="hidden min-w-0 truncate text-right font-body text-b2 sm:block">
+          <span className="hidden min-w-0 truncate text-right font-body text-b4 md:b1 sm:block">
             {member.title}
           </span>
           <span

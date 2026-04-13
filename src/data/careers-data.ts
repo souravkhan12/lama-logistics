@@ -86,22 +86,23 @@ export const CAREERS_BRAND_TILES = [
 ] as const;
 
 export const CAREERS_JOBS: CareersJob[] = [
+  /** First opening — full JD: `careers-job-details.ts` → `project-manager` */
   {
     id: "project-manager",
     title: "Project Manager",
-    subtitle: "(Infrastructure & Decommissioning)",
+    subtitle: "Project Lead / Operations Manager",
     meta: "Decom • xxx • xxx",
   },
   {
-    id: "network-engineer",
-    title: "Senior Network Engineer",
-    subtitle: "(Field & Program Delivery)",
+    id: "lead-deinstaller",
+    title: "Lead Deinstaller",
+    subtitle: "Infrastructure Decommissioning Lead",
     meta: "Decom • xxx • xxx",
   },
   {
-    id: "operations",
-    title: "Operations Coordinator",
-    subtitle: "(Logistics & Customer Success)",
+    id: "data-center-decommissioning-technician",
+    title: "Data Center Decommissioning Technician",
+    subtitle: "Field Technician / Infrastructure Removal Specialist",
     meta: "Decom • xxx • xxx",
   },
 ];

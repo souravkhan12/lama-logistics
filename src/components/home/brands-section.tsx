@@ -36,7 +36,7 @@ const brands = [
 
 export default function BrandsSection() {
   return (
-    <section className="py-(--space-section-padding)">
+    <section className="py-(--space-section-padding) bg-[#DCE1F44D]">
       <div className="layout-container-edge">
         <ScrollReveal className="flex flex-col gap-6 px-(--space-container-padding)">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
@@ -93,12 +93,12 @@ export default function BrandsSection() {
           </StaggerContainer>
         </div>
 
-        {/* Desktop: original flex-wrap layout */}
-        <StaggerContainer className="mt-14 hidden flex-wrap justify-center gap-4 px-(--space-container-padding) lg:flex">
+        {/* Desktop: full-width row so tiles aren’t floating in a narrow band on large screens */}
+        <StaggerContainer className="mt-14 hidden w-full grid-cols-5 gap-3 px-(--space-container-padding) lg:grid lg:gap-4">
           {brands.map((brand) => (
-            <StaggerItem key={brand.name}>
+            <StaggerItem key={brand.name} className="min-w-0">
               <div
-                className={`flex h-[259px] w-[259px] items-center justify-center rounded-2xl ${brand.bg}`}
+                className={`mx-auto flex aspect-square w-full max-w-[220px] items-center justify-center rounded-2xl xl:max-w-[240px] ${brand.bg}`}
               >
                 <Image
                   src={brand.src}

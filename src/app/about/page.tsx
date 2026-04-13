@@ -5,7 +5,7 @@ import AboutJoinTeamCta from "@/components/about/about-join-team-cta";
 import AboutLeadership from "@/components/about/about-leadership";
 import AboutMissionCarousel from "@/components/about/about-mission-carousel";
 import AboutMissionStats from "@/components/about/about-mission-stats";
-import AboutOperationalWorkflow from "@/components/about/about-operational-workflow";
+import { AboutOperationalWorkflow } from "@/components/about/about-operational-workflow";
 
 export const metadata: Metadata = {
   title: "About",

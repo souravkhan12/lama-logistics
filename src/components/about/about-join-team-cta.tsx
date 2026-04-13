@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import { ScrollReveal } from "@/components/motion";
 
-const CONTACT_HREF = "/contact";
+const APPLY_HREF = "/about/apply";
 
 export default function AboutJoinTeamCta() {
   return (
@@ -23,8 +23,8 @@ export default function AboutJoinTeamCta() {
 
         <div className="flex shrink-0 justify-start pt-2 lg:justify-end lg:pt-0">
           <Link
-            href={CONTACT_HREF}
-            aria-label="Apply now — contact us about joining the team"
+            href={APPLY_HREF}
+            aria-label="Apply now — open the application form"
             className="group inline-flex h-[48px] w-[177px] items-center gap-1 font-mono text-o1 leading-none tracking-wide text-(--color-about-joincta-label-fg) transition-all duration-400 md:h-[54px] md:w-auto md:gap-2 md:text-b2"
           >
             <span className="flex h-[48px] min-h-[48px] flex-1 items-center justify-center whitespace-nowrap rounded-sm bg-(--color-about-joincta-surface) px-2 transition-colors group-hover:opacity-90 md:h-[54px] md:min-h-[54px] md:w-[141px] md:flex-none md:shrink-0 md:px-0">

@@ -5,7 +5,7 @@ export default function IndustriesSections() {
   return (
     <>
       {industriesSections.map(({ id, ...section }) => (
-        <SectionImageTextSplit key={id} {...section} />
+        <SectionImageTextSplit key={id} sectionId={id} {...section} />
       ))}
     </>
   );

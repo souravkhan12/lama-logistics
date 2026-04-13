@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import Button from "@/components/button";
 import { ScrollReveal } from "@/components/motion";
+import { FOOTER_CONTACT_HREF } from "@/lib/site-routes";
 
 export type SectionImageTextLayout = "split" | "title-wide" | "aside-media";
 
@@ -18,15 +19,18 @@ export type SectionImageTextSplitProps = {
   layout?: SectionImageTextLayout;
   listHeading?: string;
   ctaLabel?: string;
+  ctaHref?: string;
   tone?: "muted" | "white";
   /** When false, image container has square corners (design reference). */
   imageRounded?: boolean;
   className?: string;
+  /** Sets `<section id>` for in-page anchors (e.g. `/industries#slug`). */
+  sectionId?: string;
 };
 
 const defaultListHeading = "Typical support includes:";
 
-const gridGap = "gap-8 lg:grid-cols-2 lg:gap-x-10 xl:gap-x-12";
+const gridGap = "gap-8 lg:grid-cols-2 lg:gap-x-6 xl:gap-x-10 2xl:gap-x-12";
 
 function TextBody({
   paragraphs,
@@ -34,6 +38,7 @@ function TextBody({
   listItems,
   withLeadCta,
   ctaLabel,
+  ctaHref,
   showMobileCta,
 }: {
   paragraphs: readonly string[];
@@ -41,13 +46,16 @@ function TextBody({
   listItems: readonly string[];
   withLeadCta?: boolean;
   ctaLabel: string;
+  ctaHref: string;
   showMobileCta?: boolean;
 }) {
   return (
     <div className="flex min-w-0 flex-col gap-6 lg:justify-start lg:gap-8">
       {withLeadCta ? (
         <div className="shrink-0">
-          <Button variant="secondary">{ctaLabel}</Button>
+          <Button variant="secondary" href={ctaHref}>
+            {ctaLabel}
+          </Button>
         </div>
       ) : null}
       <div className="flex flex-col gap-4 text-b1">
@@ -84,7 +92,9 @@ function TextBody({
       </div>
       {showMobileCta ? (
         <div className="lg:hidden">
-          <Button variant="secondary">{ctaLabel}</Button>
+          <Button variant="secondary" href={ctaHref}>
+            {ctaLabel}
+          </Button>
         </div>
       ) : null}
     </div>
@@ -101,11 +111,14 @@ export default function SectionImageTextSplit({
   layout = "split",
   listHeading = defaultListHeading,
   ctaLabel = "GET STARTED",
+  ctaHref = FOOTER_CONTACT_HREF,
   tone = "white",
   imageRounded = false,
   className,
+  sectionId,
 }: SectionImageTextSplitProps) {
   const contentRowReverse = imagePosition === "right";
+  const anchorScroll = sectionId ? "scroll-mt-28" : "";
   const isSvg = imageSrc.endsWith(".svg");
   const radiusClass = imageRounded ? "rounded-md" : "rounded-none";
 
@@ -136,6 +149,7 @@ export default function SectionImageTextSplit({
           listHeading={listHeading}
           listItems={listItems}
           ctaLabel={ctaLabel}
+          ctaHref={ctaHref}
           showMobileCta
         />
       </div>
@@ -143,17 +157,20 @@ export default function SectionImageTextSplit({
     const mediaColumn = (
       <div className="flex h-full min-w-0 flex-col gap-6 lg:gap-8">
         <div className="hidden lg:block">
-          <Button variant="secondary">{ctaLabel}</Button>
+          <Button variant="secondary" href={ctaHref}>
+            {ctaLabel}
+          </Button>
         </div>
-        <ImageArea areaClassName="min-h-[280px] flex-1" />
+        <ImageArea areaClassName="aspect-[4/3] min-h-[240px] max-h-[480px] w-full sm:max-h-[520px]" />
       </div>
     );
 
     return (
       <section
+        id={sectionId}
         className={`py-(--space-section-padding) ${
           tone === "muted" ? "bg-[#DCE1F44D]" : "bg-(--color-bg)"
-        } ${className ?? ""}`}
+        } ${anchorScroll} ${className ?? ""}`}
       >
         <div className="layout-container">
           <div className="mx-auto w-full max-w-[1360px]">
@@ -178,20 +195,23 @@ export default function SectionImageTextSplit({
     );
   }
 
-  const stretchImage = "min-h-[220px] lg:min-h-[280px]";
+  const stretchImage =
+    "aspect-[4/3] min-h-[200px] max-h-[360px] w-full sm:max-h-[400px] lg:aspect-[5/4] lg:max-h-[min(52vw,520px)] lg:min-h-0";
 
   const contentGrid = `grid w-full items-stretch ${gridGap}`;
 
   const sectionShell = `py-(--space-section-padding) ${
     tone === "muted" ? "bg-[#DCE1F44D]" : "bg-(--color-bg)"
-  } ${className ?? ""}`;
+  } ${anchorScroll} ${className ?? ""}`;
 
   const headerRow = (
     <ScrollReveal className="w-full">
       <div className={`grid w-full ${gridGap} lg:items-end`}>
         <h2 className="font-display text-h1 lg:text-h0">{title}</h2>
         <div className="hidden lg:block">
-          <Button variant="secondary">{ctaLabel}</Button>
+          <Button variant="secondary" href={ctaHref}>
+            {ctaLabel}
+          </Button>
         </div>
       </div>
     </ScrollReveal>
@@ -212,6 +232,7 @@ export default function SectionImageTextSplit({
           listHeading={listHeading}
           listItems={listItems}
           ctaLabel={ctaLabel}
+          ctaHref={ctaHref}
           showMobileCta
         />
       </div>
@@ -219,7 +240,7 @@ export default function SectionImageTextSplit({
   );
 
   return (
-    <section className={sectionShell}>
+    <section id={sectionId} className={sectionShell}>
       <div className="layout-container">
         <div className="mx-auto flex w-full max-w-[1360px] flex-col gap-10 lg:gap-12">
           {headerRow}

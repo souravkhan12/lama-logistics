@@ -34,7 +34,7 @@ export default function LoopInfra() {
   return (
     <section className="py-(--space-section-padding)">
       {/* Video panel */}
-      <div className="layout-container-edge relative h-[480px] overflow-hidden lg:h-[807px]">
+      <div className="layout-container-edge relative min-h-[560px] w-full overflow-hidden sm:min-h-[600px] lg:h-[min(88vh,807px)] lg:min-h-[640px]">
         <VideoBackground
           videoSrc="/videos/second.mp4"
           imageSrc="/loop-infra.png"
@@ -42,17 +42,17 @@ export default function LoopInfra() {
 
         <div className="absolute inset-0 bg-black/40" aria-hidden />
 
-        <div className="absolute inset-0 z-10 flex flex-col justify-between px-(--space-container-padding) py-10 text-white sm:py-12 lg:flex-row lg:items-start lg:justify-between">
-          <ScrollReveal className="max-w-[min(100%,920px)]">
+        {/* Mobile / tablet: stack with gaps so feature labels are not clipped; desktop: side-by-side */}
+        <div className="absolute inset-0 z-10 flex flex-col gap-8 px-(--space-container-padding) py-8 text-white sm:gap-10 sm:py-10 lg:flex-row lg:items-start lg:justify-between lg:gap-12 lg:py-12">
+          <ScrollReveal className="max-w-[min(100%,920px)] shrink-0">
             <p className="font-display text-h1 leading-tight text-(--color-surface-cream) lg:text-h0">
               Closing the Loop on <br />
               Telecom Infrastructure
             </p>
           </ScrollReveal>
 
-          {/* Features: vertical column on mobile, side panel on desktop */}
-          <div className="flex h-full flex-col items-start justify-between gap-8 mt-10 lg:mt-0">
-            <StaggerContainer className="flex flex-col gap-5 p-4 lg:flex-wrap lg:flex-row lg:gap-10">
+          <div className="flex min-h-0 w-full min-w-0 flex-col gap-8 lg:mt-0 lg:max-w-xl lg:flex-1 lg:justify-between">
+            <StaggerContainer className="flex flex-col gap-6 sm:gap-5 lg:flex-row lg:flex-wrap lg:gap-10">
               {features.map((item) => (
                 <StaggerItem key={item.label}>
                   <div className="flex flex-col items-start gap-3">
@@ -67,9 +67,8 @@ export default function LoopInfra() {
               ))}
             </StaggerContainer>
 
-            {/* Text + button: hidden on mobile (shown below), visible on desktop */}
             <ScrollReveal
-              className="hidden max-w-xl flex-col gap-6 p-4 lg:flex"
+              className="hidden max-w-xl flex-col gap-6 lg:flex lg:pr-2"
               delay={0.08}
             >
               <p className="text-b1">
@@ -81,7 +80,12 @@ export default function LoopInfra() {
               </p>
 
               <div className="flex gap-3">
-                <Button variant="primary">READ MORE</Button>
+                <Button
+                  variant="primary"
+                  href="/services#responsible-recycling"
+                >
+                  READ MORE
+                </Button>
               </div>
             </ScrollReveal>
           </div>
@@ -100,7 +104,9 @@ export default function LoopInfra() {
           </p>
         </ScrollReveal>
         <div className="flex gap-3">
-          <Button variant="secondary">READ MORE</Button>
+          <Button variant="secondary" href="/services#responsible-recycling">
+            READ MORE
+          </Button>
         </div>
       </div>
     </section>

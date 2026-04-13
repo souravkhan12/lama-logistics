@@ -18,17 +18,17 @@ export default function CareersLifeField() {
         <ScrollReveal>
           <div className="flex flex-col gap-12 lg:gap-16">
             {/* Top: title column lines up with image column; intro lines up with role copy column */}
-            <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
+            <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2 md:gap-x-10 lg:gap-x-12 xl:gap-x-16">
               <div className="flex w-full max-w-[494px] flex-col gap-4">
                 <SectionBadge
                   label="Our structure"
                   backgroundColor="var(--color-surface-cream)"
                 />
-                <h2 className="font-display text-h1 font-light lg:text-h0">
+                <h2 className="font-display text-h1 font-light xl:text-h0">
                   Life in the Field
                 </h2>
               </div>
-              <div className="min-w-0 lg:max-w-[min(100%,670px)]">
+              <div className="min-w-0 md:max-w-[min(100%,670px)]">
                 <p className="font-body text-b1">
                   To keep our decommissioning safe and secure across the US,
                   we’ve organized our field operations into three specialized
@@ -39,12 +39,12 @@ export default function CareersLifeField() {
               </div>
             </div>
 
-            {/* Mobile: stacked cards with full-width images */}
-            <div className="flex flex-col gap-10 lg:hidden">
+            {/* Narrow screens: stacked cards */}
+            <div className="flex flex-col gap-10 md:hidden">
               {CAREERS_FIELD_ROWS.map((row, i) => (
                 <div key={row.id}>
                   <div className="flex flex-col gap-4">
-                    <div className="relative aspect-[3/2] w-full overflow-hidden rounded-md">
+                    <div className="relative aspect-3/2 w-full overflow-hidden rounded-md">
                       <Image
                         src={row.imageSrc}
                         alt=""
@@ -53,20 +53,20 @@ export default function CareersLifeField() {
                         sizes="100vw"
                       />
                     </div>
-                    <p className="font-display text-h3 text-(--color-muted)">
+                    <p className="font-display text-b1 text-(--color-muted)">
                       {row.titleMuted}
                     </p>
-                    <p className="font-body text-b1">{row.titleLead}</p>
+                    <p className="font-body text-b2">{row.titleLead}</p>
                   </div>
                   {i < CAREERS_FIELD_ROWS.length - 1 && (
-                    <div className="mt-10 h-px bg-(--color-border)" />
+                    <div className="mt-10 h-px bg-[#D9D9D9]" />
                   )}
                 </div>
               ))}
             </div>
 
-            {/* Desktop: 2-col grid with fixed-size images */}
-            <div className="hidden items-center gap-y-14 lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
+            {/* Tablet+: 2-col rows with fixed-size images */}
+            <div className="hidden items-center gap-y-12 md:grid md:grid-cols-2 md:gap-x-10 md:gap-y-14 lg:gap-x-12 xl:gap-x-16">
               {CAREERS_FIELD_ROWS.map((row) => (
                 <Fragment key={row.id}>
                   <div className="relative h-[200px] w-full max-w-[296px] shrink-0 overflow-hidden rounded-md">
@@ -79,9 +79,9 @@ export default function CareersLifeField() {
                       sizes="296px"
                     />
                   </div>
-                  <div className="flex min-w-0 flex-col gap-4 lg:max-w-[min(100%,670px)]">
+                  <div className="flex min-w-0 flex-col gap-4 md:max-w-[min(100%,670px)]">
                     <div className="text-(--color-muted)">
-                      <p className="font-display text-h3">{row.titleMuted}</p>
+                      <p className="font-display text-h2">{row.titleMuted}</p>
                     </div>
                     <div className="text-(--color-fg)">
                       <p className="font-display text-h2">{row.titleLead}</p>

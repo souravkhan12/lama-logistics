@@ -1,4 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+
 import Button from "@/components/button";
 import {
   ScrollReveal,
@@ -8,11 +10,27 @@ import {
 import SectionBadge from "@/components/section-badge";
 
 const sectors = [
-  { id: "01", title: "Telecom Operators" },
-  { id: "02", title: "Data Centres & Hyperscalers" },
-  { id: "03", title: "Govt Comms" },
-  { id: "04", title: "Enterprise Networks" },
-];
+  {
+    id: "01",
+    title: "Telecom Operators",
+    href: "/industries#telecommunications-carriers",
+  },
+  {
+    id: "02",
+    title: "Data Centres & Hyperscalers",
+    href: "/industries#data-centers",
+  },
+  {
+    id: "03",
+    title: "Govt Comms",
+    href: "/industries#government-organisations",
+  },
+  {
+    id: "04",
+    title: "Enterprise Networks",
+    href: "/industries#enterprise-networks",
+  },
+] as const;
 
 /** Fine dashed rules: longer dashes + wider gaps than CSS border-dashed */
 const dashedLineV = {
@@ -42,14 +60,19 @@ export default function StrategicSectors() {
           </h2>
 
           <div className="pt-2">
-            <Button variant="secondary">ALL INDUSTRIES</Button>
+            <Button variant="secondary" href="/industries">
+              ALL INDUSTRIES
+            </Button>
           </div>
         </ScrollReveal>
 
         <StaggerContainer className="grid w-full min-w-0 max-w-[min(100%,758px)] grid-cols-1 lg:h-[594px] lg:grid-cols-2">
           {sectors.map((item, index) => (
             <StaggerItem key={item.id}>
-              <div className="relative flex h-full cursor-pointer flex-col justify-between bg-(--color-surface-cream-alt) px-4 py-4 transition-colors duration-350 ease-out hover:bg-(--color-surface-sector-hover) lg:px-8 lg:py-4">
+              <Link
+                href={item.href}
+                className="group relative flex h-full min-h-0 flex-col justify-between rounded-sm bg-(--color-surface-cream-alt) px-4 py-4 text-inherit no-underline outline-offset-2 transition-colors duration-350 ease-out hover:bg-(--color-surface-sector-hover) focus-visible:outline focus-visible:outline-(--color-primary) lg:px-8 lg:py-4"
+              >
                 {/* Vertical divider: desktop only, after col 0 */}
                 {(index === 0 || index === 2) && (
                   <span
@@ -77,20 +100,19 @@ export default function StrategicSectors() {
                   <span className="font-mono text-sm leading-none tracking-wide">
                     {item.id}
                   </span>
-                  <button
-                    type="button"
-                    className="flex size-10 shrink-0 items-center justify-center rounded-sm bg-(--color-neutral-icon) transition-colors hover:bg-(--color-neutral-icon-hover)"
-                    aria-label={`More about ${item.title}`}
+                  <span
+                    className="flex size-10 shrink-0 items-center justify-center rounded-sm bg-(--color-neutral-icon) transition-colors group-hover:bg-(--color-neutral-icon-hover)"
+                    aria-hidden
                   >
                     <ArrowUpRight className="size-6" strokeWidth={2} />
-                  </button>
+                  </span>
                 </div>
                 <div className="flex h-auto items-end pb-2 pt-6 lg:h-[76px] lg:pb-0 lg:pt-0">
                   <span className="font-display text-h2 lg:text-h2">
                     {item.title}
                   </span>
                 </div>
-              </div>
+              </Link>
             </StaggerItem>
           ))}
         </StaggerContainer>
