@@ -26,6 +26,7 @@ const NAV_LINKS = [
   { href: "/about", label: "ABOUT" },
   { href: "/services", label: "SERVICES" },
   { href: "/industries", label: "INDUSTRIES" },
+  { href: "/careers", label: "CAREERS" },
 ] as const;
 
 const navGetStartedClassName =
@@ -114,9 +115,6 @@ export default function Navbar() {
 
   const dotLottieRefCallback = useCallback((instance: DotLottie | null) => {
     lottieRef.current = instance;
-    if (instance) {
-      instance.setSpeed(1.6);
-    }
   }, []);
 
   return (
@@ -189,7 +187,7 @@ export default function Navbar() {
                   dotLottieRefCallback={dotLottieRefCallback}
                   autoplay={false}
                   loop={false}
-                  className="size-8"
+                  className="size-10"
                 />
               </button>
             </div>
