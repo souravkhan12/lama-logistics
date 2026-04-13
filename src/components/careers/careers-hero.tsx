@@ -45,4 +45,5 @@ export default function CareersHero() {
       </div>
     </section>
   );
+  
 }

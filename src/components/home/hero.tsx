@@ -11,9 +11,10 @@ export default function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section>
-      <div className="mx-auto max-w-(--space-container-max-width) px-4 sm:px-6 md:px-(--space-container-padding)">
-        <div className="relative grid h-[min(705px,92svh)] overflow-hidden rounded-none sm:h-[min(705px,88svh)] md:h-[705px] md:rounded-t-lg lg:h-(--space-hero-height)">
+    <section className="w-full">
+      {/* Full-bleed media below md; inset matches layout container from md up */}
+      <div className="mx-auto w-full max-w-(--space-container-max-width) px-0 md:px-(--space-container-padding)">
+        <div className="relative grid h-[min(705px,92svh)] w-full overflow-hidden rounded-none sm:h-[min(705px,88svh)] md:h-[705px] md:rounded-t-lg lg:h-(--space-hero-height)">
           <motion.div
             className="absolute inset-0"
             initial={reduce ? false : { scale: 1.04, opacity: 0.92 }}
