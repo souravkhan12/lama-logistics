@@ -12,7 +12,16 @@ export const metadata: Metadata = {
   description: "A logistics company that puts people first",
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      {
+        url: "/favicon_black.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/favicon.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: light)",
+      },
       { url: "/favicon.ico" },
     ],
     shortcut: "/favicon.ico",
