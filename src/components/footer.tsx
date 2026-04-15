@@ -10,17 +10,32 @@ import Button from "@/components/button";
 import { ScrollReveal } from "@/components/motion";
 
 const SERVICES = [
-  { label: "Decommissioning Services", href: "#" },
-  { label: "End-to-End Network Decommissioning Expertise", href: "#" },
-  { label: "Responsible Recycling & Value Recovery", href: "#" },
-  { label: "Enterprise Network Solutions", href: "#" },
+  {
+    label: "Decommissioning Services",
+    href: "/services#strategic-decommissioning",
+  },
+  {
+    label: "End-to-End Network Decommissioning Expertise",
+    href: "/services#network-deinstallation",
+  },
+  {
+    label: "Responsible Recycling & Value Recovery",
+    href: "/services#responsible-recycling",
+  },
+  {
+    label: "Enterprise Network Solutions",
+    href: "/services#enterprise-network",
+  },
 ];
 
 const INDUSTRIES = [
-  { label: "Telecom Operations", href: "#" },
-  { label: "Enterprise Networks", href: "#" },
-  { label: "Data Centers", href: "#" },
-  { label: "Government", href: "#" },
+  {
+    label: "Telecom Operations",
+    href: "/industries#telecommunications-carriers",
+  },
+  { label: "Enterprise Networks", href: "/industries#enterprise-networks" },
+  { label: "Data Centers", href: "/industries#data-centers" },
+  { label: "Government", href: "/industries#government-organisations" },
 ];
 
 const ABOUT = [
@@ -239,19 +254,43 @@ export default function Footer() {
               </p>
 
               <div className="flex gap-3">
-                <Image
-                  src="/footer/linkedin.svg"
-                  alt="Linkedin"
-                  width={40}
-                  height={40}
-                />
-                <Image
-                  src="/footer/facebook.svg"
-                  alt="Facebook"
-                  width={40}
-                  height={40}
-                />
-                <Image src="/footer/X.svg" alt="X" width={40} height={40} />
+                <Link
+                  href="https://www.linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="transition-opacity hover:opacity-80"
+                >
+                  <Image
+                    src="/footer/linkedin.svg"
+                    alt="LinkedIn"
+                    width={40}
+                    height={40}
+                  />
+                </Link>
+                <Link
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="transition-opacity hover:opacity-80"
+                >
+                  <Image
+                    src="/footer/facebook.svg"
+                    alt="Facebook"
+                    width={40}
+                    height={40}
+                  />
+                </Link>
+                <Link
+                  href="https://x.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="X"
+                  className="transition-opacity hover:opacity-80"
+                >
+                  <Image src="/footer/X.svg" alt="X" width={40} height={40} />
+                </Link>
               </div>
             </div>
 
