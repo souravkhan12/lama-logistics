@@ -26,6 +26,17 @@ function carouselCardBackground(id: string): string {
   }
 }
 
+function carouselCardGradient(id: string): string {
+  switch (id) {
+    case "vision":
+      return "linear-gradient(155deg, #3b52f1 0%, #6477ff 100%)";
+    case "approach":
+      return "linear-gradient(155deg, #2563eb 0%, #4e84ff 100%)";
+    default:
+      return "linear-gradient(155deg, #4f46e5 0%, #7270ff 100%)";
+  }
+}
+
 /** Equal scroll segments — avoids flip-flopping at 0.25/0.75 with `Math.round`. */
 function slideIndexFromProgress(p: number): number {
   const t = Math.min(1, Math.max(0, p));
@@ -107,13 +118,13 @@ export default function AboutMissionCarousel() {
           minHeight: `calc(100dvh + ${(SLIDE_COUNT - 1) * 42}vh)`,
         }}
       >
-        <div className="sticky top-0 flex min-h-dvh w-full items-center py-10 lg:py-(--space-section-padding)">
-          <div className="layout-container w-full">
+        <div className="sticky top-0 flex min-h-dvh w-full items-center py-10 lg:py-(--space-section-padding) xl:py-24 2xl:py-28">
+          <div className="layout-media-container w-full">
             <section
               aria-roledescription="carousel"
               aria-label="Our mission, vision, and approach"
               aria-live="polite"
-              className="relative mx-auto w-full max-w-(--space-container-max-width) overflow-hidden rounded-md"
+              className="relative mx-auto w-full max-w-(--space-container-max-width) overflow-hidden rounded-md xl:max-w-(--space-media-max-width)"
             >
               {ABOUT_MISSION_CAROUSEL_SLIDES.map((s, i) => (
                 <motion.div
@@ -136,7 +147,7 @@ export default function AboutMissionCarousel() {
                 </motion.div>
               ))}
 
-              <div className="relative z-10 flex min-h-[min(72vh,640px)] w-full items-center px-5 py-12 sm:px-8 lg:min-h-[600px] lg:px-10 lg:py-14">
+              <div className="relative z-10 flex min-h-[min(72vh,640px)] w-full items-center px-5 py-12 sm:px-8 lg:min-h-[600px] lg:px-10 lg:py-14 xl:min-h-[720px] 2xl:min-h-[820px]">
                 {/* Space-between row: dots + title (left) · card (right) — matches content.png */}
                 <div className="flex w-full flex-col gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-8 xl:gap-12">
                   <div className="flex min-w-0 flex-row items-center gap-5 text-white sm:gap-6 lg:gap-8">
@@ -178,7 +189,7 @@ export default function AboutMissionCarousel() {
                     </div>
                   </div>
 
-                  <div className="flex w-full shrink-0 justify-start lg:w-[42%] lg:min-w-0 lg:max-w-[560px] lg:justify-end">
+                  <div className="flex w-full shrink-0 justify-start lg:w-[42%] lg:min-w-0 lg:max-w-[560px] lg:justify-end xl:w-[45%] xl:max-w-[680px] 2xl:max-w-[760px]">
                     <div className="relative w-full overflow-hidden rounded-md">
                       <AnimatePresence mode="wait" initial={false}>
                         <motion.article
@@ -190,9 +201,10 @@ export default function AboutMissionCarousel() {
                           animate={cardMotion.animate}
                           exit={cardMotion.exit}
                           transition={transition}
-                          className="flex min-h-[300px] flex-col items-start justify-center gap-(--space-gap-lg) rounded-md px-8 py-10 text-left text-(--color-on-primary) sm:min-h-[320px] sm:px-10 sm:py-11 lg:min-h-[340px] lg:px-12 lg:py-12"
+                          className="flex min-h-[300px] flex-col items-start justify-center gap-(--space-gap-lg) rounded-md px-8 py-10 text-left text-(--color-on-primary) shadow-[0_24px_80px_-28px_rgba(15,23,42,0.55)] sm:min-h-[320px] sm:px-10 sm:py-11 lg:min-h-[340px] lg:px-12 lg:py-12 xl:min-h-[420px] xl:px-14 xl:py-14 2xl:min-h-[500px] 2xl:px-16 2xl:py-16"
                           style={{
                             backgroundColor: carouselCardBackground(slide.id),
+                            backgroundImage: carouselCardGradient(slide.id),
                           }}
                         >
                           <h3 className="font-display text-h1">

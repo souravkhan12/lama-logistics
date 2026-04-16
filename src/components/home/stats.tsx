@@ -9,7 +9,7 @@ import StatCard from "@/components/stat-card";
 export default function Stats() {
   return (
     <section>
-      <div className="layout-container-edge relative flex flex-col overflow-hidden lg:h-[520px] lg:flex-row">
+      <div className="layout-full-bleed relative flex flex-col overflow-hidden lg:h-[560px] xl:h-[620px] 2xl:h-[680px] lg:flex-row">
         <ScrollReveal className="relative h-[260px] w-full lg:h-full lg:w-1/2">
           <Image
             src="/ring.svg"

@@ -6,7 +6,7 @@ import SectionBadge from "@/components/section-badge";
 export default function AboutSection() {
   return (
     <section>
-      <div className="layout-container relative flex items-center overflow-hidden py-(--space-section-padding) lg:h-[665px] lg:py-0">
+      <div className="layout-container relative flex items-center overflow-hidden py-(--space-section-padding) lg:min-h-[665px] lg:py-(--space-section-padding)">
         <div className="absolute left-10 top-0 bottom-0 z-0 hidden h-full w-full opacity-60 lg:block">
           <Image
             src="/grid-home.svg"

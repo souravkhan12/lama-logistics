@@ -167,10 +167,10 @@
   --space-btn-x: 32px;
   --space-btn-y: 16px;
   --space-container-padding: 20px;
-  --space-container-max-width: 1760px;
-  --space-media-max-width: 2200px;
+  --space-container-max-width: 1440px;
+  --space-media-max-width: 1920px;
   --space-navbar-height: 104px;
-  --space-hero-height: 700px;
+  --space-hero-height: 646px;
   --space-section-padding: 80px;
   --space-gap-sm: 16px;
   --space-gap-md: 24px;
@@ -265,6 +265,13 @@
     min-width: 0;
     max-width: var(--space-container-max-width);
     margin-inline: auto;
+  }
+
+  /* True full-bleed lane that touches viewport edges. */
+  .layout-full-bleed {
+    width: 100vw;
+    max-width: none;
+    margin-inline: calc(50% - 50vw);
   }
 
   .bg-about-join-team-cta {

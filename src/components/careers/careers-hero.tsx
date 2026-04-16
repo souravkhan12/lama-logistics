@@ -9,7 +9,7 @@ import CareersSplitButtonDark from "./careers-split-button-dark";
 export default function CareersHero() {
   return (
     <section className="pb-14 pt-6 lg:pb-20 lg:pt-32">
-      <div className="layout-media-container flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-10 xl:gap-16">
+      <div className="layout-container flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-10 xl:gap-16">
         {/* Image — shown first on mobile, second on desktop */}
         <div className="relative mx-auto min-h-[360px] w-full max-w-[640px] flex-1 lg:order-2 lg:mx-0 lg:max-w-none lg:min-h-[min(52vh,520px)]">
           <Image

@@ -13,7 +13,7 @@ export default function Hero() {
   return (
     <section className="w-full">
       {/* Full-bleed media below md; inset matches layout container from md up */}
-      <div className="mx-auto w-full max-w-(--space-media-max-width) px-0 md:px-(--space-container-padding)">
+      <div className="layout-full-bleed px-0">
         <div className="relative grid h-[min(705px,92svh)] w-full overflow-hidden rounded-none sm:h-[min(705px,88svh)] md:h-[705px] md:rounded-t-lg lg:h-(--space-hero-height) xl:h-[min(80svh,780px)] 2xl:h-[min(84svh,880px)]">
           <motion.div
             className="absolute inset-0"
@@ -36,22 +36,24 @@ export default function Hero() {
 
           <div className="absolute inset-0 bg-black/50" />
 
-          <div className="relative z-10 grid items-end p-5 sm:p-8 lg:p-10">
-            <motion.h1
-              className="md:max-w-4xl font-display text-h0 leading-tight text-white"
-              initial={reduce ? false : { opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: siteDuration.heroHeadline,
-                ease: siteEase,
-                delay: 0.2,
-              }}
-            >
-              Powering a Smarter,
-              <br className="hidden md:block" />
-              Circular
-              <br className="md:hidden" /> Telecom Economy
-            </motion.h1>
+          <div className="relative z-10 h-full">
+            <div className="layout-container grid h-full items-end py-5 sm:py-8 lg:py-10">
+              <motion.h1
+                className="md:max-w-4xl font-display text-h0 leading-tight text-white"
+                initial={reduce ? false : { opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: siteDuration.heroHeadline,
+                  ease: siteEase,
+                  delay: 0.2,
+                }}
+              >
+                Powering a Smarter,
+                <br className="hidden md:block" />
+                Circular
+                <br className="md:hidden" /> Telecom Economy
+              </motion.h1>
+            </div>
           </div>
         </div>
       </div>

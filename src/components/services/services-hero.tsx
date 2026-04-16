@@ -13,7 +13,7 @@ export default function ServicesHero() {
 
   return (
     <section className="relative w-full overflow-x-hidden bg-(--color-bg) pt-8 pb-16 md:pt-10 md:pb-24">
-      <div className="layout-media-container relative xl:min-h-[min(360px,42vh)] 2xl:min-h-[min(400px,46vh)]">
+      <div className="layout-container relative xl:min-h-[min(360px,42vh)] 2xl:min-h-[min(400px,46vh)]">
         {/* Mobile / tablet layout: image on top, text below */}
         <div className="flex flex-col gap-8 xl:hidden">
           <motion.div
