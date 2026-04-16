@@ -83,9 +83,6 @@ export default function CareersJobDetailView({
           <header className="flex max-w-[880px] flex-col gap-4">
             <h1 className="font-display text-h1 lg:text-h0">{job.title}</h1>
             <p className="font-body text-b1">{job.subtitle}</p>
-            <p className="font-body text-b1 text-(--color-careers-opening-meta)">
-              {job.meta}
-            </p>
           </header>
 
           <div className="flex max-w-[640px] flex-col gap-6">
