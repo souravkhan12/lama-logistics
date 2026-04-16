@@ -13,7 +13,7 @@ export default function ServicesHero() {
 
   return (
     <section className="relative w-full overflow-x-hidden bg-(--color-bg) pt-8 pb-16 md:pt-10 md:pb-24">
-      <div className="layout-container relative xl:min-h-[min(360px,42vh)] 2xl:min-h-[min(400px,46vh)]">
+      <div className="layout-media-container relative xl:min-h-[min(360px,42vh)] 2xl:min-h-[min(400px,46vh)]">
         {/* Mobile / tablet layout: image on top, text below */}
         <div className="flex flex-col gap-8 xl:hidden">
           <motion.div
@@ -93,7 +93,7 @@ export default function ServicesHero() {
                 src="/services/landing.svg"
                 alt="Operations professional working"
                 fill
-                className="object-contain object-bottom object-right"
+                className="object-contain object-[right_bottom]"
                 sizes="(min-width: 1536px) 42vw, (min-width: 1280px) 44vw, 100vw"
                 priority
                 unoptimized

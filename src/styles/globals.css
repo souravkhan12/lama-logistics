@@ -167,9 +167,10 @@
   --space-btn-x: 32px;
   --space-btn-y: 16px;
   --space-container-padding: 20px;
-  --space-container-max-width: 1440px;
+  --space-container-max-width: 1760px;
+  --space-media-max-width: 2200px;
   --space-navbar-height: 104px;
-  --space-hero-height: 646px;
+  --space-hero-height: 700px;
   --space-section-padding: 80px;
   --space-gap-sm: 16px;
   --space-gap-md: 24px;
@@ -239,8 +240,21 @@
     padding-inline: 16px;
   }
 
+  /* Wider media lane for large screens while preserving page padding rhythm. */
+  .layout-media-container {
+    width: 100%;
+    min-width: 0;
+    max-width: var(--space-media-max-width);
+    margin-inline: auto;
+    padding-inline: 16px;
+  }
+
   @media (min-width: 768px) {
     .layout-container {
+      padding-inline: var(--space-container-padding);
+    }
+
+    .layout-media-container {
       padding-inline: var(--space-container-padding);
     }
   }

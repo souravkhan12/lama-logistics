@@ -48,7 +48,7 @@ export function VideoBackground({ videoSrc, imageSrc }: VideoBackgroundProps) {
         }`}
         aria-hidden
         priority
-        sizes="(max-width: 1440px) 100vw, 1440px"
+        sizes="(max-width: 2200px) 100vw, 2200px"
       />
       <video
         ref={videoRef}

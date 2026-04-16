@@ -15,7 +15,7 @@ export default function IndustriesHero() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="layout-container relative overflow-x-clip bg-(--color-bg) pb-0 pt-6 md:pt-8 xl:overflow-x-visible xl:pt-(--space-section-padding)">
+    <section className="layout-media-container relative overflow-x-clip bg-(--color-bg) pb-0 pt-6 md:pt-8 xl:overflow-x-visible xl:pt-(--space-section-padding)">
       {/* Mobile / tablet: image on top, text below (matches services & about heroes) */}
       <div className="flex flex-col gap-8 xl:hidden">
         <motion.div

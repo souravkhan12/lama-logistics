@@ -34,7 +34,7 @@ export default function LoopInfra() {
   return (
     <section className="py-(--space-section-padding)">
       {/* Video panel */}
-      <div className="layout-container-edge relative min-h-[560px] w-full overflow-hidden sm:min-h-[600px] lg:h-[min(88vh,807px)] lg:min-h-[640px]">
+      <div className="relative mx-auto min-h-[560px] w-full max-w-(--space-media-max-width) overflow-hidden sm:min-h-[600px] lg:h-[min(88vh,840px)] lg:min-h-[680px] xl:h-[min(90vh,920px)] 2xl:h-[min(92vh,1020px)]">
         <VideoBackground
           videoSrc="/videos/second.mp4"
           imageSrc="/loop-infra.png"
