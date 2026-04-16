@@ -1,9 +1,8 @@
 "use client";
 
-import Button from "@/components/button";
 import { ArrowUp } from "lucide-react";
-import Image from "next/image";
 import { useRef, useState } from "react";
+import Button from "@/components/button";
 
 const placeholderTypography =
   "placeholder:font-body placeholder:text-b2 placeholder:text-(--color-text-body)";

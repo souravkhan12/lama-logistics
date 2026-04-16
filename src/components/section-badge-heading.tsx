@@ -18,8 +18,7 @@ export type SectionBadgeHeadingProps = {
   headingId?: string;
 };
 
-const defaultHeadingClass =
-  "max-w-[786px] font-display text-h2 lg:text-h1";
+const defaultHeadingClass = "max-w-[786px] font-display text-h2 lg:text-h1";
 
 /**
  * Shared “brands section” header: cream badge + wide heading in a row on large screens.

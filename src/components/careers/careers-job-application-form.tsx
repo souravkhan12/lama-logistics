@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowUp } from "lucide-react";
-import Image from "next/image";
 import { useRef, useState } from "react";
 import Button from "@/components/button";
 
