@@ -13,7 +13,7 @@ export default function CareersHero() {
         {/* Image — shown first on mobile, second on desktop */}
         <div className="relative mx-auto min-h-[360px] w-full max-w-[640px] flex-1 lg:order-2 lg:mx-0 lg:max-w-none lg:min-h-[min(52vh,520px)]">
           <Image
-            src="/careers/home.svg"
+            src="/careers/career-landing.png"
             alt=""
             fill
             className="object-contain object-center lg:object-right"

@@ -27,7 +27,7 @@ export default function ServicesHero() {
             }}
           >
             <Image
-              src="/services/landing.svg"
+              src="/services/services-hero.png"
               alt="Operations professional working"
               fill
               className="object-contain"
@@ -90,10 +90,10 @@ export default function ServicesHero() {
           >
             <div className="relative h-[clamp(280px,34vh,380px)] w-full min-w-0 shrink-0 2xl:h-[clamp(320px,36vh,420px)]">
               <Image
-                src="/services/landing.svg"
+                src="/services/services-hero.png"
                 alt="Operations professional working"
                 fill
-                className="object-contain object-[right_bottom]"
+                className="object-contain object-bottom-right"
                 sizes="(min-width: 1536px) 42vw, (min-width: 1280px) 44vw, 100vw"
                 priority
                 unoptimized

@@ -81,6 +81,7 @@ export default function Navbar() {
 
   const dotLottieRefCallback = useCallback((instance: DotLottie | null) => {
     lottieRef.current = instance;
+    instance?.setSpeed(1.2);
   }, []);
 
   return (
@@ -100,20 +101,20 @@ export default function Navbar() {
               aria-label="Go to home"
             >
               <Image
-                src="/favicon.svg"
+                src="/LOGO.svg"
                 alt=""
                 width={65}
                 height={35}
                 className="h-8 w-auto md:h-auto md:w-auto"
               />
-              <div className="hidden flex-col leading-tight md:flex">
+              {/* <div className="hidden flex-col leading-tight md:flex">
                 <span className="font-display text-[22px] font-medium">
                   Lama
                 </span>
                 <span className="font-display text-[20px] font-medium">
                   Telecom
                 </span>
-              </div>
+              </div> */}
             </button>
 
             <div className="flex shrink-0 items-center gap-2 md:gap-(--space-gap-md)">

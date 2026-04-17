@@ -1,6 +1,5 @@
 "use client";
 
-import { Calendar } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -126,20 +125,6 @@ export default function Footer() {
               Share your project details, and we’ll reach out with a tailored
               strategy and a clear path forward.
             </p>
-
-            <a
-              href="https://calendly.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-fit items-stretch gap-3 overflow-hidden py-8 text-black"
-            >
-              <span className="flex size-14 shrink-0 items-center justify-center rounded-sm bg-(--color-surface-cream)">
-                <Calendar className="size-6" />
-              </span>
-              <span className="flex h-14 min-w-0 items-center rounded-sm bg-(--color-surface-cream) px-(--space-btn-x) font-mono text-b2 uppercase">
-                Pick a time with Calendly
-              </span>
-            </a>
           </ScrollReveal>
 
           {/* RIGHT FORM */}

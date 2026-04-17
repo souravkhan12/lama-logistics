@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/motion";
 export default function ExploreServicesCta() {
   return (
     <section className="relative overflow-hidden bg-(--color-surface-cream) pt-20 pb-16 sm:pt-16 sm:pb-14 lg:py-12">
-      <div className="layout-container relative z-10 flex w-full flex-col gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10 xl:gap-14">
+      <div className="layout-container relative z-10 flex w-full flex-col gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-10 xl:gap-14">
         <ScrollReveal className="flex max-w-[min(100%,580px)] shrink-0 flex-col gap-6">
           <div className="flex flex-col gap-4">
             <h2 className="font-display text-h1 leading-[1.1] text-(--color-fg)">
@@ -33,13 +33,13 @@ export default function ExploreServicesCta() {
           </div>
         </ScrollReveal>
 
-        <div className="pointer-events-none relative mx-auto aspect-634/434 w-full min-w-0 max-w-[min(100%,280px)] shrink-0 min-[400px]:max-w-[min(100%,340px)] min-[640px]:max-w-[min(100%,400px)] lg:mx-0 lg:aspect-auto lg:h-[min(360px,42vw)] lg:max-w-[min(100%,480px)] xl:max-w-[520px]">
+        <div className="pointer-events-none relative left-1/2 aspect-634/434 w-screen min-w-0 max-w-none -translate-x-1/2 shrink-0 lg:left-auto lg:mx-0 lg:w-full lg:translate-x-0 lg:aspect-auto lg:h-[min(360px,42vw)] lg:max-w-[min(100%,480px)] xl:max-w-[520px]">
           <Image
             src="/industries/explore.svg"
             alt=""
             fill
-            className="object-contain object-[center_bottom] lg:object-cover lg:object-[right_bottom]"
-            sizes="(max-width: 640px) 280px, (max-width: 1024px) 400px, 480px"
+            className="object-contain object-center lg:object-bottom-right lg:object-cover"
+            sizes="(max-width: 1023px) 100vw, 480px"
             unoptimized
           />
         </div>

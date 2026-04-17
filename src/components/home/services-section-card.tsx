@@ -28,7 +28,7 @@ export function ServicesSectionCard({
       className="group flex h-full w-full min-w-0 flex-col rounded-md no-underline text-inherit outline-offset-2 focus-visible:outline focus-visible:outline-(--color-primary)"
     >
       <motion.article
-        className="flex h-full w-full flex-col overflow-hidden rounded-md bg-(--color-surface-blush)"
+        className="flex h-full w-full flex-col overflow-hidden rounded-md bg-(--color-surface-cream)"
         whileHover={
           reduce
             ? undefined

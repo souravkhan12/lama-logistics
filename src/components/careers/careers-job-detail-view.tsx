@@ -103,11 +103,6 @@ export default function CareersJobDetailView({
 
   const sidebar = (
     <aside className="flex flex-col gap-4">
-      <SidebarMetaRow label="Location" value={detail.sidebar.location} />
-      <SidebarMetaRow
-        label="Employment type"
-        value={detail.sidebar.employmentType}
-      />
       <SidebarMetaRow label="Category" value={detail.sidebar.department} />
     </aside>
   );
@@ -176,15 +171,8 @@ export default function CareersJobDetailView({
   );
 
   return (
-    <main className="min-h-screen bg-(--color-bg) pb-24 pt-6 text-(--color-fg) md:pt-10 lg:pb-32">
-      <div className="layout-container flex flex-col gap-8 lg:gap-12">
-        <Link
-          href="/careers"
-          className="inline-flex w-fit items-center rounded-sm bg-(--color-surface-cream) px-4 py-3 font-mono text-o1 uppercase tracking-wide text-(--color-fg) transition-opacity hover:opacity-90"
-        >
-          &lt; back to careers
-        </Link>
-
+    <main className=" min-h-screen bg-(--color-bg) pb-24 pt-8 text-(--color-fg) md:pt-10 lg:pb-32">
+      <div className="layout-container flex flex-col gap-10 lg:gap-12">
         <nav
           aria-label="Breadcrumb"
           className="font-body text-b2 text-(--color-careers-opening-meta)"
@@ -217,21 +205,15 @@ export default function CareersJobDetailView({
           </span>
         </nav>
 
-        <header className="flex max-w-[880px] flex-col gap-4 lg:max-w-none">
+        <header className="flex max-w-[880px] flex-col gap-5 lg:max-w-none">
           <h1 className="font-display text-h1 lg:text-h0">{job.title}</h1>
           <p className="font-body text-b1">{job.subtitle}</p>
           {detail.mobileMeta ? (
-            <dl className="grid gap-3 font-body text-b1 lg:hidden">
-              <div className="flex flex-wrap gap-x-2 gap-y-1">
-                <dt className="font-mono text-o1 uppercase">Job type</dt>
-                <dd>{detail.mobileMeta.jobType}</dd>
-              </div>
-              <div className="flex flex-wrap gap-x-2 gap-y-1">
-                <dt className="font-mono text-o1 uppercase">Experience</dt>
-                <dd>{detail.mobileMeta.experience}</dd>
-              </div>
-              <div className="flex flex-wrap gap-x-2 gap-y-1">
-                <dt className="font-mono text-o1 uppercase">Department</dt>
+            <dl className="grid gap-4 font-body text-b1 lg:hidden">
+              <div className="flex flex-col items-start gap-1 text-center">
+                <dt className="font-mono text-o1 uppercase text-(--color-careers-opening-meta)">
+                  Department
+                </dt>
                 <dd>{detail.sidebar.department}</dd>
               </div>
             </dl>
@@ -248,9 +230,9 @@ export default function CareersJobDetailView({
         </div>
 
         {/* Desktop: sidebar + tabs */}
-        <div className="hidden lg:grid lg:grid-cols-[minmax(220px,280px)_minmax(0,1fr)] lg:items-start lg:gap-x-20 xl:gap-x-28 2xl:gap-x-36">
+        <div className="hidden  lg:grid lg:grid-cols-[minmax(220px,280px)_minmax(0,1fr)] lg:items-start lg:gap-x-20 xl:gap-x-28 2xl:gap-x-36">
           {sidebar}
-          <div className="flex min-w-0 flex-col gap-8">
+          <div className="flex min-w-0 flex-col gap-8 max-w-[800px]">
             <div
               role="tablist"
               aria-label="Job sections"

@@ -277,10 +277,122 @@ function DesktopLayout() {
   );
 }
 
+function MobileLayout() {
+  return (
+    <div className="relative overflow-hidden py-(--space-section-padding) text-white lg:hidden">
+      <div
+        className="pointer-events-none absolute inset-0 bg-service-03-responsible-recycling"
+        role="presentation"
+        aria-hidden
+      />
+
+      <div className="layout-container relative z-10 flex flex-col gap-10">
+        <div className="flex flex-col gap-(--space-gap-md)">
+          <SectionBadge
+            label="SERVICE 03"
+            backgroundColor="var(--color-surface-cream)"
+            className="w-fit text-black"
+          />
+          <h2 className="font-display text-h1 text-white">
+            Responsible Recycling
+            <br />
+            &amp; Value Recovery
+          </h2>
+        </div>
+
+        <div className="flex flex-col gap-(--space-gap-lg)">
+          <StaggerContainer
+            className="flex flex-wrap items-center gap-x-6 gap-y-(--space-gap-md)"
+            stagger={0.05}
+          >
+            {headerIcons.map((item) => (
+              <StaggerItem key={item.label}>
+                <div className="flex items-center gap-2">
+                  <div className="flex size-6 items-center justify-center">
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      width={20}
+                      height={20}
+                    />
+                  </div>
+                  <span className="font-body text-b2 text-white">
+                    {item.label}
+                  </span>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <p className="max-w-136 font-body text-b2 text-white">
+            Turning retired infrastructure into renewed capital through
+            sustainable asset management.
+          </p>
+
+          <Link
+            href={FOOTER_CONTACT_HREF}
+            className="group inline-flex h-[48px] w-fit items-center gap-1 font-mono text-b2 leading-none tracking-wide text-(--color-fg) transition-opacity hover:opacity-95"
+          >
+            <span className="flex h-[48px] items-center rounded-sm bg-(--color-surface-cream) px-(--space-btn-x)">
+              GET STARTED
+            </span>
+            <span className="flex h-[48px] w-[48px] items-center justify-center rounded-sm bg-(--color-surface-cream) transition-transform duration-400 group-hover:translate-x-1">
+              <Image
+                src="/arrow.svg"
+                alt=""
+                width={20}
+                height={20}
+                className="brightness-0"
+              />
+            </span>
+          </Link>
+        </div>
+
+        <div className="flex flex-col gap-8">
+          {responsibleRecyclingSteps.map((step, index) => (
+            <div key={step.id} className="flex gap-3">
+              <div className="flex w-[42px] shrink-0 flex-col items-center">
+                <div className="relative h-[38px] w-[38px] shrink-0">
+                  <svg
+                    width="38"
+                    height="38"
+                    viewBox="0 0 38 38"
+                    fill="none"
+                    className="shrink-0"
+                    role="presentation"
+                  >
+                    <path d={NODE_PATH} fill="#FFFFFF" />
+                  </svg>
+                </div>
+                {index < STEP_COUNT - 1 ? (
+                  <div
+                    className="mt-1 min-h-[72px] flex-1 border-l-2 border-dashed border-white/35"
+                    aria-hidden
+                  />
+                ) : null}
+              </div>
+
+              <div className="min-w-0 flex-1 pb-8">
+                <h3 className="font-display text-b1 text-white">{step.title}</h3>
+                <p className="mt-1 font-body text-b2 text-white/90">
+                  {step.body}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ServicesResponsibleRecycling() {
   return (
     <div id="responsible-recycling" className="scroll-mt-28">
-      <DesktopLayout />
+      <MobileLayout />
+      <div className="hidden lg:block">
+        <DesktopLayout />
+      </div>
     </div>
   );
 }

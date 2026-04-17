@@ -14,7 +14,7 @@ export default function Hero() {
     <section className="w-full">
       {/* Full-bleed media below md; inset matches layout container from md up */}
       <div className="layout-full-bleed px-0">
-        <div className="relative grid h-[min(705px,92svh)] w-full overflow-hidden rounded-none sm:h-[min(705px,88svh)] md:h-[705px] md:rounded-t-lg lg:h-(--space-hero-height) xl:h-[min(80svh,780px)] 2xl:h-[min(84svh,880px)]">
+        <div className="relative grid h-[min(705px,92svh)] w-full overflow-hidden rounded-none sm:h-[min(705px,88svh)] md:h-[705px] lg:h-(--space-hero-height) xl:h-[min(80svh,780px)] 2xl:h-[min(84svh,880px)]">
           <motion.div
             className="absolute inset-0"
             initial={reduce ? false : { scale: 1.04, opacity: 0.92 }}
