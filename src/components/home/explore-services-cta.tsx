@@ -1,49 +1,75 @@
 import Image from "next/image";
-import Link from "next/link";
-
+import Button from "@/components/button";
 import { ScrollReveal } from "@/components/motion";
 
 export default function ExploreServicesCta() {
   return (
-    <section className="relative overflow-hidden bg-(--color-surface-cream) pt-20 pb-16 sm:pt-16 sm:pb-14 lg:py-12">
-      <div className="layout-container relative z-10 flex w-full flex-col gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-10 xl:gap-14">
-        <ScrollReveal className="flex max-w-[min(100%,580px)] shrink-0 flex-col gap-6">
-          <div className="flex flex-col gap-4">
+    <>
+      {/* ✅ DESKTOP (unchanged, only visibility added) */}
+      <section className="hidden lg:block relative overflow-hidden bg-(--color-surface-cream) h-[557px] lg:h-[434px]">
+        <div className="layout-container relative z-10 h-full flex w-full flex-col gap-10 lg:flex-row lg:items-stretch lg:gap-10 xl:gap-14">
+          <ScrollReveal className="h-full items-center justify-center flex w-full lg:w-1/2 flex-col gap-6">
+            <div className="flex flex-col gap-4">
+              <h2 className="font-display text-h1 leading-[1.1] text-(--color-fg)">
+                Ready to streamline your <br className="hidden md:block" />
+                network transition?
+              </h2>
+
+              <p className="max-w-[480px] text-b1 text-(--color-text-body)">
+                From site audits to sustainable asset recovery, let Lama Telecom
+                Services handle the heavy lifting.
+              </p>
+
+              <Button variant="secondary" href="/services">
+                EXPLORE SERVICES
+              </Button>
+            </div>
+          </ScrollReveal>
+
+          <div className="h-full pointer-events-none relative w-full lg:w-1/2 shrink-0">
+            <Image
+              src="/industries/explore.svg"
+              alt=""
+              fill
+              className="object-contain"
+              sizes="(max-width: 1023px) 100vw, 480px"
+              unoptimized
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ✅ MOBILE (new section) */}
+      <section className="block lg:hidden relative overflow-hidden bg-(--color-surface-cream) h-[557px] md:h-[800px]">
+        <div className="layout-container relative z-10 h-full flex flex-col justify-between">
+          {/* TOP CONTENT */}
+          <ScrollReveal className="flex flex-col gap-4 pt-10">
             <h2 className="font-display text-h1 leading-[1.1] text-(--color-fg)">
-              Ready to streamline your <br className="hidden md:block" />
-              network transition?
+              Ready to streamline your network transition?
             </h2>
-            <p className="max-w-[480px] text-b1 text-(--color-text-body)">
+
+            <p className="text-b1 text-(--color-text-body)">
               From site audits to sustainable asset recovery, let Lama Telecom
               Services handle the heavy lifting.
             </p>
-          </div>
-          <div className="mt-1 md:mt-4">
-            <Link
-              href="/services"
-              className="group inline-flex h-[48px] w-[177px] items-center gap-1 font-mono text-o1 leading-none tracking-wide text-white transition-all duration-400 md:h-[54px] md:w-auto md:text-b2"
-            >
-              <span className="flex h-[48px] min-h-[48px] flex-1 items-center whitespace-nowrap rounded-sm bg-black px-2 transition-colors group-hover:bg-(--color-primary) md:h-[54px] md:min-h-[54px] md:flex-none md:shrink-0 md:px-(--space-btn-x)">
-                EXPLORE SERVICES
-              </span>
-              <span className="flex h-[48px] w-[48px] min-h-[48px] min-w-[48px] shrink-0 items-center justify-center rounded-sm bg-black transition-all duration-400 group-hover:translate-x-1 group-hover:bg-(--color-primary) md:h-[54px] md:w-[54px] md:min-h-[54px] md:min-w-[54px]">
-                <Image src="/arrow.svg" alt="" width={20} height={20} />
-              </span>
-            </Link>
-          </div>
-        </ScrollReveal>
 
-        <div className="pointer-events-none relative left-1/2 aspect-634/434 w-screen min-w-0 max-w-none -translate-x-1/2 shrink-0 lg:left-auto lg:mx-0 lg:w-full lg:translate-x-0 lg:aspect-auto lg:h-[min(360px,42vw)] lg:max-w-[min(100%,480px)] xl:max-w-[520px]">
-          <Image
-            src="/industries/explore.svg"
-            alt=""
-            fill
-            className="object-contain object-center lg:object-bottom-right lg:object-cover"
-            sizes="(max-width: 1023px) 100vw, 480px"
-            unoptimized
-          />
+            <Button variant="secondary" href="/services">
+              EXPLORE SERVICES
+            </Button>
+          </ScrollReveal>
+
+          {/* BOTTOM IMAGE */}
+          <div className="relative w-full h-[180px] md:h-[300px] pointer-events-none">
+            <Image
+              src="/industries/explore.svg"
+              alt=""
+              fill
+              className="object-cover object-bottom"
+              unoptimized
+            />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

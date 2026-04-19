@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-const HERO_IMAGE = "/about/img/hero.svg";
+const HERO_IMAGE = "/about/img/about-us-landing.jpg";
 
 export default function AboutHero() {
   return (

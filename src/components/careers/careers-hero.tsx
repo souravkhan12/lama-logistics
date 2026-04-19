@@ -1,30 +1,42 @@
 "use client";
 
+import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 
 import { ScrollReveal } from "@/components/motion";
+import { siteDuration, siteEase } from "@/lib/motion-presets";
 
 import CareersSplitButtonDark from "./careers-split-button-dark";
 
 export default function CareersHero() {
+  const reduce = useReducedMotion();
+
   return (
-    <section className="pb-14 pt-6 lg:pb-20 lg:pt-32">
-      <div className="layout-container flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-10 xl:gap-16">
-        {/* Image — shown first on mobile, second on desktop */}
-        <div className="relative mx-auto min-h-[360px] w-full max-w-[640px] flex-1 lg:order-2 lg:mx-0 lg:max-w-none lg:min-h-[min(52vh,520px)]">
+    <section className="layout-container relative overflow-x-clip bg-(--color-bg) pb-14 pt-6 md:pt-8 xl:overflow-x-visible xl:pb-0 xl:pt-(--space-section-padding)">
+      {/* Mobile / tablet: image on top, text below (matches industries / services heroes) */}
+      <div className="flex flex-col gap-8 xl:hidden">
+        <motion.div
+          className="pointer-events-none relative mx-auto aspect-4/3 w-full max-w-[min(100%,480px)] sm:max-w-[min(100%,520px)] md:max-w-[min(100%,580px)]"
+          initial={reduce ? false : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: siteDuration.heroAsideIndustries,
+            ease: siteEase,
+            delay: 0.1,
+          }}
+        >
           <Image
             src="/careers/career-landing.png"
             alt=""
             fill
-            className="object-contain object-center lg:object-right"
-            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-contain object-bottom"
+            sizes="100vw"
             priority
             unoptimized
           />
-        </div>
+        </motion.div>
 
-        {/* Text content */}
-        <ScrollReveal className="flex max-w-[600px] flex-col gap-6 lg:order-1 lg:max-w-[min(100%,600px)]">
+        <ScrollReveal className="flex flex-col gap-6">
           <h1 className="font-display text-h1 lg:text-h0">
             Build the <span className="text-(--color-muted)">future</span> by
             mastering the past
@@ -42,6 +54,51 @@ export default function CareersHero() {
             />
           </div>
         </ScrollReveal>
+      </div>
+
+      {/* Desktop: same art sizing as industries hero (half copy, square image column) */}
+      <div className="relative isolate hidden xl:flex xl:flex-row xl:items-end">
+        <ScrollReveal className="relative z-10 flex w-full flex-col gap-8 pb-24 xl:w-1/2">
+          <h1 className="font-display text-h0">
+            Build the <span className="text-(--color-muted)">future</span> by
+            mastering the past
+          </h1>
+          <p className="max-w-[540px] font-body text-b1">
+            We don&apos;t just clear out the old; we make room for what&apos;s
+            next. Join a team that treats every retirement as a new opportunity
+            for a sustainable future.
+          </p>
+          <div className="pt-4">
+            <CareersSplitButtonDark
+              href="#openings"
+              label="VIEW CURRENT OPENINGS"
+              aria-label="View current openings"
+            />
+          </div>
+        </ScrollReveal>
+
+        <motion.div
+          className="pointer-events-none relative z-20 flex w-full items-end justify-end xl:absolute xl:-right-6 xl:bottom-0 xl:w-[55%] 2xl:-right-12 2xl:w-[50%] "
+          initial={reduce ? false : { opacity: 0, x: 32 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: siteDuration.heroAsideIndustries,
+            ease: siteEase,
+            delay: 0.1,
+          }}
+        >
+          <div className="relative aspect-square w-[580px]">
+            <Image
+              src="/careers/career-landing.png"
+              alt=""
+              fill
+              className="object-contain object-bottom-right"
+              sizes="50vw"
+              priority
+              unoptimized
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
   );

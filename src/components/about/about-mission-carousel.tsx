@@ -15,6 +15,29 @@ import { carouselCrossfade, siteEase } from "@/lib/motion-presets";
 
 const SLIDE_COUNT = ABOUT_MISSION_CAROUSEL_SLIDES.length;
 
+/**
+ * Share of scroll progress per slide (must sum to 1). Middle slide gets extra
+ * range so it doesn’t feel rushed compared to the first and last with equal thirds.
+ */
+const SLIDE_SCROLL_WEIGHTS: readonly number[] =
+  SLIDE_COUNT === 3
+    ? ([0.27, 0.46, 0.27] as const)
+    : Array.from({ length: SLIDE_COUNT }, () => 1 / SLIDE_COUNT);
+
+function weightSumUpTo(index: number): number {
+  let s = 0;
+  for (let i = 0; i < index; i++) {
+    s += SLIDE_SCROLL_WEIGHTS[i] ?? 0;
+  }
+  return s;
+}
+
+/** Progress at the center of slide `index` — matches `slideIndexFromProgress` mapping. */
+function progressForSlideIndex(index: number): number {
+  const w = SLIDE_SCROLL_WEIGHTS[index] ?? 1 / SLIDE_COUNT;
+  return weightSumUpTo(index) + w / 2;
+}
+
 function carouselCardBackground(id: string): string {
   switch (id) {
     case "vision":
@@ -37,14 +60,18 @@ function carouselCardGradient(id: string): string {
   }
 }
 
-/** Equal scroll segments — avoids flip-flopping at 0.25/0.75 with `Math.round`. */
+/** Scroll segments from `SLIDE_SCROLL_WEIGHTS` — avoids flip-flopping at boundaries. */
 function slideIndexFromProgress(p: number): number {
   const t = Math.min(1, Math.max(0, p));
   if (SLIDE_COUNT <= 1) return 0;
-  return Math.min(
-    SLIDE_COUNT - 1,
-    Math.floor(t * SLIDE_COUNT + Number.EPSILON),
-  );
+  let acc = 0;
+  for (let i = 0; i < SLIDE_COUNT; i++) {
+    acc += SLIDE_SCROLL_WEIGHTS[i] ?? 0;
+    if (t < acc || i === SLIDE_COUNT - 1) {
+      return i;
+    }
+  }
+  return SLIDE_COUNT - 1;
 }
 
 export default function AboutMissionCarousel() {
@@ -74,8 +101,8 @@ export default function AboutMissionCarousel() {
       setActive(clamped);
       return;
     }
-    /** Middle of each segment — matches `slideIndexFromProgress` (floor over n slices). */
-    const progress = SLIDE_COUNT <= 1 ? 0 : (clamped + 0.5) / SLIDE_COUNT;
+    /** Center of weighted segment — matches `slideIndexFromProgress`. */
+    const progress = SLIDE_COUNT <= 1 ? 0 : progressForSlideIndex(clamped);
     const elTop = el.getBoundingClientRect().top + window.scrollY;
     window.scrollTo({
       top: elTop + progress * scrollable,
@@ -114,8 +141,9 @@ export default function AboutMissionCarousel() {
         ref={scrollRef}
         className="relative"
         style={{
-          // Shorter than 220vh: less “empty” page scroll while sticky; scales with slide count.
-          minHeight: `calc(100dvh + ${(SLIDE_COUNT - 1) * 42}vh)`,
+          // Extra vh per slide after the first — a bit more than before so middle slide
+          // (given a wider progress band) still has comfortable physical scroll.
+          minHeight: `calc(100dvh + ${(SLIDE_COUNT - 1) * 50}vh)`,
         }}
       >
         <div className="sticky top-0 flex min-h-dvh w-full items-center py-10 lg:py-(--space-section-padding) xl:py-24 2xl:py-28">

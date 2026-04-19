@@ -130,10 +130,7 @@ export default function Navbar() {
                     {link.label}
                   </Link>
                 ))}
-                <Link
-                  href={FOOTER_CONTACT_HREF}
-                  className={navGetStartedClassName}
-                >
+                <Link href={`/contact`} className={navGetStartedClassName}>
                   GET STARTED
                 </Link>
               </nav>

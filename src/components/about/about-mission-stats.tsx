@@ -27,8 +27,18 @@ export default function AboutMissionStats() {
           <span className="text-(--color-muted)">what’s next.</span>
         </h2>
 
-        <div className="flex justify-end items-end w-full">
-          <div className="flex flex-col gap-6 lg:max-w-[660px]">
+        <div className="flex w-full flex-col gap-10 lg:flex-row lg:items-center lg:gap-(--space-gap-lg)">
+          <div className="relative aspect-1440/668 w-[658px] lg:w-1/2 lg:min-h-[373px]">
+            <Image
+              src="/about/img/hero.svg"
+              alt=""
+              fill
+              className="object-cover object-center grayscale contrast-105"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              unoptimized
+            />
+          </div>
+          <div className="flex w-full flex-col gap-6 lg:w-1/2">
             <p className="font-body text-b1 lg:text-h2">
               We’ve built our team on a simple promise: to handle your
               infrastructure with the same care and precision you used to build

@@ -10,12 +10,12 @@ export default function Stats() {
   return (
     <section>
       <div className="relative flex flex-col overflow-hidden lg:h-[600px] lg:flex-row">
-        <ScrollReveal className="relative h-[260px] w-full lg:h-full lg:flex-1">
+        <ScrollReveal className="relative h-[min(280px,42vw)] w-full min-h-[220px] sm:h-[320px] lg:h-full lg:min-h-0 lg:flex-1">
           <Image
             src="/ring3.png"
             alt="ring"
             fill
-            className="object-cover object-[30%_center] lg:object-right"
+            className="object-cover object-right"
             sizes="(max-width: 1024px) 100vw, 50vw"
             priority
           />
