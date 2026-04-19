@@ -28,7 +28,7 @@ export default function AboutMissionStats() {
         </h2>
 
         <div className="flex w-full flex-col gap-10 lg:flex-row lg:items-center lg:gap-(--space-gap-lg)">
-          <div className="relative aspect-1440/668 w-[658px] lg:w-1/2 lg:min-h-[373px]">
+          <div className="relative aspect-1440/668 w-full min-w-0 max-w-full lg:w-1/2 lg:min-h-[373px]">
             <Image
               src="/about/img/hero.svg"
               alt=""
