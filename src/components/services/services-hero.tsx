@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 
@@ -12,7 +11,7 @@ export default function ServicesHero() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="layout-container relative overflow-x-clip bg-(--color-bg) pb-16 pt-6 md:pt-8 md:pb-24 xl:overflow-x-visible xl:pb-0 xl:pt-(--space-section-padding)">
+    <section className="layout-container relative overflow-x-clip bg-(--color-bg) py-(--space-section-padding) xl:overflow-x-visible">
       {/* Mobile / tablet layout: image on top, text below */}
       <div className="flex flex-col gap-8 xl:hidden">
         <motion.div
@@ -30,18 +29,16 @@ export default function ServicesHero() {
             alt="Operations professional working"
             fill
             className="object-contain"
-            sizes="100vw"
+            sizes="100vw "
             priority
-            unoptimized
-          />
+            unoptimized />
         </motion.div>
 
         <ScrollReveal className="z-10 flex flex-col gap-6">
           <SectionBadge
             label="OUR SERVICES"
             backgroundColor="var(--color-surface-blush)"
-            className="w-fit"
-          />
+            className="w-fit" />
           <h1 className="font-display text-h0 leading-tight text-(--color-fg)">
             Bringing Technology Full Circle.
           </h1>
@@ -56,14 +53,14 @@ export default function ServicesHero() {
         </ScrollReveal>
       </div>
 
-      {/* Desktop: matches industries hero — half-width copy, square art zone, flush bottom-right */}
-      <div className="relative isolate hidden xl:flex xl:flex-row xl:items-end">
-        <ScrollReveal className="relative z-10 flex w-full flex-col gap-8 pb-24 xl:w-1/2">
+      {/* Desktop: Centered, items-center, space-between layout */}
+      <div className="relative isolate hidden xl:flex xl:flex-row xl:items-center xl:justify-between xl:gap-12">
+        {/* LEFT SIDE: Content centered vertically */}
+        <ScrollReveal className="relative z-10 flex w-full flex-col gap-8 xl:w-1/2">
           <SectionBadge
             label="OUR SERVICES"
             backgroundColor="var(--color-surface-blush)"
-            className="w-fit"
-          />
+            className="w-fit" />
           <h1 className="font-display text-h0 leading-tight text-(--color-fg)">
             Bringing Technology Full Circle.
           </h1>
@@ -77,8 +74,11 @@ export default function ServicesHero() {
           </div>
         </ScrollReveal>
 
+        {/* RIGHT SIDE: Image centered vertically and larger */}
         <motion.div
-          className="pointer-events-none relative z-20 flex w-full items-end justify-end xl:absolute xl:-right-6 xl:bottom-0 xl:w-[55%] 2xl:-right-12 2xl:w-[50%]"
+          /* REMOVED: xl:absolute, xl:-right-6, xl:bottom-0 */
+          /* ADDED: flex-1 to take available space, justify-end */
+          className="pointer-events-none relative z-20 flex flex-1 items-center justify-end"
           initial={reduce ? false : { opacity: 0, x: 32 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{
@@ -87,16 +87,17 @@ export default function ServicesHero() {
             delay: 0.1,
           }}
         >
-          <div className="relative aspect-square w-full">
+          {/* INCREASED: max-h from 488px to 600px (adjust as needed) */}
+          <div className="relative aspect-square w-full max-h-[488px] 2xl:max-h-[500px]">
             <Image
               src="/services/services-hero.png"
               alt="Operations professional working"
               fill
-              className="object-contain object-bottom-right"
+              /* CHANGED: object-right to keep it flush to the right edge of the container */
+              className="object-contain object-right"
               sizes="50vw"
               priority
-              unoptimized
-            />
+              unoptimized />
           </div>
         </motion.div>
       </div>

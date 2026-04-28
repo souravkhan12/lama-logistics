@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -68,8 +67,7 @@ function FooterLineInput({
         name={id}
         type={type}
         placeholder={placeholderText}
-        className={`${inputClass} border-b border-(--color-footer-input-border) focus:border-(--color-footer-accent) placeholder:text-b2 placeholder:text-white/60`}
-      />
+        className={`${inputClass} border-b border-(--color-footer-input-border) focus:border-(--color-footer-accent) placeholder:text-b2 placeholder:text-white/60`} />
     );
   }
 
@@ -97,8 +95,7 @@ function FooterLineInput({
         aria-label={`${placeholderText} (required)`}
         autoComplete={
           type === "email" ? "email" : type === "tel" ? "tel" : undefined
-        }
-      />
+        } />
     </div>
   );
 }
@@ -117,7 +114,8 @@ export default function Footer() {
           {/* LEFT */}
           <ScrollReveal className="flex max-w-[465px] flex-col gap-8">
             <h2 className="font-display text-h0 leading-tight">
-              Let’s plan your <br /> next transition!
+              Let’s plan your <br />
+              next transition!
             </h2>
 
             <p className="text-b1 text-(--color-neutral-icon)">
@@ -136,27 +134,23 @@ export default function Footer() {
               <FooterLineInput
                 id="footer-full-name"
                 placeholderText="Your Full Name"
-                required
-              />
+                required />
               <FooterLineInput
                 id="footer-company"
                 placeholderText="Company’s Name"
-                required
-              />
+                required />
 
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-6">
                 <FooterLineInput
                   id="footer-email"
                   placeholderText="Work Email Address"
                   type="email"
-                  required
-                />
+                  required />
                 <FooterLineInput
                   id="footer-phone"
                   placeholderText="Work Phone"
                   type="tel"
-                  required
-                />
+                  required />
               </div>
 
               <textarea
@@ -164,8 +158,7 @@ export default function Footer() {
                 name="footer-message"
                 rows={3}
                 placeholder="Tell us more about your needs (Optional)"
-                className="w-full resize-y border-0 border-b border-(--color-footer-input-border) bg-transparent py-4 text-b2 text-white outline-none focus:border-(--color-footer-accent) placeholder:text-b2 placeholder:text-white/60"
-              />
+                className="w-full resize-y border-0 border-b border-(--color-footer-input-border) bg-transparent py-4 text-b2 text-white outline-none focus:border-(--color-footer-accent) placeholder:text-b2 placeholder:text-white/60" />
 
               <label
                 htmlFor="footer-consent"
@@ -175,8 +168,7 @@ export default function Footer() {
                   id="footer-consent"
                   name="consent"
                   type="checkbox"
-                  className="footer-consent-checkbox mt-0.5"
-                />
+                  className="footer-consent-checkbox mt-0.5" />
                 <span className="text-b2 leading-relaxed text-white">
                   I agree that Lama Telecom may contact me at the email address
                   or phone number above.
@@ -211,8 +203,7 @@ export default function Footer() {
             width={1440}
             height={300}
             className="w-full object-contain"
-            unoptimized
-          />
+            unoptimized />
         </div>
 
         {/* FOOTER LINKS — 2-col grid matches top: brand under copy, nav columns under form */}
@@ -229,8 +220,7 @@ export default function Footer() {
                   src="/footer/logo.svg"
                   alt="Lama Telecom"
                   width={197}
-                  height={40}
-                />
+                  height={40} />
               </button>
 
               <p className="text-b2 leading-relaxed text-(--color-footer-muted)">
@@ -250,8 +240,7 @@ export default function Footer() {
                     src="/footer/linkedin.svg"
                     alt="LinkedIn"
                     width={40}
-                    height={40}
-                  />
+                    height={40} />
                 </Link>
                 <Link
                   href="https://www.facebook.com"
@@ -264,8 +253,7 @@ export default function Footer() {
                     src="/footer/facebook.svg"
                     alt="Facebook"
                     width={40}
-                    height={40}
-                  />
+                    height={40} />
                 </Link>
                 <Link
                   href="https://x.com"
@@ -274,7 +262,11 @@ export default function Footer() {
                   aria-label="X"
                   className="transition-opacity hover:opacity-80"
                 >
-                  <Image src="/footer/X.svg" alt="X" width={40} height={40} />
+                  <Image
+                    src="/footer/X.svg"
+                    alt="X"
+                    width={40}
+                    height={40} />
                 </Link>
               </div>
             </div>

@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 
 import Button from "@/components/button";
@@ -58,7 +57,7 @@ function TextBody({
           </Button>
         </div>
       ) : null}
-      <div className="flex flex-col gap-4 text-b1">
+      <div className="flex flex-col gap-4 text-b2">
         {paragraphs.map((p) => (
           <p key={p}>{p}</p>
         ))}
@@ -68,19 +67,12 @@ function TextBody({
           {listHeading}
         </p>
 
-        {/* Desktop: bullet list */}
-        <ul className="hidden list-disc space-y-2 pl-5 text-b1 lg:block">
-          {listItems.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-
-        {/* Mobile: numbered cards */}
-        <div className="flex flex-col lg:hidden">
+        {/* Numbered rows on all breakpoints */}
+        <div className="flex flex-col">
           {listItems.map((item, i) => (
             <div key={item}>
               <div className="flex items-center gap-4 py-4">
-                <span className="flex h-10 w-12 shrink-0 items-center justify-center rounded-sm bg-[#DCE1F44D] font-mono text-b2">
+                <span className="flex h-10 w-12 shrink-0 items-center justify-center rounded-sm font-mono text-b2">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="font-display text-b1">{item}</span>
@@ -120,7 +112,7 @@ export default function SectionImageTextSplit({
   const contentRowReverse = imagePosition === "right";
   const anchorScroll = sectionId ? "scroll-mt-28" : "";
   const isSvg = imageSrc.endsWith(".svg");
-  const radiusClass = imageRounded ? "rounded-md" : "rounded-none";
+  const radiusClass = "rounded-md";
 
   function ImageArea({ areaClassName }: { areaClassName: string }) {
     return (
@@ -133,8 +125,7 @@ export default function SectionImageTextSplit({
           fill
           className="object-cover object-center"
           sizes="(max-width: 1024px) 100vw, 50vw"
-          unoptimized={isSvg}
-        />
+          unoptimized={isSvg} />
       </div>
     );
   }
@@ -150,8 +141,7 @@ export default function SectionImageTextSplit({
           listItems={listItems}
           ctaLabel={ctaLabel}
           ctaHref={ctaHref}
-          showMobileCta
-        />
+          showMobileCta />
       </div>
     );
     const mediaColumn = (
@@ -169,7 +159,7 @@ export default function SectionImageTextSplit({
       <section
         id={sectionId}
         className={`py-(--space-section-padding) ${
-          tone === "muted" ? "bg-[#DCE1F44D]" : "bg-(--color-bg)"
+          tone === "muted" ? "bg-[#DCE1F4]" : "bg-(--color-bg)"
         } ${anchorScroll} ${className ?? ""}`}
       >
         <div className="layout-container">
@@ -195,56 +185,67 @@ export default function SectionImageTextSplit({
     );
   }
 
-  const stretchImage =
-    "aspect-[4/3] min-h-[200px] max-h-[360px] w-full sm:max-h-[400px] lg:aspect-[5/4] lg:max-h-[min(52vw,520px)] lg:min-h-0";
+  if (layout === "title-wide") {
+    const stretchImageTitleWide =
+      "aspect-[4/3] min-h-[220px] max-h-[520px] w-full lg:aspect-[5/4] lg:min-h-[460px] lg:max-h-[620px]";
 
-  const contentGrid = `grid w-full items-stretch ${gridGap}`;
+    return (
+      <section
+        id={sectionId}
+        className={`py-(--space-section-padding) ${
+          tone === "muted" ? "bg-[#DCE1F4]" : "bg-(--color-bg)"
+        } ${anchorScroll} ${className ?? ""}`}
+      >
+        <div className="layout-container">
+          <div className="mx-auto w-full max-w-[1360px]">
+            <ScrollReveal className="w-full">
+              <div className={`grid w-full items-stretch ${gridGap}`}>
+                <ImageArea areaClassName={stretchImageTitleWide} />
+                <div className="flex min-w-0 flex-col">
+                  <TextBody
+                    paragraphs={paragraphs}
+                    listHeading={listHeading}
+                    listItems={listItems}
+                    ctaLabel={ctaLabel}
+                    ctaHref={ctaHref} />
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   const sectionShell = `py-(--space-section-padding) ${
-    tone === "muted" ? "bg-[#DCE1F44D]" : "bg-(--color-bg)"
+    tone === "muted" ? "bg-[#DCE1F4]" : "bg-(--color-bg)"
   } ${anchorScroll} ${className ?? ""}`;
-
-  const headerRow = (
-    <ScrollReveal className="w-full">
-      <div className={`grid w-full ${gridGap} lg:items-end`}>
-        <h2 className="font-display text-h1 lg:text-h0">{title}</h2>
-        <div className="hidden lg:block">
-          <Button variant="secondary" href={ctaHref}>
-            {ctaLabel}
-          </Button>
-        </div>
-      </div>
-    </ScrollReveal>
-  );
-
-  const contentRow = (
-    <ScrollReveal className="w-full" delay={0.06}>
-      <div
-        className={`${contentGrid}${
-          contentRowReverse
-            ? " lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1"
-            : ""
-        }`}
-      >
-        <ImageArea areaClassName={stretchImage} />
-        <TextBody
-          paragraphs={paragraphs}
-          listHeading={listHeading}
-          listItems={listItems}
-          ctaLabel={ctaLabel}
-          ctaHref={ctaHref}
-          showMobileCta
-        />
-      </div>
-    </ScrollReveal>
-  );
+  const stretchImage =
+    "aspect-[4/3] min-h-[220px] max-h-[520px] w-full lg:aspect-[5/4] lg:min-h-[460px] lg:max-h-[620px]";
 
   return (
     <section id={sectionId} className={sectionShell}>
       <div className="layout-container">
-        <div className="mx-auto flex w-full max-w-[1360px] flex-col gap-10 lg:gap-12">
-          {headerRow}
-          {contentRow}
+        <div className="mx-auto w-full max-w-[1360px]">
+          <ScrollReveal className="w-full">
+            <div
+              className={`grid w-full items-stretch ${gridGap}${
+                contentRowReverse
+                  ? " lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1"
+                  : ""
+              }`}
+            >
+              <ImageArea areaClassName={stretchImage} />
+              <div className="flex min-w-0 flex-col">
+                <TextBody
+                  paragraphs={paragraphs}
+                  listHeading={listHeading}
+                  listItems={listItems}
+                  ctaLabel={ctaLabel}
+                  ctaHref={ctaHref} />
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

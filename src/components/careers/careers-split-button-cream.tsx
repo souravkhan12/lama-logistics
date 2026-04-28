@@ -27,8 +27,7 @@ export default function CareersSplitButtonCream({
         <ArrowRight
           className="size-5 shrink-0 text-(--color-about-joincta-label-fg)"
           strokeWidth={1.5}
-          aria-hidden
-        />
+          aria-hidden />
       </span>
     </Link>
   );

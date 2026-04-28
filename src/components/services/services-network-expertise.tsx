@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 
@@ -56,8 +55,7 @@ function ExpertiseRow({
             fill
             className="object-cover"
             sizes="100vw"
-            unoptimized
-          />
+            unoptimized />
         </motion.div>
         <div className="flex items-start gap-4">
           <span className="shrink-0 font-display text-h3">{item.id}</span>
@@ -83,8 +81,7 @@ function ExpertiseRow({
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
-            unoptimized
-          />
+            unoptimized />
         </motion.div>
         <div className="flex items-start gap-6">
           <span className="shrink-0 font-display text-h2">{item.id}</span>
@@ -116,8 +113,7 @@ export default function ServicesNetworkExpertise() {
             <SectionBadge
               backgroundColor="var(--color-surface-blush)"
               className="w-fit"
-              label="SERVICE 02"
-            />
+              label="SERVICE 02" />
             <h2 className="font-display text-h1 leading-tight text-(--color-fg)">
               End-to-End Network Deinstallation Expertise.
             </h2>
@@ -146,8 +142,7 @@ export default function ServicesNetworkExpertise() {
                 item={item}
                 reduceMotion={reduce}
                 isFirst={index === 0}
-                isLast={index === networkExpertiseItems.length - 1}
-              />
+                isLast={index === networkExpertiseItems.length - 1} />
             </StaggerItem>
           ))}
         </StaggerContainer>

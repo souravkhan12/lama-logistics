@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 
@@ -32,8 +31,7 @@ export default function CareersHero() {
             className="object-contain object-bottom"
             sizes="100vw"
             priority
-            unoptimized
-          />
+            unoptimized />
         </motion.div>
 
         <ScrollReveal className="flex flex-col gap-6">
@@ -50,8 +48,7 @@ export default function CareersHero() {
             <CareersSplitButtonDark
               href="#openings"
               label="VIEW CURRENT OPENINGS"
-              aria-label="View current openings"
-            />
+              aria-label="View current openings" />
           </div>
         </ScrollReveal>
       </div>
@@ -72,8 +69,7 @@ export default function CareersHero() {
             <CareersSplitButtonDark
               href="#openings"
               label="VIEW CURRENT OPENINGS"
-              aria-label="View current openings"
-            />
+              aria-label="View current openings" />
           </div>
         </ScrollReveal>
 
@@ -95,8 +91,7 @@ export default function CareersHero() {
               className="object-contain object-bottom-right"
               sizes="50vw"
               priority
-              unoptimized
-            />
+              unoptimized />
           </div>
         </motion.div>
       </div>

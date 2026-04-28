@@ -42,8 +42,7 @@ export default function BrandsSection() {
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
             <SectionBadge
               label="WHY CHOOSE US"
-              backgroundColor="var(--color-surface-cream)"
-            />
+              backgroundColor="var(--color-surface-cream)" />
 
             <h2 className="max-w-[786px] font-display text-h2 lg:text-h1">
               We&apos;ve built long lasting partnerships with the most ambitious
@@ -66,8 +65,7 @@ export default function BrandsSection() {
                     alt={brand.name}
                     width={80}
                     height={32}
-                    className="object-contain"
-                  />
+                    className="object-contain" />
                 </div>
               </StaggerItem>
             ))}
@@ -85,8 +83,7 @@ export default function BrandsSection() {
                     alt={brand.name}
                     width={80}
                     height={32}
-                    className="object-contain"
-                  />
+                    className="object-contain" />
                 </div>
               </StaggerItem>
             ))}
@@ -105,8 +102,7 @@ export default function BrandsSection() {
                   alt={brand.name}
                   width={100}
                   height={40}
-                  className="object-contain"
-                />
+                  className="object-contain" />
               </div>
             </StaggerItem>
           ))}

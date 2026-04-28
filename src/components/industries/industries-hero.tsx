@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 
@@ -15,7 +14,7 @@ export default function IndustriesHero() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="layout-container relative overflow-x-clip bg-(--color-bg) pb-0 pt-6 md:pt-8 xl:overflow-x-visible xl:pt-(--space-section-padding)">
+    <section className="layout-container relative overflow-x-clip bg-(--color-bg) pb-10 pt-6 md:pb-12 md:pt-8 xl:overflow-x-visible xl:pb-0 xl:pt-(--space-section-padding)">
       {/* Mobile / tablet: image on top, text below (matches services & about heroes) */}
       <div className="flex flex-col gap-8 xl:hidden">
         <motion.div
@@ -32,19 +31,17 @@ export default function IndustriesHero() {
             src="/industries/home.svg"
             alt=""
             fill
-            className="object-contain object-bottom"
+            className="object-contain object-center"
             sizes="100vw"
             priority
-            unoptimized
-          />
+            unoptimized />
         </motion.div>
 
         <ScrollReveal className="flex flex-col gap-6">
           <SectionBadge
             label="INDUSTRIES WE SERVE"
             backgroundColor="var(--color-surface-cream)"
-            className="w-fit"
-          />
+            className="w-fit" />
           <h1 className="font-display text-h1 leading-[1.05] tracking-tight">
             <span className="block text-(--color-fg)">
               Tailored Solutions for
@@ -66,8 +63,7 @@ export default function IndustriesHero() {
           <SectionBadge
             label="INDUSTRIES WE SERVE"
             backgroundColor="var(--color-surface-cream)"
-            className="w-fit"
-          />
+            className="w-fit" />
           <h1 className="font-display text-h0 leading-[1.05] tracking-tight">
             <span className="block text-(--color-fg)">
               Tailored Solutions for
@@ -85,7 +81,7 @@ export default function IndustriesHero() {
         </ScrollReveal>
 
         <motion.div
-          className="pointer-events-none relative z-20 flex w-full items-end justify-end xl:absolute xl:-right-6 xl:bottom-0 xl:w-[55%] 2xl:-right-12 2xl:w-[50%]"
+          className="pointer-events-none relative z-20 flex w-full items-center xl:absolute xl:-right-6 xl:w-[48%] 2xl:-right-12 2xl:w-[48%]"
           initial={reduce ? false : { opacity: 0, x: 32 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{
@@ -99,11 +95,10 @@ export default function IndustriesHero() {
               src="/industries/home.svg"
               alt=""
               fill
-              className="object-contain object-bottom-right"
+              className="object-contain object-center"
               sizes="50vw"
               priority
-              unoptimized
-            />
+              unoptimized />
           </div>
         </motion.div>
       </div>

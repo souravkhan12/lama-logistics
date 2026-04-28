@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -42,8 +41,7 @@ export function ServicesSectionCard({
             alt={title}
             fill
             className="object-cover"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          />
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
         </div>
 
         <div className="flex min-h-[220px] flex-1 flex-col p-6">
