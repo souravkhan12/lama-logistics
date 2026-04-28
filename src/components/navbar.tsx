@@ -19,9 +19,6 @@ const DotLottieReact = dynamic(
   { ssr: false },
 );
 
-const SCROLL_TOP_THRESHOLD = 48;
-const MIN_DELTA = 8;
-
 const NAV_LINKS = [
   { href: "/about", label: "ABOUT" },
   { href: "/services", label: "SERVICES" },
@@ -37,39 +34,8 @@ export default function Navbar() {
   const router = useRouter();
   const reduce = useReducedMotion();
 
-  const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const lastScrollY = useRef(0);
-  const ticking = useRef(false);
   const lottieRef = useRef<DotLottie | null>(null);
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (ticking.current) return;
-      ticking.current = true;
-      requestAnimationFrame(() => {
-        const y = window.scrollY;
-        const prev = lastScrollY.current;
-        const delta = y - prev;
-
-        if (y < SCROLL_TOP_THRESHOLD) {
-          setHidden(false);
-        } else if (delta > MIN_DELTA) {
-          setHidden(true);
-        } else if (delta < -MIN_DELTA) {
-          setHidden(false);
-        }
-
-        lastScrollY.current = y;
-        ticking.current = false;
-      });
-    };
-
-    lastScrollY.current = window.scrollY;
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const resetLottie = useCallback(() => {
     const inst = lottieRef.current;
@@ -115,15 +81,12 @@ export default function Navbar() {
 
   const dotLottieRefCallback = useCallback((instance: DotLottie | null) => {
     lottieRef.current = instance;
+    instance?.setSpeed(1.2);
   }, []);
 
   return (
     <>
-      <header
-        className={`fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-sm transition-transform duration-500 ease-out will-change-transform ${
-          hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
-        }`}
-      >
+      <header className="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-sm">
         <motion.div
           className="layout-container min-w-0"
           initial={reduce ? false : { opacity: 0, y: -10 }}
@@ -138,20 +101,20 @@ export default function Navbar() {
               aria-label="Go to home"
             >
               <Image
-                src="/favicon.svg"
+                src="/LOGO.svg"
                 alt=""
                 width={65}
                 height={35}
                 className="h-8 w-auto md:h-auto md:w-auto"
               />
-              <div className="hidden flex-col leading-tight md:flex">
+              {/* <div className="hidden flex-col leading-tight md:flex">
                 <span className="font-display text-[22px] font-medium">
                   Lama
                 </span>
                 <span className="font-display text-[20px] font-medium">
                   Telecom
                 </span>
-              </div>
+              </div> */}
             </button>
 
             <div className="flex shrink-0 items-center gap-2 md:gap-(--space-gap-md)">
@@ -167,10 +130,7 @@ export default function Navbar() {
                     {link.label}
                   </Link>
                 ))}
-                <Link
-                  href={FOOTER_CONTACT_HREF}
-                  className={navGetStartedClassName}
-                >
+                <Link href={`/contact`} className={navGetStartedClassName}>
                   GET STARTED
                 </Link>
               </nav>

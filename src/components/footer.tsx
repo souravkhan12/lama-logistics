@@ -1,6 +1,5 @@
 "use client";
 
-import { Calendar } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -112,9 +111,9 @@ export default function Footer() {
       id="contact"
       className="scroll-mt-28 relative overflow-hidden bg-(--color-footer-bg) text-white"
     >
-      <div className="layout-container relative flex flex-col gap-12 py-12 lg:gap-14 lg:py-16">
+      <div className="layout-media-container relative flex flex-col gap-12 py-12 lg:gap-14 lg:py-16">
         {/* TOP */}
-        <div className="grid grid-cols-1 gap-10 px-(--space-container-padding) lg:grid-cols-2 lg:gap-12 xl:gap-16">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
           {/* LEFT */}
           <ScrollReveal className="flex max-w-[465px] flex-col gap-8">
             <h2 className="font-display text-h0 leading-tight">
@@ -126,20 +125,6 @@ export default function Footer() {
               Share your project details, and we’ll reach out with a tailored
               strategy and a clear path forward.
             </p>
-
-            <a
-              href="https://calendly.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-fit items-stretch gap-3 overflow-hidden py-8 text-black"
-            >
-              <span className="flex size-14 shrink-0 items-center justify-center rounded-sm bg-(--color-surface-cream)">
-                <Calendar className="size-6" />
-              </span>
-              <span className="flex h-14 min-w-0 items-center rounded-sm bg-(--color-surface-cream) px-(--space-btn-x) font-mono text-b2 uppercase">
-                Pick a time with Calendly
-              </span>
-            </a>
           </ScrollReveal>
 
           {/* RIGHT FORM */}
@@ -231,7 +216,7 @@ export default function Footer() {
         </div>
 
         {/* FOOTER LINKS — 2-col grid matches top: brand under copy, nav columns under form */}
-        <ScrollReveal className="mt-12 border-t border-(--color-footer-divider) pt-10 px-(--space-container-padding) lg:mt-14 lg:pt-12">
+        <ScrollReveal className="mt-12 border-t border-(--color-footer-divider) pt-10 lg:mt-14 lg:pt-12">
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
             <div className="flex max-w-[465px] flex-col gap-6">
               <button
@@ -359,7 +344,7 @@ export default function Footer() {
         </ScrollReveal>
 
         {/* BOTTOM */}
-        <ScrollReveal className="flex flex-col gap-4 border-t border-(--color-footer-divider) pt-8 pb-1 text-b3 text-(--color-footer-muted) sm:flex-row sm:justify-between px-(--space-container-padding)">
+        <ScrollReveal className="flex flex-col gap-4 border-t border-(--color-footer-divider) pt-8 pb-1 text-b3 text-(--color-footer-muted) sm:flex-row sm:justify-between">
           <span>© 2026 Lama Telecom Services. All Rights Reserved.</span>
           <div className="flex flex-wrap gap-6">
             <Link

@@ -28,7 +28,7 @@ export function ServicesSectionCard({
       className="group flex h-full w-full min-w-0 flex-col rounded-md no-underline text-inherit outline-offset-2 focus-visible:outline focus-visible:outline-(--color-primary)"
     >
       <motion.article
-        className="flex h-full w-full flex-col overflow-hidden rounded-md bg-(--color-surface-blush)"
+        className="flex h-full w-full flex-col overflow-hidden rounded-md bg-(--color-surface-cream)"
         whileHover={
           reduce
             ? undefined
@@ -49,7 +49,7 @@ export function ServicesSectionCard({
         <div className="flex min-h-[220px] flex-1 flex-col p-6">
           <h3 className="font-display text-h2 md:text-b1 mb-2">{title}</h3>
 
-          <p className="mb-4 flex-1 text-b3">{description}</p>
+          <p className="mb-4 flex-1 text-b3 ">{description}</p>
 
           <span className="font-mono text-caption text-(--color-link-muted) underline underline-offset-4 decoration-(--color-link-muted) group-hover:decoration-fg w-fit">
             Read more

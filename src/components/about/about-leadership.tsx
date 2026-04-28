@@ -39,7 +39,9 @@ export default function AboutLeadership() {
   const [openId, setOpenId] = useState<string | null>(null);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
-  const hoveredMember = ABOUT_LEADERSHIP_TEAM.find((m) => m.id === hoveredId);
+  const hoveredMember = ABOUT_LEADERSHIP_TEAM.find(
+    (m) => m.id === hoveredId && m.id !== openId,
+  );
 
   const toggle = useCallback((id: string) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -53,6 +55,11 @@ export default function AboutLeadership() {
     document.addEventListener("visibilitychange", onVis);
     return () => document.removeEventListener("visibilitychange", onVis);
   }, [showFloatPreview]);
+
+  useEffect(() => {
+    // Never show hover portrait while a row is expanded.
+    if (openId) setHoveredId(null);
+  }, [openId]);
 
   return (
     <section className="relative bg-(--color-bg) py-(--space-section-padding)">
@@ -121,12 +128,14 @@ export default function AboutLeadership() {
               isOpen={openId === member.id}
               onToggle={() => toggle(member.id)}
               onRowPointerEnter={
-                showFloatPreview ? () => setHoveredId(member.id) : undefined
+                showFloatPreview && openId !== member.id
+                  ? () => setHoveredId(member.id)
+                  : undefined
               }
               onRowPointerLeave={
                 showFloatPreview ? () => setHoveredId(null) : undefined
               }
-              showInlinePortrait={!showFloatPreview}
+              showInlinePortrait={false}
               reduce={reduce}
             />
           ))}

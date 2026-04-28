@@ -1,3 +1,4 @@
+import Button from "@/components/button";
 import { ServicesSectionCard } from "@/components/home/services-section-card";
 import {
   ScrollReveal,
@@ -60,13 +61,19 @@ export default function ServicesSection() {
               every network cycle
             </h2>
 
-            <p className="flex-1 text-b1">
-              We remove, recover, and repurpose your assets across all
-              <br className="hidden md:block" /> {""}
-              environments—maximizing value with zero disruption and
-              <br className="hidden md:block" /> {""} total environmental
-              compliance.
-            </p>
+            <div className="flex flex-1 flex-col items-start gap-6">
+              <p className="text-b1">
+                We remove, recover, and repurpose your assets across all
+                <br className="hidden md:block" /> {""}
+                environments—maximizing value with zero disruption and
+                <br className="hidden md:block" /> {""} total environmental
+                compliance.
+              </p>
+
+              <Button href="/services" variant="secondary" isArrow>
+                ALL SERVICES
+              </Button>
+            </div>
           </div>
         </ScrollReveal>
 

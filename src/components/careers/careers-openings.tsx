@@ -54,11 +54,6 @@ export default function CareersOpenings() {
                   <p className="font-body text-b1">{job.subtitle}</p>
                 </div>
               </Link>
-              <div className="flex px-0 xl:flex-1 xl:justify-center xl:px-2">
-                <p className="max-w-full font-body text-b1 text-(--color-careers-opening-meta) whitespace-normal xl:text-center">
-                  {job.meta}
-                </p>
-              </div>
               <div className="flex xl:flex-1 xl:justify-end">
                 <CareersSplitButtonDark
                   href={`/careers/${job.id}`}
