@@ -12,8 +12,7 @@ export default function AboutHero() {
         fill
         className="object-cover object-center grayscale contrast-105"
         priority
-        sizes="100vw"
-        unoptimized />
+        sizes="100vw" />
     </section>
   );
 }

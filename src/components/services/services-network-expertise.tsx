@@ -80,8 +80,7 @@ function ExpertiseRow({
             alt={item.title}
             fill
             className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            unoptimized />
+            sizes="220px" />
         </motion.div>
         <div className="flex items-start gap-6">
           <span className="shrink-0 font-display text-h2">{item.id}</span>

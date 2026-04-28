@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "images:compress": "node scripts/compress-images.mjs",
+    "images:compress:write": "node scripts/compress-images.mjs --write"
   },
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.18.10",
