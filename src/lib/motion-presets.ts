@@ -24,6 +24,7 @@ export const siteDuration = {
   heroHeadline: 0.88,
   heroAsideServices: 0.88,
   heroAsideIndustries: 1.05,
+  heroFloat: 2.6,
   navbar: 0.45,
   hoverLift: 0.28,
   hoverSubtle: 0.3,

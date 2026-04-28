@@ -9,6 +9,13 @@ import { siteDuration, siteEase } from "@/lib/motion-presets";
 
 export default function ServicesHero() {
   const reduce = useReducedMotion();
+  const floatAnimation = reduce ? undefined : { y: [-10, 10] };
+  const floatTransition = {
+    duration: siteDuration.heroFloat,
+    repeat: Number.POSITIVE_INFINITY,
+    ease: "easeInOut" as const,
+    repeatType: "mirror" as const,
+  };
 
   return (
     <section className="layout-container relative overflow-x-clip bg-(--color-bg) py-(--space-section-padding) xl:overflow-x-visible">
@@ -24,14 +31,19 @@ export default function ServicesHero() {
             delay: 0.1,
           }}
         >
-          <Image
-            src="/services/services-hero.png"
-            alt="Operations professional working"
-            fill
-            className="object-contain"
-            sizes="100vw "
-            priority
-            unoptimized />
+          <motion.div
+            className="relative h-full w-full"
+            animate={floatAnimation}
+            transition={floatTransition}
+          >
+            <Image
+              src="/services/services-hero.png"
+              alt="Operations professional working"
+              fill
+              className="object-contain"
+              sizes="100vw"
+              priority />
+          </motion.div>
         </motion.div>
 
         <ScrollReveal className="z-10 flex flex-col gap-6">
@@ -89,15 +101,20 @@ export default function ServicesHero() {
         >
           {/* INCREASED: max-h from 488px to 600px (adjust as needed) */}
           <div className="relative aspect-square w-full max-h-[488px] 2xl:max-h-[500px]">
-            <Image
-              src="/services/services-hero.png"
-              alt="Operations professional working"
-              fill
-              /* CHANGED: object-right to keep it flush to the right edge of the container */
-              className="object-contain object-right"
-              sizes="50vw"
-              priority
-              unoptimized />
+            <motion.div
+              className="relative h-full w-full"
+              animate={floatAnimation}
+              transition={floatTransition}
+            >
+              <Image
+                src="/services/services-hero.png"
+                alt="Operations professional working"
+                fill
+                /* CHANGED: object-right to keep it flush to the right edge of the container */
+                className="object-contain object-right"
+                sizes="50vw"
+                priority />
+            </motion.div>
           </div>
         </motion.div>
       </div>

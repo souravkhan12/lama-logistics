@@ -12,6 +12,13 @@ const description =
 
 export default function IndustriesHero() {
   const reduce = useReducedMotion();
+  const floatAnimation = reduce ? undefined : { y: [-10, 10] };
+  const floatTransition = {
+    duration: siteDuration.heroFloat,
+    repeat: Number.POSITIVE_INFINITY,
+    ease: "easeInOut" as const,
+    repeatType: "mirror" as const,
+  };
 
   return (
     <section className="layout-container relative overflow-x-clip bg-(--color-bg) pb-10 pt-6 md:pb-12 md:pt-8 xl:overflow-x-visible xl:pb-0 xl:pt-(--space-section-padding)">
@@ -27,14 +34,19 @@ export default function IndustriesHero() {
             delay: 0.1,
           }}
         >
-          <Image
-            src="/industries/home.svg"
-            alt=""
-            fill
-            className="object-contain object-center"
-            sizes="100vw"
-            priority
-            unoptimized />
+          <motion.div
+            className="relative h-full w-full"
+            animate={floatAnimation}
+            transition={floatTransition}
+          >
+            <Image
+              src="/industries/home.svg"
+              alt=""
+              fill
+              className="object-contain object-center"
+              sizes="100vw"
+              priority />
+          </motion.div>
         </motion.div>
 
         <ScrollReveal className="flex flex-col gap-6">
@@ -91,14 +103,19 @@ export default function IndustriesHero() {
           }}
         >
           <div className="relative aspect-square w-full">
-            <Image
-              src="/industries/home.svg"
-              alt=""
-              fill
-              className="object-contain object-center"
-              sizes="50vw"
-              priority
-              unoptimized />
+            <motion.div
+              className="relative h-full w-full"
+              animate={floatAnimation}
+              transition={floatTransition}
+            >
+              <Image
+                src="/industries/home.svg"
+                alt=""
+                fill
+                className="object-contain object-center"
+                sizes="50vw"
+                priority />
+            </motion.div>
           </div>
         </motion.div>
       </div>

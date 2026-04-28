@@ -9,6 +9,13 @@ import CareersSplitButtonDark from "./careers-split-button-dark";
 
 export default function CareersHero() {
   const reduce = useReducedMotion();
+  const floatAnimation = reduce ? undefined : { y: [-10, 10] };
+  const floatTransition = {
+    duration: siteDuration.heroFloat,
+    repeat: Number.POSITIVE_INFINITY,
+    ease: "easeInOut" as const,
+    repeatType: "mirror" as const,
+  };
 
   return (
     <section className="layout-container relative overflow-x-clip bg-(--color-bg) pb-14 pt-6 md:pt-8 xl:overflow-x-visible xl:pb-0 xl:pt-(--space-section-padding)">
@@ -24,14 +31,19 @@ export default function CareersHero() {
             delay: 0.1,
           }}
         >
-          <Image
-            src="/careers/career-landing.png"
-            alt=""
-            fill
-            className="object-contain object-bottom"
-            sizes="100vw"
-            priority
-            unoptimized />
+          <motion.div
+            className="relative h-full w-full"
+            animate={floatAnimation}
+            transition={floatTransition}
+          >
+            <Image
+              src="/careers/career-landing.png"
+              alt=""
+              fill
+              className="object-contain object-bottom"
+              sizes="100vw"
+              priority />
+          </motion.div>
         </motion.div>
 
         <ScrollReveal className="flex flex-col gap-6">
@@ -84,14 +96,19 @@ export default function CareersHero() {
           }}
         >
           <div className="relative aspect-square w-[580px]">
-            <Image
-              src="/careers/career-landing.png"
-              alt=""
-              fill
-              className="object-contain object-bottom-right"
-              sizes="50vw"
-              priority
-              unoptimized />
+            <motion.div
+              className="relative h-full w-full"
+              animate={floatAnimation}
+              transition={floatTransition}
+            >
+              <Image
+                src="/careers/career-landing.png"
+                alt=""
+                fill
+                className="object-contain object-bottom-right"
+                sizes="50vw"
+                priority />
+            </motion.div>
           </div>
         </motion.div>
       </div>
