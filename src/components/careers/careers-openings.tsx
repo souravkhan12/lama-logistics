@@ -20,8 +20,7 @@ export default function CareersOpenings() {
             <div className="flex min-w-0 flex-col gap-4">
               <SectionBadge
                 label="WORK WITH US"
-                backgroundColor="var(--color-surface-cream)"
-              />
+                backgroundColor="var(--color-surface-cream)" />
               <h2 className="font-display text-h1 xl:text-h0">
                 Current Openings
               </h2>
@@ -47,19 +46,23 @@ export default function CareersOpenings() {
                 href={`/careers/${job.id}`}
                 className="min-w-0 text-left transition-opacity hover:opacity-80 xl:flex-1"
               >
-                <p className="font-display text-h2 font-light xl:text-h1">
+                <p className="font-display text-h2 font-light xl:text-h1 ">
                   {job.title}
                 </p>
                 <div className="mt-1">
                   <p className="font-body text-b1">{job.subtitle}</p>
                 </div>
               </Link>
+              <div>
+                <p className="font-body text-b1 text-(--color-muted)">
+                  Decom/operations
+                </p>
+              </div>
               <div className="flex xl:flex-1 xl:justify-end">
                 <CareersSplitButtonDark
                   href={`/careers/${job.id}`}
                   label="APPLY NOW"
-                  ariaLabel={`View ${job.title} role details`}
-                />
+                  ariaLabel={`View ${job.title} role details`} />
               </div>
             </li>
           ))}

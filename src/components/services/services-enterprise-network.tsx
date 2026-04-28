@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 
 import Button from "@/components/button";
@@ -41,7 +40,7 @@ export default function ServicesEnterpriseNetwork() {
   return (
     <section
       id="enterprise-network"
-      className="scroll-mt-28 bg-[#DCE1F44D] py-(--space-section-padding)"
+      className="scroll-mt-28 bg-[#DCE1F4] py-(--space-section-padding)"
     >
       <div className="layout-container">
         <div className="mx-auto flex w-full max-w-[1360px] flex-col gap-8 lg:gap-10">
@@ -51,14 +50,11 @@ export default function ServicesEnterpriseNetwork() {
               <SectionBadge
                 backgroundColor="var(--color-surface-cream)"
                 className="w-fit"
-                label="SERVICE 04"
-              />
+                label="SERVICE 04" />
               <h2 className="font-display text-h1 leading-tight text-(--color-fg)">
                 Enterprise Network Solutions
               </h2>
-              <p className="text-b1 font-body leading-relaxed text-(--color-muted)">
-                {intro}
-              </p>
+              <p className="text-b1 font-body leading-relaxed">{intro}</p>
               <Button variant="secondary" href={FOOTER_CONTACT_HREF}>
                 GET STARTED
               </Button>
@@ -70,16 +66,13 @@ export default function ServicesEnterpriseNetwork() {
                 <SectionBadge
                   backgroundColor="var(--color-surface-cream)"
                   className="w-fit"
-                  label="SERVICE 04"
-                />
+                  label="SERVICE 04" />
                 <h2 className="font-display text-h1 leading-[1.1] text-(--color-fg)">
                   Enterprise Network Solutions
                 </h2>
               </div>
               <div className="flex min-w-0 flex-1 flex-col gap-3 pl-10 xl:pl-12">
-                <p className="text-b1 font-body leading-snug text-(--color-muted)">
-                  {intro}
-                </p>
+                <p className="text-b1 font-body leading-snug">{intro}</p>
                 <Button variant="secondary" href={FOOTER_CONTACT_HREF}>
                   GET STARTED
                 </Button>
@@ -90,15 +83,14 @@ export default function ServicesEnterpriseNetwork() {
           {/* Image + offerings — content drives the height, image stretches to match */}
           <ScrollReveal className="w-full" delay={0.06}>
             <div className="flex w-full flex-col lg:flex-row lg:items-stretch">
-              <div className="relative h-[280px] w-full shrink-0 overflow-hidden rounded-md lg:h-auto lg:w-[700px] lg:rounded-l-md lg:rounded-r-none">
+              <div className="relative h-[280px] w-full shrink-0 overflow-hidden rounded-md lg:h-auto lg:w-[700px]">
                 <Image
                   src="/services/enterprise-network-solutions.svg"
                   alt="Fiber optic network cabling"
                   fill
                   className="object-cover object-center"
                   sizes="700px"
-                  unoptimized
-                />
+                  unoptimized />
               </div>
 
               <StaggerContainer
@@ -111,7 +103,7 @@ export default function ServicesEnterpriseNetwork() {
                       <h3 className="font-display text-h3 leading-snug text-(--color-fg) md:text-h2">
                         {item.title}
                       </h3>
-                      <p className="text-b2 font-body leading-relaxed text-(--color-muted)">
+                      <p className="text-b2 font-body leading-relaxed">
                         {item.description}
                       </p>
                     </div>

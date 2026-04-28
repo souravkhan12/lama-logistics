@@ -12,32 +12,28 @@ const services = [
     title: "About our Deinstallation Services",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ",
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+    image: "/home/1.png",
     readMoreHref: "/services#strategic-decommissioning",
   },
   {
     title: "End-to-End Network Deinstallation Expertise",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ",
-    image:
-      "https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&q=80",
+    image: "/home/2.png",
     readMoreHref: "/services#network-deinstallation",
   },
   {
     title: "Responsible Recycling & Value Recovery",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ",
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+    image: "/home/3.png",
     readMoreHref: "/services#responsible-recycling",
   },
   {
     title: "Enterprise Network Solutions",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ",
-    image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+    image: "/home/4.png",
     readMoreHref: "/services#enterprise-network",
   },
 ] as const;
@@ -50,8 +46,7 @@ export default function ServicesSection() {
           <SectionBadge
             label="OUR SERVICES"
             backgroundColor="var(--color-surface-blush)"
-            className="w-fit"
-          />
+            className="w-fit" />
 
           <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
             <h2 className="flex-1 font-display text-h2 leading-tight text-(--color-fg) md:text-h1">

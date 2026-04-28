@@ -65,8 +65,7 @@ export default async function AboutApplyPage({ searchParams }: PageProps) {
           <div className="min-w-0">
             <GeneralApplicationForm
               positionId={positionId}
-              roleTitle={roleTitle}
-            />
+              roleTitle={roleTitle} />
           </div>
         </div>
       </div>

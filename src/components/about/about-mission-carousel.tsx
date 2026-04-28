@@ -1,5 +1,4 @@
 "use client";
-
 import {
   AnimatePresence,
   motion,
@@ -169,8 +168,7 @@ export default function AboutMissionCarousel() {
                     fill
                     className="object-cover object-center"
                     sizes="(max-width: 1440px) 100vw, 1440px"
-                    priority={i === 0}
-                  />
+                    priority={i === 0} />
                   <div className="absolute inset-0 bg-black/55" aria-hidden />
                 </motion.div>
               ))}
@@ -197,8 +195,7 @@ export default function AboutMissionCarousel() {
                             i === active
                               ? "bg-white"
                               : "bg-white/45 hover:bg-white/70"
-                          }`}
-                        />
+                          }`} />
                       ))}
                     </div>
                     <div className="min-w-0 overflow-hidden text-left">

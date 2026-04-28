@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 
 const HERO_IMAGE = "/about/img/about-us-landing.jpg";
@@ -14,8 +13,7 @@ export default function AboutHero() {
         className="object-cover object-center grayscale contrast-105"
         priority
         sizes="100vw"
-        unoptimized
-      />
+        unoptimized />
     </section>
   );
 }

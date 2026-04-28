@@ -1,5 +1,4 @@
 "use client";
-
 import { Minus, Plus } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
@@ -107,8 +106,7 @@ export default function AboutLeadership() {
                   width={PREVIEW_W}
                   height={PREVIEW_H}
                   className="size-full object-cover object-top grayscale contrast-105"
-                  unoptimized={hoveredMember.imageSrc.endsWith(".svg")}
-                />
+                  unoptimized={hoveredMember.imageSrc.endsWith(".svg")} />
               </motion.div>
             ) : null}
           </AnimatePresence>
@@ -136,8 +134,7 @@ export default function AboutLeadership() {
                 showFloatPreview ? () => setHoveredId(null) : undefined
               }
               showInlinePortrait={false}
-              reduce={reduce}
-            />
+              reduce={reduce} />
           ))}
         </ul>
       </div>
@@ -277,8 +274,7 @@ function LeadershipRow({
                     fill
                     className="object-cover object-top grayscale contrast-105"
                     sizes="200px"
-                    unoptimized={member.imageSrc.endsWith(".svg")}
-                  />
+                    unoptimized={member.imageSrc.endsWith(".svg")} />
                 </div>
               ) : null}
               <div className="col-span-2 flex max-w-2xl flex-col gap-6 sm:col-span-1 sm:col-start-2">

@@ -20,7 +20,7 @@ export default function ServicesDecomissiong() {
   return (
     <section
       id="strategic-decommissioning"
-      className="scroll-mt-28 bg-[#F8F9FB] py-20"
+      className="scroll-mt-28 bg-[#DCE1F4] py-(--space-section-padding)"
     >
       <div className="layout-container">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
@@ -37,8 +37,7 @@ export default function ServicesDecomissiong() {
             <SectionBadge
               label="SERVICE 01"
               backgroundColor="var(--color-surface-cream)"
-              className="w-fit"
-            />
+              className="w-fit" />
 
             <span className="font-display text-h1  leading-tight">
               Strategic Decommissioning Approach
@@ -98,7 +97,7 @@ export function ServicesDecomissiongContent() {
                 },
               },
             }}
-            className="border-b border-[#E0E0E0] first:border-t first:border-[#E0E0E0]"
+            className="border-b border-[#8E8E93]"
           >
             <motion.button
               type="button"
@@ -115,7 +114,7 @@ export function ServicesDecomissiongContent() {
             >
               <div className="flex min-w-0 flex-1 items-start gap-4">
                 <span
-                  className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-xs bg-[#E8EAFB] font-display text-h3 text-footer-bg md:h-[57px] md:w-[57px] md:text-h2"
+                  className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-xs  font-display text-h3 text-footer-bg md:h-[57px] md:w-[57px] md:text-h2"
                   aria-hidden
                 >
                   {item.id}

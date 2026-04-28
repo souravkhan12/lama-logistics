@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 
 import {
@@ -18,8 +17,7 @@ export default function CareersLtsWay() {
           <div className="flex max-w-xl flex-col gap-4">
             <SectionBadge
               label="Our core values"
-              backgroundColor="var(--color-surface-cream)"
-            />
+              backgroundColor="var(--color-surface-cream)" />
             <h2 className="font-display text-h1 font-light xl:text-h0">
               The LTS Way
             </h2>
@@ -41,8 +39,7 @@ export default function CareersLtsWay() {
                     fill
                     className="object-contain object-left"
                     sizes="100px"
-                    unoptimized
-                  />
+                    unoptimized />
                 </div>
                 <h3 className="shrink-0 font-display text-h3">
                   {pillar.title}

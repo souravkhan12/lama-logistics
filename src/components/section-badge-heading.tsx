@@ -44,8 +44,7 @@ export default function SectionBadgeHeading({
         <SectionBadge
           label={badgeLabel}
           backgroundColor={badgeBackgroundColor}
-          className={badgeClassName}
-        />
+          className={badgeClassName} />
         <HeadingTag
           id={headingId}
           className={headingClassName ?? defaultHeadingClass}

@@ -1,5 +1,4 @@
 "use client";
-
 import {
   type MotionValue,
   motion,
@@ -119,13 +118,11 @@ function TimelineStep({
             <div className="relative mt-1 min-h-[72px] w-full flex-1">
               <div
                 className="absolute top-0 bottom-0 left-1/2 w-0 -translate-x-1/2 border-l-2 border-dashed border-white/15"
-                aria-hidden
-              />
+                aria-hidden />
               <motion.div
                 className="absolute top-0 bottom-0 left-1/2 w-0 -translate-x-1/2 border-l-2 border-dashed border-white/70"
                 style={{ opacity: dashBrightness }}
-                aria-hidden
-              />
+                aria-hidden />
             </div>
           ) : null}
         </div>
@@ -154,8 +151,7 @@ function TimelineStep({
               <div className="ml-3 h-0 flex-1 border-t-2 border-dashed border-white/15" />
               <motion.div
                 className="absolute top-1/2 right-0 left-[50px] h-0 -translate-y-1/2 border-t-2 border-dashed border-white/70"
-                style={{ opacity: dashBrightness }}
-              />
+                style={{ opacity: dashBrightness }} />
             </>
           )}
         </div>
@@ -192,8 +188,7 @@ function DesktopLayout() {
         <div
           className="pointer-events-none absolute inset-0 bg-service-03-responsible-recycling"
           role="presentation"
-          aria-hidden
-        />
+          aria-hidden />
 
         <div className="layout-container relative z-10 flex flex-col gap-12 lg:gap-24">
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-x-16 xl:gap-x-20">
@@ -201,8 +196,7 @@ function DesktopLayout() {
               <SectionBadge
                 label="SERVICE 03"
                 backgroundColor="var(--color-surface-cream)"
-                className="w-fit text-black"
-              />
+                className="w-fit text-black" />
               <h2 className="font-display text-h1 text-white">
                 <span className="lg:whitespace-nowrap">
                   Responsible Recycling
@@ -225,8 +219,7 @@ function DesktopLayout() {
                           src={item.src}
                           alt={item.alt}
                           width={20}
-                          height={20}
-                        />
+                          height={20} />
                       </div>
                       <span className="font-body text-b2 leading-none text-white">
                         {item.label}
@@ -254,8 +247,7 @@ function DesktopLayout() {
                     alt=""
                     width={20}
                     height={20}
-                    className="brightness-0"
-                  />
+                    className="brightness-0" />
                 </span>
               </Link>
             </div>
@@ -267,8 +259,7 @@ function DesktopLayout() {
                 key={step.id}
                 step={step}
                 index={index}
-                scrollProgress={timelineProgress}
-              />
+                scrollProgress={timelineProgress} />
             ))}
           </div>
         </div>
@@ -283,16 +274,14 @@ function MobileLayout() {
       <div
         className="pointer-events-none absolute inset-0 bg-service-03-responsible-recycling"
         role="presentation"
-        aria-hidden
-      />
+        aria-hidden />
 
       <div className="layout-container relative z-10 flex flex-col gap-10">
         <div className="flex flex-col gap-(--space-gap-md)">
           <SectionBadge
             label="SERVICE 03"
             backgroundColor="var(--color-surface-cream)"
-            className="w-fit text-black"
-          />
+            className="w-fit text-black" />
           <h2 className="font-display text-h1 text-white">
             Responsible Recycling
             <br />
@@ -313,8 +302,7 @@ function MobileLayout() {
                       src={item.src}
                       alt={item.alt}
                       width={20}
-                      height={20}
-                    />
+                      height={20} />
                   </div>
                   <span className="font-body text-b2 text-white">
                     {item.label}
@@ -342,8 +330,7 @@ function MobileLayout() {
                 alt=""
                 width={20}
                 height={20}
-                className="brightness-0"
-              />
+                className="brightness-0" />
             </span>
           </Link>
         </div>
@@ -367,13 +354,14 @@ function MobileLayout() {
                 {index < STEP_COUNT - 1 ? (
                   <div
                     className="mt-1 min-h-[72px] flex-1 border-l-2 border-dashed border-white/35"
-                    aria-hidden
-                  />
+                    aria-hidden />
                 ) : null}
               </div>
 
               <div className="min-w-0 flex-1 pb-8">
-                <h3 className="font-display text-b1 text-white">{step.title}</h3>
+                <h3 className="font-display text-b1 text-white">
+                  {step.title}
+                </h3>
                 <p className="mt-1 font-body text-b2 text-white/90">
                   {step.body}
                 </p>

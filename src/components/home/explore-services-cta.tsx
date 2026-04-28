@@ -33,8 +33,7 @@ export default function ExploreServicesCta() {
               fill
               className="object-contain"
               sizes="(max-width: 1023px) 100vw, 480px"
-              unoptimized
-            />
+              unoptimized />
           </div>
         </div>
       </section>
@@ -65,8 +64,7 @@ export default function ExploreServicesCta() {
               alt=""
               fill
               className="object-cover object-bottom"
-              unoptimized
-            />
+              unoptimized />
           </div>
         </div>
       </section>
