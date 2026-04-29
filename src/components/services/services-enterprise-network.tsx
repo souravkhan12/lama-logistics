@@ -50,7 +50,8 @@ export default function ServicesEnterpriseNetwork() {
               <SectionBadge
                 backgroundColor="var(--color-surface-cream)"
                 className="w-fit"
-                label="SERVICE 04" />
+                label="SERVICE 04"
+              />
               <h2 className="font-display text-h1 leading-tight text-(--color-fg)">
                 Enterprise Network Solutions
               </h2>
@@ -62,11 +63,12 @@ export default function ServicesEnterpriseNetwork() {
 
             {/* lg: same 700px | rest column split as the image row below */}
             <div className="hidden w-full lg:flex lg:flex-row">
-              <div className="flex w-[700px] shrink-0 flex-col gap-2">
+              <div className="flex w-[700px] shrink-0 flex-col gap-[24px]">
                 <SectionBadge
                   backgroundColor="var(--color-surface-cream)"
                   className="w-fit"
-                  label="SERVICE 04" />
+                  label="SERVICE 04"
+                />
                 <h2 className="font-display text-h1 leading-[1.1] text-(--color-fg)">
                   Enterprise Network Solutions
                 </h2>
@@ -90,7 +92,8 @@ export default function ServicesEnterpriseNetwork() {
                   fill
                   className="object-cover object-center"
                   sizes="700px"
-                  unoptimized />
+                  unoptimized
+                />
               </div>
 
               <StaggerContainer

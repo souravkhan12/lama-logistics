@@ -29,41 +29,26 @@ export type SectionImageTextSplitProps = {
 
 const defaultListHeading = "Typical support includes:";
 
-const gridGap = "gap-8 lg:grid-cols-2 lg:gap-x-6 xl:gap-x-10 2xl:gap-x-12";
+const gridGap = "gap-8 lg:grid-cols-2 lg:gap-x-[99px]";
 
 function TextBody({
   paragraphs,
   listHeading,
   listItems,
-  withLeadCta,
-  ctaLabel,
-  ctaHref,
-  showMobileCta,
 }: {
   paragraphs: readonly string[];
   listHeading: string;
   listItems: readonly string[];
-  withLeadCta?: boolean;
-  ctaLabel: string;
-  ctaHref: string;
-  showMobileCta?: boolean;
 }) {
   return (
     <div className="flex min-w-0 flex-col gap-6 lg:justify-start lg:gap-8">
-      {withLeadCta ? (
-        <div className="shrink-0">
-          <Button variant="secondary" href={ctaHref}>
-            {ctaLabel}
-          </Button>
-        </div>
-      ) : null}
       <div className="flex flex-col gap-4 text-b2">
         {paragraphs.map((p) => (
           <p key={p}>{p}</p>
         ))}
       </div>
       <div className="flex flex-col gap-3">
-        <p className="font-display text-h3 lg:font-body lg:text-b1">
+        <p className="font-display text-h2 lg:font-body lg:text-b1">
           {listHeading}
         </p>
 
@@ -82,13 +67,6 @@ function TextBody({
           ))}
         </div>
       </div>
-      {showMobileCta ? (
-        <div className="lg:hidden">
-          <Button variant="secondary" href={ctaHref}>
-            {ctaLabel}
-          </Button>
-        </div>
-      ) : null}
     </div>
   );
 }
@@ -113,6 +91,18 @@ export default function SectionImageTextSplit({
   const anchorScroll = sectionId ? "scroll-mt-28" : "";
   const isSvg = imageSrc.endsWith(".svg");
   const radiusClass = "rounded-md";
+  const sectionToneClass =
+    tone === "muted" ? "bg-[#DCE1F4]" : "bg-(--color-bg)";
+  const topRow = (
+    <div className="mb-8 flex flex-col gap-(--space-gap-md) lg:mb-[60px] lg:flex-row lg:items-center lg:justify-between lg:max-w-[960px]">
+      <h2 className="font-display text-h1">{title}</h2>
+      <div className="shrink-0">
+        <Button variant="secondary" href={ctaHref}>
+          {ctaLabel}
+        </Button>
+      </div>
+    </div>
+  );
 
   function ImageArea({ areaClassName }: { areaClassName: string }) {
     return (
@@ -125,7 +115,8 @@ export default function SectionImageTextSplit({
           fill
           className="object-cover object-center"
           sizes="(max-width: 1024px) 100vw, 50vw"
-          unoptimized={isSvg} />
+          unoptimized={isSvg}
+        />
       </div>
     );
   }
@@ -133,24 +124,16 @@ export default function SectionImageTextSplit({
   if (layout === "aside-media") {
     const mediaOnRight = imagePosition === "right";
     const textColumn = (
-      <div className="flex min-w-0 flex-col gap-6 lg:gap-8">
-        <h2 className="font-display text-h1 lg:text-h0">{title}</h2>
+      <div className="flex min-w-0 flex-col">
         <TextBody
           paragraphs={paragraphs}
           listHeading={listHeading}
           listItems={listItems}
-          ctaLabel={ctaLabel}
-          ctaHref={ctaHref}
-          showMobileCta />
+        />
       </div>
     );
     const mediaColumn = (
-      <div className="flex h-full min-w-0 flex-col gap-6 lg:gap-8">
-        <div className="hidden lg:block">
-          <Button variant="secondary" href={ctaHref}>
-            {ctaLabel}
-          </Button>
-        </div>
+      <div className="flex h-full min-w-0 flex-col">
         <ImageArea areaClassName="aspect-[4/3] min-h-[240px] max-h-[480px] w-full sm:max-h-[520px]" />
       </div>
     );
@@ -158,12 +141,11 @@ export default function SectionImageTextSplit({
     return (
       <section
         id={sectionId}
-        className={`py-(--space-section-padding) ${
-          tone === "muted" ? "bg-[#DCE1F4]" : "bg-(--color-bg)"
-        } ${anchorScroll} ${className ?? ""}`}
+        className={`py-(--space-section-padding) ${sectionToneClass} ${anchorScroll} ${className ?? ""}`}
       >
         <div className="layout-container">
           <div className="mx-auto w-full max-w-[1360px]">
+            {topRow}
             <ScrollReveal className="w-full">
               <div className={`grid w-full items-stretch ${gridGap}`}>
                 {mediaOnRight ? (
@@ -192,12 +174,11 @@ export default function SectionImageTextSplit({
     return (
       <section
         id={sectionId}
-        className={`py-(--space-section-padding) ${
-          tone === "muted" ? "bg-[#DCE1F4]" : "bg-(--color-bg)"
-        } ${anchorScroll} ${className ?? ""}`}
+        className={`py-(--space-section-padding) ${sectionToneClass} ${anchorScroll} ${className ?? ""}`}
       >
         <div className="layout-container">
           <div className="mx-auto w-full max-w-[1360px]">
+            {topRow}
             <ScrollReveal className="w-full">
               <div className={`grid w-full items-stretch ${gridGap}`}>
                 <ImageArea areaClassName={stretchImageTitleWide} />
@@ -206,8 +187,7 @@ export default function SectionImageTextSplit({
                     paragraphs={paragraphs}
                     listHeading={listHeading}
                     listItems={listItems}
-                    ctaLabel={ctaLabel}
-                    ctaHref={ctaHref} />
+                  />
                 </div>
               </div>
             </ScrollReveal>
@@ -217,9 +197,7 @@ export default function SectionImageTextSplit({
     );
   }
 
-  const sectionShell = `py-(--space-section-padding) ${
-    tone === "muted" ? "bg-[#DCE1F4]" : "bg-(--color-bg)"
-  } ${anchorScroll} ${className ?? ""}`;
+  const sectionShell = `py-(--space-section-padding) ${sectionToneClass} ${anchorScroll} ${className ?? ""}`;
   const stretchImage =
     "aspect-[4/3] min-h-[220px] max-h-[520px] w-full lg:aspect-[5/4] lg:min-h-[460px] lg:max-h-[620px]";
 
@@ -227,6 +205,7 @@ export default function SectionImageTextSplit({
     <section id={sectionId} className={sectionShell}>
       <div className="layout-container">
         <div className="mx-auto w-full max-w-[1360px]">
+          {topRow}
           <ScrollReveal className="w-full">
             <div
               className={`grid w-full items-stretch ${gridGap}${
@@ -241,8 +220,7 @@ export default function SectionImageTextSplit({
                   paragraphs={paragraphs}
                   listHeading={listHeading}
                   listItems={listItems}
-                  ctaLabel={ctaLabel}
-                  ctaHref={ctaHref} />
+                />
               </div>
             </div>
           </ScrollReveal>

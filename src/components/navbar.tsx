@@ -87,7 +87,7 @@ export default function Navbar() {
     <>
       <header className="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-sm">
         <motion.div
-          className="layout-container min-w-0"
+          className="layout-container-navbar min-w-0"
           initial={reduce ? false : { opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: siteDuration.navbar, ease: siteEase }}

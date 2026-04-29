@@ -14,14 +14,14 @@ export default function IndustriesHero() {
   const reduce = useReducedMotion();
   const floatAnimation = reduce ? undefined : { y: [-10, 10] };
   const floatTransition = {
-    duration: siteDuration.heroFloat,
+    duration: siteDuration.heroFloat * 0.72,
     repeat: Number.POSITIVE_INFINITY,
     ease: "easeInOut" as const,
     repeatType: "mirror" as const,
   };
 
   return (
-    <section className="layout-container relative overflow-x-clip bg-(--color-bg) pb-10 pt-6 md:pb-12 md:pt-8 xl:overflow-x-visible xl:pb-0 xl:pt-(--space-section-padding)">
+    <section className="layout-container relative overflow-x-clip bg-(--color-bg) pb-10 pt-6 md:pb-12 md:pt-8 xl:overflow-x-visible xl:pb-(--space-section-padding) xl:pt-(--space-section-padding)">
       {/* Mobile / tablet: image on top, text below (matches services & about heroes) */}
       <div className="flex flex-col gap-8 xl:hidden">
         <motion.div
@@ -69,9 +69,9 @@ export default function IndustriesHero() {
         </ScrollReveal>
       </div>
 
-      {/* ── Desktop: original side-by-side ── */}
-      <div className="relative isolate hidden xl:flex xl:flex-row xl:items-end">
-        <ScrollReveal className="relative z-10 flex w-full flex-col gap-8 pb-24 xl:w-1/2">
+      {/* ── Desktop: centered copy + centered visual lane ── */}
+      <div className="relative isolate hidden xl:flex xl:flex-row xl:items-center xl:justify-between xl:gap-12">
+        <ScrollReveal className="relative z-10 flex w-full flex-col gap-8 xl:w-1/2">
           <SectionBadge
             label="INDUSTRIES WE SERVE"
             backgroundColor="var(--color-surface-cream)"
@@ -93,7 +93,7 @@ export default function IndustriesHero() {
         </ScrollReveal>
 
         <motion.div
-          className="pointer-events-none relative z-20 flex w-full items-center xl:absolute xl:-right-6 xl:w-[48%] 2xl:-right-12 2xl:w-[48%]"
+          className="pointer-events-none relative z-20 flex flex-1 items-center justify-end"
           initial={reduce ? false : { opacity: 0, x: 32 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{
@@ -102,7 +102,7 @@ export default function IndustriesHero() {
             delay: 0.1,
           }}
         >
-          <div className="relative aspect-square w-full">
+          <div className="relative h-[480px] w-[480px] shrink-0">
             <motion.div
               className="relative h-full w-full"
               animate={floatAnimation}

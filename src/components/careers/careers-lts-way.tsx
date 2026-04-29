@@ -14,7 +14,7 @@ export default function CareersLtsWay() {
     <section className="bg-(--color-careers-panel-bg) py-(--space-section-padding)">
       <div className="layout-container flex flex-col gap-12 lg:gap-16">
         <ScrollReveal className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-8 lg:gap-12">
-          <div className="flex max-w-xl flex-col gap-4">
+          <div className="flex max-w-xl flex-col gap-(--space-gap-md)">
             <SectionBadge
               label="Our core values"
               backgroundColor="var(--color-surface-cream)" />

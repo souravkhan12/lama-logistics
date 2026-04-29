@@ -67,7 +67,8 @@ function FooterLineInput({
         name={id}
         type={type}
         placeholder={placeholderText}
-        className={`${inputClass} border-b border-(--color-footer-input-border) focus:border-(--color-footer-accent) placeholder:text-b2 placeholder:text-white/60`} />
+        className={`${inputClass} border-b border-(--color-footer-input-border) focus:border-(--color-footer-accent) placeholder:text-b2 placeholder:text-white/60`}
+      />
     );
   }
 
@@ -95,7 +96,8 @@ function FooterLineInput({
         aria-label={`${placeholderText} (required)`}
         autoComplete={
           type === "email" ? "email" : type === "tel" ? "tel" : undefined
-        } />
+        }
+      />
     </div>
   );
 }
@@ -106,9 +108,9 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="scroll-mt-28 relative overflow-hidden bg-(--color-footer-bg) text-white"
+      className="scroll-mt-28 relative overflow-hidden bg-(--color-footer-bg) text-white px-[131px] py-[64px]"
     >
-      <div className="layout-media-container relative flex flex-col gap-12 py-12 lg:gap-14 lg:py-16">
+      <div className="layout-media-container-footer relative flex flex-col gap-12 py-12 lg:gap-14 lg:py-16">
         {/* TOP */}
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
           {/* LEFT */}
@@ -134,23 +136,27 @@ export default function Footer() {
               <FooterLineInput
                 id="footer-full-name"
                 placeholderText="Your Full Name"
-                required />
+                required
+              />
               <FooterLineInput
                 id="footer-company"
                 placeholderText="Company’s Name"
-                required />
+                required
+              />
 
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-6">
                 <FooterLineInput
                   id="footer-email"
                   placeholderText="Work Email Address"
                   type="email"
-                  required />
+                  required
+                />
                 <FooterLineInput
                   id="footer-phone"
                   placeholderText="Work Phone"
                   type="tel"
-                  required />
+                  required
+                />
               </div>
 
               <textarea
@@ -158,7 +164,8 @@ export default function Footer() {
                 name="footer-message"
                 rows={3}
                 placeholder="Tell us more about your needs (Optional)"
-                className="w-full resize-y border-0 border-b border-(--color-footer-input-border) bg-transparent py-4 text-b2 text-white outline-none focus:border-(--color-footer-accent) placeholder:text-b2 placeholder:text-white/60" />
+                className="w-full resize-y border-0 border-b border-(--color-footer-input-border) bg-transparent py-4 text-b2 text-white outline-none focus:border-(--color-footer-accent) placeholder:text-b2 placeholder:text-white/60"
+              />
 
               <label
                 htmlFor="footer-consent"
@@ -168,7 +175,8 @@ export default function Footer() {
                   id="footer-consent"
                   name="consent"
                   type="checkbox"
-                  className="footer-consent-checkbox mt-0.5" />
+                  className="footer-consent-checkbox mt-0.5"
+                />
                 <span className="text-b2 leading-relaxed text-white">
                   I agree that Lama Telecom may contact me at the email address
                   or phone number above.
@@ -203,12 +211,13 @@ export default function Footer() {
             width={1440}
             height={300}
             className="w-full object-contain"
-            unoptimized />
+            unoptimized
+          />
         </div>
 
         {/* FOOTER LINKS — 2-col grid matches top: brand under copy, nav columns under form */}
         <ScrollReveal className="mt-12 border-t border-(--color-footer-divider) pt-10 lg:mt-14 lg:pt-12">
-          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
+          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-14 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:gap-16">
             <div className="flex max-w-[465px] flex-col gap-6">
               <button
                 type="button"
@@ -220,7 +229,9 @@ export default function Footer() {
                   src="/footer/logo.svg"
                   alt="Lama Telecom"
                   width={197}
-                  height={40} />
+                  height={40}
+                  className="rounded-none"
+                />
               </button>
 
               <p className="text-b2 leading-relaxed text-(--color-footer-muted)">
@@ -228,50 +239,38 @@ export default function Footer() {
                 Berkeley, CA 94704
               </p>
 
-              <div className="flex gap-3">
-                <Link
-                  href="https://www.linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  className="transition-opacity hover:opacity-80"
-                >
-                  <Image
-                    src="/footer/linkedin.svg"
-                    alt="LinkedIn"
-                    width={40}
-                    height={40} />
-                </Link>
-                <Link
-                  href="https://www.facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook"
-                  className="transition-opacity hover:opacity-80"
-                >
-                  <Image
-                    src="/footer/facebook.svg"
-                    alt="Facebook"
-                    width={40}
-                    height={40} />
-                </Link>
-                <Link
-                  href="https://x.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="X"
-                  className="transition-opacity hover:opacity-80"
-                >
-                  <Image
-                    src="/footer/X.svg"
-                    alt="X"
-                    width={40}
-                    height={40} />
-                </Link>
+              <div className="flex flex-col gap-5">
+                <div className="flex flex-col gap-1.5">
+                  <span className="font-mono text-o1 uppercase text-(--color-footer-muted)">
+                    Freight Partner
+                  </span>
+                  <Link
+                    href="https://www.lamafreight.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-fit text-b1 text-white underline underline-offset-4 transition-colors hover:text-(--color-footer-accent)"
+                  >
+                    Lama Freight
+                  </Link>
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <span className="font-mono text-o1 uppercase text-(--color-footer-muted)">
+                    Logistics Partner
+                  </span>
+                  <Link
+                    href="https://www.lamalogistics.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-fit text-b1 text-white underline underline-offset-4 transition-colors hover:text-(--color-footer-accent)"
+                  >
+                    Lama Logistics
+                  </Link>
+                </div>
               </div>
             </div>
 
-            <div className="grid min-w-0 grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-x-8 lg:gap-x-10">
+            <div className="grid min-w-0 grid-cols-1 gap-10 sm:grid-cols-[minmax(220px,1.35fr)_minmax(150px,1fr)_minmax(120px,0.9fr)] sm:items-start sm:gap-x-8 lg:gap-x-10">
               <nav
                 aria-label="Services"
                 className="flex min-w-0 flex-col gap-5"
@@ -291,6 +290,54 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
+
+                <div className="mt-2 flex gap-3">
+                  <Link
+                    href="https://www.linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    className="transition-opacity hover:opacity-80"
+                  >
+                    <Image
+                      src="/footer/linkedin.svg"
+                      alt="LinkedIn"
+                      width={40}
+                      height={40}
+                      className="footer-social-icon"
+                    />
+                  </Link>
+                  <Link
+                    href="https://www.facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    className="transition-opacity hover:opacity-80"
+                  >
+                    <Image
+                      src="/footer/facebook.svg"
+                      alt="Facebook"
+                      width={40}
+                      height={40}
+                      className="footer-social-icon"
+                    />
+                  </Link>
+                  <Link
+                    href="https://x.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="X"
+                    className="transition-opacity hover:opacity-80"
+                  >
+                    <Image
+                      src="/footer/X.svg"
+                      alt="X"
+                      width={40}
+                      height={40}
+                      className="footer-social-icon"
+                    />
+                  </Link>
+                </div>
               </nav>
 
               <nav

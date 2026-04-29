@@ -166,7 +166,7 @@
   /* ========== SPACING TOKENS (optional but useful) ========== */
   --space-btn-x: 32px;
   --space-btn-y: 16px;
-  --space-container-padding: 20px;
+  --space-container-padding: 60px;
   --space-container-max-width: 1440px;
   --space-media-max-width: 1920px;
   --space-navbar-height: 104px;
@@ -237,11 +237,29 @@
     min-width: 0;
     max-width: var(--space-container-max-width);
     margin-inline: auto;
+    padding-inline: var(--space-container-padding);
+  }
+
+  /* Navbar-only container keeps previous horizontal rhythm. */
+  .layout-container-navbar {
+    width: 100%;
+    min-width: 0;
+    max-width: var(--space-container-max-width);
+    margin-inline: auto;
     padding-inline: 16px;
   }
 
   /* Wider media lane for large screens while preserving page padding rhythm. */
   .layout-media-container {
+    width: 100%;
+    min-width: 0;
+    max-width: var(--space-media-max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-container-padding);
+  }
+
+  /* Footer-only media lane keeps its original rhythm. */
+  .layout-media-container-footer {
     width: 100%;
     min-width: 0;
     max-width: var(--space-media-max-width);
@@ -256,6 +274,14 @@
 
     .layout-media-container {
       padding-inline: var(--space-container-padding);
+    }
+
+    .layout-container-navbar {
+      padding-inline: 20px;
+    }
+
+    .layout-media-container-footer {
+      padding-inline: 20px;
     }
   }
 
@@ -384,6 +410,14 @@
   --color-leadership-expanded-bg: #05051a;
   --color-leadership-expanded-fg: #ffffff;
   --color-leadership-expanded-divider: rgb(255 255 255 / 0.14);
+}
+
+img {
+  border-radius: var(--radius-md);
+}
+
+img.footer-social-icon {
+  border-radius: 5px !important;
 }
 
 /*

@@ -32,13 +32,7 @@ function ExpertiseRow({
   isFirst,
   isLast,
 }: ExpertiseRowProps) {
-  const rowArticle = [
-    "border-(--color-border) py-12 md:py-16",
-    !isFirst && "border-t",
-    isLast && "border-b",
-  ]
-    .filter(Boolean)
-    .join(" ");
+  const rowArticle = [" py-12 md:py-16"].filter(Boolean).join(" ");
 
   return (
     <article className={rowArticle}>
@@ -55,7 +49,8 @@ function ExpertiseRow({
             fill
             className="object-cover"
             sizes="100vw"
-            unoptimized />
+            unoptimized
+          />
         </motion.div>
         <div className="flex items-start gap-4">
           <span className="shrink-0 font-display text-h3">{item.id}</span>
@@ -71,7 +66,7 @@ function ExpertiseRow({
       {/* Desktop: image left, content right */}
       <div className="hidden items-center justify-between gap-10 md:flex">
         <motion.div
-          className="relative h-[140px] w-[220px] shrink-0 overflow-hidden rounded-md"
+          className="relative h-[232px] w-[379px] shrink-0 overflow-hidden rounded-md"
           transition={{ duration: siteDuration.hoverSubtle, ease: siteEase }}
           whileHover={reduceMotion ? undefined : { scale: 1.02 }}
         >
@@ -80,13 +75,14 @@ function ExpertiseRow({
             alt={item.title}
             fill
             className="object-cover"
-            sizes="220px" />
+            sizes="220px"
+          />
         </motion.div>
-        <div className="flex items-start gap-6">
+        <div className="flex items-start gap-[90px]">
           <span className="shrink-0 font-display text-h2">{item.id}</span>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-1.5">
             <h3 className="font-display text-h2">{item.title}</h3>
-            <p className="font-body max-w-[744px] text-b1 text-(--color-muted)">
+            <p className="font-body text-b1 text-(--color-muted) max-w-[744px]">
               {item.description}
             </p>
           </div>
@@ -112,7 +108,8 @@ export default function ServicesNetworkExpertise() {
             <SectionBadge
               backgroundColor="var(--color-surface-blush)"
               className="w-fit"
-              label="SERVICE 02" />
+              label="SERVICE 02"
+            />
             <h2 className="font-display text-h1 leading-tight text-(--color-fg)">
               End-to-End Network Deinstallation Expertise.
             </h2>
@@ -141,7 +138,8 @@ export default function ServicesNetworkExpertise() {
                 item={item}
                 reduceMotion={reduce}
                 isFirst={index === 0}
-                isLast={index === networkExpertiseItems.length - 1} />
+                isLast={index === networkExpertiseItems.length - 1}
+              />
             </StaggerItem>
           ))}
         </StaggerContainer>

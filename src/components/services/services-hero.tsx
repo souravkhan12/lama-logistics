@@ -11,7 +11,7 @@ export default function ServicesHero() {
   const reduce = useReducedMotion();
   const floatAnimation = reduce ? undefined : { y: [-10, 10] };
   const floatTransition = {
-    duration: siteDuration.heroFloat,
+    duration: siteDuration.heroFloat * 0.72,
     repeat: Number.POSITIVE_INFINITY,
     ease: "easeInOut" as const,
     repeatType: "mirror" as const,
@@ -42,7 +42,8 @@ export default function ServicesHero() {
               fill
               className="object-contain"
               sizes="100vw"
-              priority />
+              priority
+            />
           </motion.div>
         </motion.div>
 
@@ -50,7 +51,8 @@ export default function ServicesHero() {
           <SectionBadge
             label="OUR SERVICES"
             backgroundColor="var(--color-surface-blush)"
-            className="w-fit" />
+            className="w-fit"
+          />
           <h1 className="font-display text-h0 leading-tight text-(--color-fg)">
             Bringing Technology Full Circle.
           </h1>
@@ -72,7 +74,8 @@ export default function ServicesHero() {
           <SectionBadge
             label="OUR SERVICES"
             backgroundColor="var(--color-surface-blush)"
-            className="w-fit" />
+            className="w-fit"
+          />
           <h1 className="font-display text-h0 leading-tight text-(--color-fg)">
             Bringing Technology Full Circle.
           </h1>
@@ -100,7 +103,7 @@ export default function ServicesHero() {
           }}
         >
           {/* INCREASED: max-h from 488px to 600px (adjust as needed) */}
-          <div className="relative aspect-square w-full max-h-[488px] 2xl:max-h-[500px]">
+          <div className="relative h-[480px] w-[480px] shrink-0">
             <motion.div
               className="relative h-full w-full"
               animate={floatAnimation}
@@ -113,7 +116,8 @@ export default function ServicesHero() {
                 /* CHANGED: object-right to keep it flush to the right edge of the container */
                 className="object-contain object-right"
                 sizes="50vw"
-                priority />
+                priority
+              />
             </motion.div>
           </div>
         </motion.div>

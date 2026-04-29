@@ -18,7 +18,7 @@ export default function CareersLifeField() {
           <div className="flex flex-col gap-12 lg:gap-16">
             {/* Top: title column lines up with image column; intro lines up with role copy column */}
             <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2 md:gap-x-10 lg:gap-x-12 xl:gap-x-16">
-              <div className="flex w-full max-w-[494px] flex-col gap-4">
+              <div className="flex w-full max-w-[494px] flex-col gap-(--space-gap-md)">
                 <SectionBadge
                   label="Our structure"
                   backgroundColor="var(--color-surface-cream)" />

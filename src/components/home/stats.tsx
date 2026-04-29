@@ -20,9 +20,8 @@ export default function Stats() {
               src="/ring.png"
               alt="ring"
               fill
-              // object-right anchors it to the far right edge of the blue section
-              // scale and origin handle the "cropped" look
-              className="object-contain object-right scale-[1.4] origin-right pointer-events-none"
+              // Center on mobile/tablet; keep right-cropped composition on desktop.
+              className="pointer-events-none object-contain object-center scale-[1.22] origin-center lg:object-right lg:scale-[1.4] lg:origin-right"
               sizes="50vw"
               priority />
           </div>

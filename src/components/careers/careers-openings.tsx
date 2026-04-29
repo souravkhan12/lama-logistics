@@ -17,7 +17,7 @@ export default function CareersOpenings() {
       <div className="layout-container flex flex-col gap-12 lg:gap-16">
         <ScrollReveal>
           <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2 md:gap-x-10 lg:gap-x-12 xl:gap-x-16">
-            <div className="flex min-w-0 flex-col gap-4">
+            <div className="flex min-w-0 flex-col gap-(--space-gap-md)">
               <SectionBadge
                 label="WORK WITH US"
                 backgroundColor="var(--color-surface-cream)" />

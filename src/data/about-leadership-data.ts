@@ -14,9 +14,9 @@ export const ABOUT_LEADERSHIP_TEAM: LeadershipMember[] = [
     id: "sonam-gyaltsen",
     indexLabel: "01",
     name: "Sonam Gyaltsen",
-    title: "Chief Executive Officer (CEO)",
+    title: "Founder & Chief Executive Officer (CEO)",
     imageSrc: "/about/leadership/1.jpg",
-    bio: "Sonam Gyaltsen is a seasoned business leader with over 15 + years of experience in logistics, supply chain, and operational services across the IT and telecom industries. He has guided large-scale decommissioning, asset logistics, and technology movement projects, helping organizations achieve secure, efficient outcomes.\n\nAt Lama Telecom Services, Sonam drives business strategy, client engagement, and operational excellence—leveraging deep industry experience to support growth, execution quality, and long-term client success.",
+    bio: "Sonam Gyaltsen is a seasoned business leader with over 20 + years of experience in logistics, supply chain, and operational services across the IT and telecom industries. He has guided large-scale decommissioning, asset logistics, and technology movement projects, helping organizations achieve secure, efficient outcomes.\n\nAt Lama Telecom Services, Sonam drives business strategy, client engagement, and operational excellence—leveraging deep industry experience to support growth, execution quality, and long-term client success.",
   },
   {
     id: "timothy-swords",
