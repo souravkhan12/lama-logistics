@@ -166,7 +166,7 @@
   /* ========== SPACING TOKENS (optional but useful) ========== */
   --space-btn-x: 32px;
   --space-btn-y: 16px;
-  --space-container-padding: 60px;
+  --space-container-padding: 20px;
   --space-container-max-width: 1440px;
   --space-media-max-width: 1920px;
   --space-navbar-height: 104px;
@@ -282,6 +282,16 @@
 
     .layout-media-container-footer {
       padding-inline: 20px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .layout-container {
+      padding-inline: 60px;
+    }
+
+    .layout-media-container {
+      padding-inline: 60px;
     }
   }
 
