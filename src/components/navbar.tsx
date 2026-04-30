@@ -104,7 +104,8 @@ export default function Navbar() {
                 alt=""
                 width={65}
                 height={35}
-                className="h-8 w-auto md:h-auto md:w-auto" />
+                className="h-[35px] w-auto rounded-none md:h-auto md:w-auto"
+              />
               {/* <div className="hidden flex-col leading-tight md:flex">
                 <span className="font-display text-[22px] font-medium">
                   Lama
