@@ -54,7 +54,7 @@ export default function ServicesHero() {
             className="w-fit"
           />
           <h1 className="font-display text-h0 leading-tight text-(--color-fg)">
-            Bringing Technology Full Circle.
+            Bringing Technology Full Circle
           </h1>
           <p className="text-b1 leading-relaxed text-(--color-muted)">
             We help operators, OEMs, and service providers remove, recover, and
@@ -77,7 +77,7 @@ export default function ServicesHero() {
             className="w-fit"
           />
           <h1 className="font-display text-h0 leading-tight text-(--color-fg)">
-            Bringing Technology Full Circle.
+            Bringing Technology Full Circle
           </h1>
           <p className="max-w-[540px] text-b1 leading-relaxed text-(--color-muted)">
             We help operators, OEMs, and service providers remove, recover, and

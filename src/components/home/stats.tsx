@@ -9,9 +9,9 @@ import StatCard from "@/components/stat-card";
 export default function Stats() {
   return (
     <section className="w-full">
-      <div className="relative flex flex-col overflow-hidden lg:h-[600px] lg:flex-row">
+      <div className="relative flex flex-col overflow-hidden lg:h-[500px] lg:flex-row">
         {/* LEFT SECTION: Gradient + Ring */}
-        <ScrollReveal className="relative flex items-center justify-end h-[min(280px,42vw)] w-full min-h-[220px] bg-[linear-gradient(180deg,#1D1D1D_19.13%,#5A6EFB_83.14%,#6D7EF8_128.37%,#94A0F1_153.76%,#ACAEE0_179.14%)] sm:h-[320px] lg:h-full lg:min-h-0 lg:flex-1">
+        <ScrollReveal className="relative flex items-center justify-end h-[min(280px,42vw)] w-full min-h-[220px] bg-[#3842A6] sm:h-[320px] lg:h-full lg:min-h-0 lg:flex-1">
           {/* REMOVED: layout-container 
              The wrapper below now takes up 100% of the gradient width
           */}
@@ -20,10 +20,10 @@ export default function Stats() {
               src="/ring.png"
               alt="ring"
               fill
-              // Center on mobile/tablet; keep right-cropped composition on desktop.
-              className="pointer-events-none object-contain object-center scale-[1.22] origin-center lg:object-right lg:scale-[1.4] lg:origin-right"
+              className="pointer-events-none object-cover lg:object-contain object-center scale-[1.22] origin-center lg:object-right lg:scale-[1.4] lg:origin-right"
               sizes="50vw"
-              priority />
+              priority
+            />
           </div>
         </ScrollReveal>
 
@@ -41,7 +41,7 @@ export default function Stats() {
               <StatCard value="150+" content="Infrastructure Projects" />
             </StaggerItem>
             <StaggerItem>
-              <StatCard value="3" content="Years in Business" />
+              <StatCard value="08" content="Years in Business" />
             </StaggerItem>
           </StaggerContainer>
         </div>

@@ -10,7 +10,7 @@ import { FOOTER_CONTACT_HREF } from "@/lib/site-routes";
 
 export function AboutOperationalWorkflow() {
   return (
-    <section className="bg-[#F8F9FB] py-20">
+    <section className="bg-[#DCE1F4] py-20">
       <div className="layout-container">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <motion.div
@@ -26,7 +26,8 @@ export function AboutOperationalWorkflow() {
             <SectionBadge
               label="Our process"
               backgroundColor="var(--color-surface-cream)"
-              className="w-fit" />
+              className="w-fit"
+            />
 
             <span className="font-display text-h1  leading-tight">
               Operational Workflow

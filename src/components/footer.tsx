@@ -9,7 +9,11 @@ import { ScrollReveal } from "@/components/motion";
 
 const SERVICES = [
   {
-    label: "Decommissioning Services",
+    label: "Services",
+    href: "/services",
+  },
+  {
+    label: "About Our Decommissioning Services",
     href: "/services#strategic-decommissioning",
   },
   {
@@ -28,6 +32,10 @@ const SERVICES = [
 
 const INDUSTRIES = [
   {
+    label: "Industries",
+    href: "/industries",
+  },
+  {
     label: "Telecom Operations",
     href: "/industries#telecommunications-carriers",
   },
@@ -37,7 +45,7 @@ const INDUSTRIES = [
 ];
 
 const ABOUT = [
-  { label: "About Us", href: "/about" },
+  { label: "About", href: "/about" },
   { label: "Careers", href: "/careers" },
   { label: "Contact Us", href: "/contact" },
 ];
@@ -108,11 +116,23 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="scroll-mt-28 relative overflow-hidden bg-(--color-footer-bg) px-4 py-12 text-white sm:px-6 lg:px-[131px] lg:py-[64px]"
+      className="scroll-mt-28 relative overflow-x-clip bg-(--color-footer-bg) px-4 py-12 text-white sm:px-6 lg:px-[131px] lg:py-[64px]"
     >
       <div className="layout-media-container-footer relative flex flex-col gap-12 py-12 lg:gap-14 lg:py-16">
+        {/* WAVE (FIXED) */}
+        <div className="pointer-events-none absolute bottom-0 left-0 w-full opacity-30">
+          <Image
+            src="/footer-wave.svg"
+            alt=""
+            width={1440}
+            height={300}
+            className="w-full object-contain mt-10"
+            unoptimized
+          />
+        </div>
+
         {/* TOP */}
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+        <div className="relative z-10 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
           {/* LEFT */}
           <ScrollReveal className="flex max-w-[465px] flex-col gap-8">
             <h2 className="font-display text-h0 leading-tight">
@@ -203,20 +223,8 @@ export default function Footer() {
           </ScrollReveal>
         </div>
 
-        {/* WAVE (FIXED) */}
-        <div className="pointer-events-none absolute bottom-0 left-0 w-full opacity-30">
-          <Image
-            src="/footer-wave.svg"
-            alt=""
-            width={1440}
-            height={300}
-            className="w-full object-contain"
-            unoptimized
-          />
-        </div>
-
         {/* FOOTER LINKS — 2-col grid matches top: brand under copy, nav columns under form */}
-        <ScrollReveal className="mt-12 border-t border-(--color-footer-divider) pt-10 lg:mt-14 lg:pt-12">
+        <ScrollReveal className="relative z-10 mt-12 border-t border-(--color-footer-divider) pt-10 lg:mt-14 lg:pt-12">
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-14 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:gap-16">
             <div className="flex max-w-[465px] flex-col gap-6">
               <button
@@ -230,7 +238,7 @@ export default function Footer() {
                   alt="Lama Telecom"
                   width={197}
                   height={40}
-                  className="rounded-none"
+                  className="rounded-none!"
                 />
               </button>
 
@@ -275,9 +283,6 @@ export default function Footer() {
                 aria-label="Services"
                 className="flex min-w-0 flex-col gap-5"
               >
-                <h3 className="font-mono text-o1 uppercase tracking-wider text-(--color-footer-muted)">
-                  Services
-                </h3>
                 <ul className="flex flex-col gap-3.5 text-b2 leading-snug">
                   {SERVICES.map((item) => (
                     <li key={item.label}>
@@ -344,9 +349,6 @@ export default function Footer() {
                 aria-label="Industries"
                 className="flex min-w-0 flex-col gap-5"
               >
-                <h3 className="font-mono text-o1 uppercase tracking-wider text-(--color-footer-muted)">
-                  Industries
-                </h3>
                 <ul className="flex flex-col gap-3.5 text-b2 leading-snug">
                   {INDUSTRIES.map((item) => (
                     <li key={item.label}>
@@ -362,9 +364,6 @@ export default function Footer() {
               </nav>
 
               <nav aria-label="About" className="flex min-w-0 flex-col gap-5">
-                <h3 className="font-mono text-o1 uppercase tracking-wider text-(--color-footer-muted)">
-                  About
-                </h3>
                 <ul className="flex flex-col gap-3.5 text-b2 leading-snug">
                   {ABOUT.map((item) => (
                     <li key={item.label}>
@@ -383,7 +382,7 @@ export default function Footer() {
         </ScrollReveal>
 
         {/* BOTTOM */}
-        <ScrollReveal className="flex flex-col gap-4 border-t border-(--color-footer-divider) pt-8 pb-1 text-b3 text-(--color-footer-muted) sm:flex-row sm:justify-between">
+        <ScrollReveal className="relative z-10 flex flex-col gap-4 border-t border-(--color-footer-divider) pt-8 pb-1 text-b3 text-(--color-footer-muted) sm:flex-row sm:justify-between">
           <span>© 2026 Lama Telecom Services. All Rights Reserved.</span>
           <div className="flex flex-wrap gap-6">
             <Link

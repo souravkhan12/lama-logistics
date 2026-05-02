@@ -104,7 +104,7 @@ export default function Navbar() {
                 alt=""
                 width={65}
                 height={35}
-                className="h-[35px] w-auto rounded-none md:h-auto md:w-auto"
+                className="h-8.75 w-auto rounded-none! md:h-auto md:w-auto"
               />
               {/* <div className="hidden flex-col leading-tight md:flex">
                 <span className="font-display text-[22px] font-medium">
@@ -146,7 +146,8 @@ export default function Navbar() {
                   dotLottieRefCallback={dotLottieRefCallback}
                   autoplay={false}
                   loop={false}
-                  className="size-10" />
+                  className="size-10"
+                />
               </button>
             </div>
           </div>
