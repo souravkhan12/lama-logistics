@@ -35,7 +35,7 @@ export function ServicesSectionCard({
         }
         transition={{ duration: siteDuration.hoverLift, ease: siteEase }}
       >
-        <div className="relative aspect-video w-full shrink-0">
+        <div className="relative aspect-[4/3] sm:aspect-video w-full shrink-0">
           <Image
             src={image}
             alt={title}

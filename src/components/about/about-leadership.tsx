@@ -134,7 +134,7 @@ export default function AboutLeadership() {
               onRowPointerLeave={
                 showFloatPreview ? () => setHoveredId(null) : undefined
               }
-              showInlinePortrait={false}
+              showInlinePortrait={true}
               reduce={reduce}
             />
           ))}
