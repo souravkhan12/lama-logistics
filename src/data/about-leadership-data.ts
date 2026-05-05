@@ -35,8 +35,16 @@ export const ABOUT_LEADERSHIP_TEAM: LeadershipMember[] = [
     bio: "Tenzin is a seasoned finance executive with global experience across investment banking, management consulting, and impact-driven enterprises. As Chief Financial Officer, he oversees financial strategy, growth planning, and operational performance.\n\nPrior to Lama Telecom, Tenzin held roles at Bain & Company, IFC (World Bank Group), and Goldman Sachs. He holds an MBA from Harvard Business School and a Bachelor's degree in Finance and International Business from Georgetown University.",
   },
   {
-    id: "yanchen-dolker",
+    id: "tenzin-gonpo",
     indexLabel: "04",
+    name: "Tenzin Gonpo",
+    title: "Chief Technology Officer (CTO) & Director of Decom Operations",
+    imageSrc: "/about/leadership/7.jpg",
+    bio: "Tenzin Gonpo is a technology and telecom leader with over 15 years of experience in network infrastructure, ISP operations, and data center decommissioning. He has led large-scale broadband, enterprise network, and infrastructure modernization projects across multiple regions.\n\nAt Lama Telecom Services, Tenzin oversees technical strategy, decommissioning operations, and enterprise network solutions—driving secure execution, operational efficiency, and long-term business growth.",
+  },
+  {
+    id: "yanchen-dolker",
+    indexLabel: "05",
     name: "Yanchen Dolker",
     title: "Chief Operating Officer (COO)",
     imageSrc: "/about/leadership/4.jpg",
@@ -44,7 +52,7 @@ export const ABOUT_LEADERSHIP_TEAM: LeadershipMember[] = [
   },
   {
     id: "eric-savoia",
-    indexLabel: "05",
+    indexLabel: "06",
     name: "Eric Savoia",
     title: "Head of Asset Recovery Operations (ARO)",
     imageSrc: "/about/leadership/5.jpg",
@@ -52,20 +60,13 @@ export const ABOUT_LEADERSHIP_TEAM: LeadershipMember[] = [
   },
   {
     id: "forest-roberts",
-    indexLabel: "06",
+    indexLabel: "07",
     name: "Forest Roberts",
     title: "Deployment Head",
     imageSrc: "/about/leadership/6.jpg",
     bio: "Forest Roberts leads deployment programs from planning through field execution, coordinating site logistics, resource allocation, and stakeholder alignment for complex infrastructure transitions.\n\nAt Lama Telecom Services, he ensures rollouts stay on schedule and on spec—bridging operations, engineering, and client teams so large-scale decommissioning and recovery projects land safely and predictably.",
   },
-  {
-    id: "tenzin-gonpo",
-    indexLabel: "07",
-    name: "Tenzin Gonpo",
-    title: "Chief Technology Officer (CTO) & Director of Decom Operations",
-    imageSrc: "/about/leadership/7.jpg",
-    bio: "Tenzin Gonpo is a technology and telecom leader with over 15 years of experience in network infrastructure, ISP operations, and data center decommissioning. He has led large-scale broadband, enterprise network, and infrastructure modernization projects across multiple regions.\n\nAt Lama Telecom Services, Tenzin oversees technical strategy, decommissioning operations, and enterprise network solutions—driving secure execution, operational efficiency, and long-term business growth.",
-  },
+
   {
     id: "sonam-wangmo",
     indexLabel: "08",
